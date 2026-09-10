@@ -1,23 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #2E8B57;
-  --color-primary-soft: #3CA55C;
-  --color-navy-canvas: #1b3139;
-  --color-navy-darker: #12242b;
-  --color-navy-mid: #24444d;
-  --color-navy-sub: #2f5761;
-  --color-ink: #1b3139;
-  --color-ink-soft: #4d6067;
-  --color-ink-muted: #7c9198;
-  --color-ink-secondary: #93a7ad;
+  --color-primary: #1e7044;
+  --color-primary-soft: #2E8B57;
+  --color-primary-light: #3CA55C;
+  --color-primary-dark: #144f30;
+  
+  --color-navy-canvas: #15252c;
+  --color-navy-darker: #0d181d;
+  --color-navy-card: #1c323b;
+  --color-navy-mid: #25444e;
+  --color-navy-sub: #335965;
+  --color-navy-border: #2c4d57;
+  
+  --color-ink: #112228;
+  --color-ink-soft: #3f555d;
+  --color-ink-muted: #6f868f;
+  --color-ink-secondary: #9cb1b8;
+  
   --color-canvas: #ffffff;
-  --color-cream: #eeede9;
-  --color-sand: #f3eee4;
-  --color-gold-accent: #c9a227;
-  --color-hairline: #c7ccce;
-  --color-hairline-soft: #dfe3e2;
+  --color-cream: #f6f5f1;
+  --color-sand: #eee9dc;
+  --color-sand-soft: #fbf9f4;
+  --color-gold-accent: #d4a72c;
+  --color-gold-glow: #e8c051;
+  --color-hairline: #d8dedf;
+  --color-hairline-soft: #e9edee;
 
   --font-display: "Space Grotesk", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -25,7 +34,97 @@
 }
 
 @layer base {
-  body {
-    @apply bg-cream text-ink font-body antialiased;
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+}
+
+/* Glassmorphism utilities */
+.glass-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-dark {
+  background: rgba(21, 37, 44, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(28, 50, 59, 0.9) 0%, rgba(13, 24, 29, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Infinite Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle pulse glow for primary CTAs */
+@keyframes subtle-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(46, 139, 87, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(46, 139, 87, 0);
+  }
+}
+
+.pulse-glow {
+  animation: subtle-pulse 3s infinite;
+}
+
+/* Float subtle keyframe */
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float-subtle 4s ease-in-out infinite;
+}
+
+/* Smooth reveal helper classes for initial load */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

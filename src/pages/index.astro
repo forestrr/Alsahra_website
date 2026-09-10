@@ -5,24 +5,46 @@ import Hero from '../components/Hero.astro';
 import StatsBar from '../components/StatsBar.astro';
 import About from '../components/About.astro';
 import ServicesGrid from '../components/ServicesGrid.astro';
+import IndustriesSection from '../components/IndustriesSection.astro';
 import HowWeWork from '../components/HowWeWork.astro';
 import ProjectsGallery from '../components/ProjectsGallery';
+import TradesSection from '../components/TradesSection.astro';
 import ClientsMarquee from '../components/ClientsMarquee.astro';
 import ContactSection from '../components/ContactSection.astro';
 import Footer from '../components/Footer.astro';
+import FloatingActions from '../components/FloatingActions.astro';
 ---
 
-<Layout>
+<Layout
+  title="Al Sahra Tents & Sheds Fix | Tents, Tensile Shades & Steel Fabrication UAE"
+  description="Al Sahra Tents & Sheds Fix designs, manufactures and installs architectural tensile shade structures, car parking shades, custom majlis tents, and structural steel sheds in Sharjah Al Dhaid, UAE."
+>
   <Header />
   <main>
     <Hero />
     <StatsBar />
     <About />
     <ServicesGrid />
+    <IndustriesSection />
     <HowWeWork />
-    <ProjectsGallery client:load />
+    <ProjectsGallery client:visible />
+    <TradesSection />
     <ClientsMarquee />
     <ContactSection />
   </main>
   <Footer />
+  <FloatingActions />
 </Layout>
+
+<script>
+  import { initWebsiteAnimations } from '../scripts/animations';
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initWebsiteAnimations();
+    });
+  } else {
+    initWebsiteAnimations();
+  }
+</script>

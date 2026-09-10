@@ -1,0 +1,96 @@
+---
+import { tradeProducts } from '../data/services';
+---
+<section id="trades" class="bg-navy-darker py-24 px-6 sm:px-10 lg:px-16 relative overflow-hidden border-t border-navy-mid">
+  <!-- Decorative grid lines -->
+  <div class="max-w-7xl mx-auto relative z-10">
+    <!-- Header -->
+    <div class="max-w-3xl mb-16" data-reveal="fade-up">
+      <div class="inline-flex items-center gap-2 bg-navy-mid/60 px-3 py-1 rounded-full border border-navy-border text-gold-accent font-mono text-xs uppercase tracking-wider mb-4">
+        <span>Trading & Material Supply</span>
+      </div>
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-[46px] text-canvas tracking-tight mb-4">
+        Our Trades: Insulated Panels & Profile Sheets
+      </h2>
+      <p class="font-body text-ink-secondary text-base sm:text-lg leading-relaxed">
+        Supplying high-grade PPGI & Aluminum insulated flat panels, roofing panels, and profiled cladding sheets across UAE projects with guaranteed specifications and rapid local fulfillment.
+      </p>
+    </div>
+
+    <!-- 3 Trade Products Cards -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {tradeProducts.map((trade, idx) => (
+        <div 
+          class="bg-navy-card rounded-2xl overflow-hidden border border-navy-border hover:border-gold-accent/50 transition-all duration-300 flex flex-col group shadow-xl hover:-translate-y-1.5"
+          data-reveal="fade-up"
+          data-reveal-delay={String(idx * 0.1)}
+        >
+          <!-- Image View -->
+          <div class="relative aspect-[16/11] bg-navy-darker overflow-hidden">
+            <img 
+              src={trade.image} 
+              alt={trade.name} 
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-card via-transparent to-transparent opacity-60"></div>
+            <span class="absolute top-3 right-3 text-[11px] font-mono px-2.5 py-1 rounded bg-primary/90 text-canvas font-semibold">
+              In Stock Sharjah
+            </span>
+          </div>
+
+          <!-- Content Details -->
+          <div class="p-7 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="font-mono text-xs text-gold-accent mb-1">{trade.material}</div>
+              <h3 class="font-display font-bold text-2xl text-canvas mb-3 group-hover:text-gold-accent transition-colors">
+                {trade.name}
+              </h3>
+              <p class="font-body text-ink-secondary text-sm leading-relaxed mb-6">
+                {trade.description}
+              </p>
+
+              <!-- Technical Specifications -->
+              <div class="bg-navy-darker/70 p-4 rounded-xl border border-white/5 mb-6 space-y-2 text-xs font-mono">
+                <div class="text-canvas">
+                  <span class="text-ink-muted">Thickness: </span>
+                  <span class="text-gold-accent">{trade.thickness}</span>
+                </div>
+                <div class="text-canvas">
+                  <span class="text-ink-muted">Dimensions: </span>
+                  <span>{trade.dimensions}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-navy-mid/70">
+              <span class="font-mono text-[11px] text-ink-muted uppercase tracking-wider block mb-2">Ideal Applications:</span>
+              <ul class="space-y-1.5">
+                {trade.applications.map(app => (
+                  <li class="text-xs font-body text-ink-secondary flex items-center gap-2">
+                    <span class="w-1 h-1 rounded-full bg-gold-accent shrink-0"></span>
+                    <span>{app}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Trade Inquiry Banner -->
+    <div class="mt-16 bg-navy-mid/40 rounded-2xl p-8 border border-navy-border flex flex-col md:flex-row items-center justify-between gap-6" data-reveal="fade-up">
+      <div>
+        <h4 class="font-display text-xl text-canvas mb-1">Looking for custom panel cuts or bulk contractor pricing?</h4>
+        <p class="font-body text-sm text-ink-secondary">We supply standard and custom dimensions with prompt delivery across all UAE emirates.</p>
+      </div>
+      <a 
+        href="#contact" 
+        class="bg-gold-accent hover:bg-gold-glow text-navy-darker font-body font-bold text-sm px-6 py-3 rounded-xl transition-colors shrink-0 shadow-md"
+      >
+        Inquire Panel Supply
+      </a>
+    </div>
+  </div>
+</section>
