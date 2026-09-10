@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import ProjectsGallery from '../components/ProjectsGallery';
+import ClientsMarquee from '../components/ClientsMarquee.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
+import FloatingActions from '../components/FloatingActions.astro';
+---
+
+<Layout
+  title="UAE Project Portfolio | Al Sahra Tents & Sheds Fix"
+  description="Explore completed architectural tensile shade structures, car parking shades, custom majlis tents, and structural steel sheds built by Al Sahra across Dubai, Sharjah, Abu Dhabi, and the UAE."
+>
+  <Header />
+  
+  <main>
+    <!-- Page Hero Banner -->
+    <section class="bg-navy-darker py-20 md:py-24 px-6 sm:px-10 lg:px-16 border-b border-navy-mid relative overflow-hidden text-canvas">
+      <!-- Subtle ambient glow -->
+      <div class="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[140px] pointer-events-none"></div>
+      <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gold-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10 text-center">
+        <div class="inline-flex items-center gap-2 bg-navy-card/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 text-gold-accent font-mono text-xs uppercase tracking-wider mb-5">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold-accent animate-ping"></span>
+          <span>Verified UAE Reference Projects</span>
+        </div>
+
+        <h1 class="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-canvas mb-4">
+          Architectural Shade & Steel Project Gallery
+        </h1>
+
+        <p class="font-body text-ink-secondary text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+          Explore our completed installations across government, aviation, hospitality, and residential sectors. Built by our certified teams from Sharjah Al Dhaid.
+        </p>
+
+        <!-- Quick Filter Metrics -->
+        <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-mono text-ink-secondary pt-6 border-t border-navy-mid/60 max-w-2xl mx-auto">
+          <div><span class="text-canvas font-bold text-base">500+</span> Built Across UAE</div>
+          <div class="w-1 h-1 rounded-full bg-navy-mid"></div>
+          <div><span class="text-canvas font-bold text-base">100%</span> In-House Manufacturing</div>
+          <div class="w-1 h-1 rounded-full bg-navy-mid"></div>
+          <div><span class="text-canvas font-bold text-base">7</span> Emirates Served</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full Filterable Projects Gallery Component -->
+    <ProjectsGallery client:load />
+
+    <!-- Client References Marquee -->
+    <ClientsMarquee />
+
+    <!-- Contact Section -->
+    <ContactSection />
+  </main>
+
+  <Footer />
+  <FloatingActions />
+</Layout>
+
+<script>
+  import { initWebsiteAnimations } from '../scripts/animations';
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => initWebsiteAnimations());
+  } else {
+    initWebsiteAnimations();
+  }
+</script>

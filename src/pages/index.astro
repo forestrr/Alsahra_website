@@ -7,8 +7,6 @@ import About from '../components/About.astro';
 import ServicesGrid from '../components/ServicesGrid.astro';
 import IndustriesSection from '../components/IndustriesSection.astro';
 import HowWeWork from '../components/HowWeWork.astro';
-import ProjectsGallery from '../components/ProjectsGallery';
-import TradesSection from '../components/TradesSection.astro';
 import ClientsMarquee from '../components/ClientsMarquee.astro';
 import ContactSection from '../components/ContactSection.astro';
 import Footer from '../components/Footer.astro';
@@ -27,8 +25,59 @@ import FloatingActions from '../components/FloatingActions.astro';
     <ServicesGrid />
     <IndustriesSection />
     <HowWeWork />
-    <ProjectsGallery client:visible />
-    <TradesSection />
+
+    <!-- Discovery Gateway Cards to Dedicated Projects & Trades Pages -->
+    <section class="bg-cream py-16 px-6 sm:px-10 lg:px-16 border-t border-hairline">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
+        <!-- Projects Card -->
+        <a 
+          href="/projects" 
+          class="group relative bg-canvas p-8 sm:p-10 rounded-2xl border border-hairline shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:border-primary/40"
+          data-reveal="fade-up"
+        >
+          <div class="relative z-10">
+            <span class="text-xs font-mono font-semibold uppercase tracking-wider text-primary mb-3 block">
+              UAE Installation Portfolio
+            </span>
+            <h3 class="font-display font-bold text-2xl sm:text-3xl text-ink mb-3 group-hover:text-primary transition-colors">
+              Explore Our Project Gallery
+            </h3>
+            <p class="font-body text-ink-soft text-sm sm:text-base leading-relaxed mb-6">
+              Browse 500+ completed tensile shade structures, luxury car parking shades, cantilever roofs, and custom tents across the 7 Emirates.
+            </p>
+          </div>
+          <div class="relative z-10 flex items-center gap-2 text-primary font-body font-semibold text-sm group-hover:translate-x-1 transition-transform">
+            <span>View All Projects</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+        </a>
+
+        <!-- Trades Card -->
+        <a 
+          href="/trades" 
+          class="group relative bg-navy-darker p-8 sm:p-10 rounded-2xl border border-navy-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:border-gold-accent/40 text-canvas"
+          data-reveal="fade-up"
+          data-reveal-delay="0.1"
+        >
+          <div class="relative z-10">
+            <span class="text-xs font-mono font-semibold uppercase tracking-wider text-gold-accent mb-3 block">
+              Sharjah Al Dhaid Workshop
+            </span>
+            <h3 class="font-display font-bold text-2xl sm:text-3xl text-canvas mb-3 group-hover:text-gold-accent transition-colors">
+              Our Trades & Industrial Panels
+            </h3>
+            <p class="font-body text-ink-secondary text-sm sm:text-base leading-relaxed mb-6">
+              Direct-manufacturer steel fabrication, CNC cutting, certified welding, insulated sandwich panels, and corrugated sheet distribution.
+            </p>
+          </div>
+          <div class="relative z-10 flex items-center gap-2 text-gold-accent font-body font-semibold text-sm group-hover:translate-x-1 transition-transform">
+            <span>Explore Trades & Panels</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <ClientsMarquee />
     <ContactSection />
   </main>
