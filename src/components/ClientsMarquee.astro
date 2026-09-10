@@ -1,46 +1,66 @@
 ---
 import { clients } from '../data/clients';
 ---
-<section class="bg-cream py-16 px-6 overflow-hidden border-t border-hairline">
-  <div class="max-w-7xl mx-auto mb-10 text-center" data-reveal="fade-up">
+<section class="bg-cream py-20 px-4 sm:px-8 lg:px-16 overflow-hidden border-t border-hairline relative">
+  <div class="max-w-7xl mx-auto mb-12 text-center" data-reveal="fade-up">
     <span class="font-mono text-primary text-xs uppercase tracking-[2px] font-semibold block mb-2">
       Selected Project References
     </span>
     <h3 class="font-display font-medium text-2xl sm:text-3xl text-ink">
       Trusted by Leading Organizations Across the UAE
     </h3>
-    <p class="font-body text-ink-soft text-sm mt-2">
-      Public and private sector projects spanning aviation, education, hospitality, and civic developments.
+    <p class="font-body text-ink-soft text-sm mt-2 max-w-xl mx-auto">
+      Proven experience delivering shade structures, tents, and structural steel for premier public and private sector projects.
     </p>
   </div>
 
-  <!-- Marquee Track Wrapper -->
-  <div class="relative w-full overflow-hidden mask-fade-edges">
-    <!-- Gradient Masks at edges -->
-    <div class="absolute left-0 inset-y-0 w-16 sm:w-32 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none"></div>
-    <div class="absolute right-0 inset-y-0 w-16 sm:w-32 bg-gradient-to-l from-cream to-transparent z-10 pointer-events-none"></div>
+  <!-- Seamless Sliding Line of Real Logos -->
+  <div class="relative w-full overflow-hidden">
+    <!-- Gradient Fade Masks on edges for seamless slide-in/out -->
+    <div class="absolute left-0 inset-y-0 w-20 sm:w-40 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute right-0 inset-y-0 w-20 sm:w-40 bg-gradient-to-l from-cream to-transparent z-10 pointer-events-none"></div>
 
-    <!-- The Infinite Running Track (repeated twice for seamless loop) -->
-    <div class="animate-marquee flex items-center gap-12 sm:gap-16 py-4">
+    <!-- Infinite Scrolling Track (Repeated for endless slide) -->
+    <div class="animate-marquee flex items-center gap-12 sm:gap-20 py-4">
       {clients.concat(clients).map((client, idx) => (
         <div 
-          class="flex flex-col items-center justify-center p-4 rounded-xl bg-canvas border border-hairline shadow-xs hover:shadow-md transition-all duration-300 min-w-[160px] sm:min-w-[190px] h-[90px] shrink-0 group hover:border-primary/40"
+          class="flex flex-col items-center justify-center min-w-[140px] sm:min-w-[170px] shrink-0 group transition-transform duration-300 hover:scale-108 cursor-default"
         >
-          <img 
-            src={client.logoSrc} 
-            alt={client.name} 
-            class="max-h-12 max-w-[140px] w-auto object-contain filter grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100 transition-all duration-300"
-            loading="lazy"
-          />
+          <!-- Logo Image (Crisp, real logo, no bulky box) -->
+          <div class="h-14 sm:h-16 flex items-center justify-center mb-2 px-2">
+            <img 
+              src={client.logoSrc} 
+              alt={client.name} 
+              class="max-h-12 sm:max-h-14 max-w-[150px] sm:max-w-[180px] w-auto object-contain opacity-75 group-hover:opacity-100 transition-all duration-300 filter grayscale group-hover:grayscale-0"
+              loading="lazy"
+            />
+          </div>
+          <!-- Business Name Label -->
+          <span class="font-body text-[11px] font-medium text-ink-muted group-hover:text-ink transition-colors tracking-wide text-center whitespace-nowrap">
+            {client.name}
+          </span>
         </div>
       ))}
     </div>
   </div>
 
-  <!-- Footnote -->
-  <div class="mt-8 text-center">
-    <span class="font-mono text-xs text-ink-muted">
-      + Meydan • Sheraton • Abu Dhabi Airport • Shurooq • DWC • University of Sharjah • Hilton • Zayed University • Gargash • Al Ain Zoo • Radisson Blu & many more
+  <!-- Bottom Badges Strip -->
+  <div class="max-w-4xl mx-auto mt-12 pt-6 border-t border-hairline/60 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs font-mono text-ink-muted">
+    <span class="flex items-center gap-1.5">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+      <span>Aviation & Airports</span>
+    </span>
+    <span class="flex items-center gap-1.5">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+      <span>Luxury Hospitality & Resorts</span>
+    </span>
+    <span class="flex items-center gap-1.5">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+      <span>Government & Development</span>
+    </span>
+    <span class="flex items-center gap-1.5">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+      <span>Universities & Campuses</span>
     </span>
   </div>
 </section>

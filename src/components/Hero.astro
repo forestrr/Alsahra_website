@@ -1,55 +1,86 @@
 ---
 ---
-<section class="bg-cream pt-10 pb-16 md:pt-16 md:pb-24 px-6 sm:px-10 lg:px-16 relative overflow-hidden">
-  <!-- Subtle architectural grid lines in background -->
-  <div class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#112228_1px,transparent_1px)] [background-size:24px_24px]"></div>
+<section class="relative min-h-[92vh] flex items-center pt-12 pb-20 md:pt-20 md:pb-28 px-6 sm:px-10 lg:px-16 overflow-hidden bg-navy-darker text-canvas">
+  <!-- ========================================================================= -->
+  <!-- HERO BACKGROUND VIDEO (BRIGHT & CRISP WITH SUBTLE TEXT SCRIM) -->
+  <!-- ========================================================================= -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <video
+      id="hero-bg-video"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="auto"
+      poster="/images/hero_main.png"
+      class="w-full h-full object-cover object-center scale-100 filter brightness-100 contrast-100 transition-opacity duration-700"
+    >
+      <source src="/videos/hero_bg.mp4" type="video/mp4" />
+      <source src="/Hero%20vid.mp4" type="video/mp4" />
+    </video>
 
-  <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-    <!-- Left Column: Copy & CTAs (7 cols) -->
-    <div class="lg:col-span-7 z-10" data-reveal="fade-up">
+    <!-- Subtle Soft Left Scrim Only Behind Text (Protects text legibility) -->
+    <div class="absolute inset-y-0 left-0 w-full sm:w-4/5 lg:w-3/5 bg-gradient-to-r from-navy-darker/80 via-navy-darker/40 to-transparent"></div>
+    
+    <!-- Rectangular Vignette: Frames all 4 edges and corners inward -->
+    <div class="absolute inset-0 pointer-events-none shadow-[inset_0_0_90px_rgba(13,24,29,0.85)] sm:shadow-[inset_0_0_140px_20px_rgba(13,24,29,0.80)] lg:shadow-[inset_0_0_180px_30px_rgba(13,24,29,0.75)]"></div>
+
+    <!-- 4-Edge Rectangular Tapers -->
+    <div class="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-navy-darker/60 to-transparent"></div>
+    <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-navy-canvas to-transparent"></div>
+    <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-navy-darker/50 to-transparent"></div>
+    <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-navy-darker/50 to-transparent"></div>
+  </div>
+
+  <!-- Foreground Content Container -->
+  <div class="max-w-7xl mx-auto w-full relative z-10">
+    <div class="max-w-3xl lg:max-w-4xl" data-reveal="fade-up">
       <!-- Location & Facility Eyebrow -->
-      <div class="inline-flex items-center gap-2 bg-sand px-3.5 py-1.5 rounded-full border border-hairline mb-6">
+      <div class="inline-flex items-center gap-2.5 bg-navy-card/90 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 mb-6 shadow-xl">
         <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-        <span class="font-mono text-xs font-semibold uppercase tracking-wider text-ink">
+        <span class="font-mono text-xs font-semibold uppercase tracking-wider text-canvas">
           Sharjah Al Dhaid, U.A.E. • In-House Fabrication
         </span>
       </div>
 
-      <!-- Main Headline from Official Profile -->
-      <h1 class="font-display font-semibold text-4xl sm:text-5xl lg:text-[58px] leading-[1.08] tracking-[-0.6px] text-ink mb-6">
+      <!-- Main Headline from Official Profile with Crisp Legibility -->
+      <h1 class="font-display font-semibold text-4xl sm:text-5xl lg:text-[56px] leading-[1.08] tracking-[-0.6px] text-canvas mb-6 drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)]">
         Tents, Tensile Shade Structures & Steel Fabrication
       </h1>
 
-      <!-- Subheadline -->
-      <p class="font-body text-ink-soft text-lg sm:text-xl leading-relaxed mb-8 max-w-2xl">
+      <!-- Subheadline with High Contrast Drop Shadow -->
+      <p class="font-body text-canvas/95 text-lg sm:text-xl leading-relaxed mb-8 max-w-2xl font-normal drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
         Designed, forged, and installed across the United Arab Emirates. A one-stop partner delivering specialized sales, engineering, and maintenance backed by in-house manufacturing in Sharjah Al Dhaid.
       </p>
 
-      <!-- Key Value Points Pills -->
+      <!-- Key Value Points Pills (Backdrop-Blurred Frosted Glass) -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10 max-w-xl">
-        <div class="flex items-center gap-2.5 text-sm font-medium text-ink">
-          <div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+        <div class="flex items-center gap-2.5 text-sm font-medium text-canvas bg-navy-darker/70 backdrop-blur-md p-2.5 rounded-xl border border-white/20 shadow-lg">
+          <div class="w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center text-primary-light shrink-0">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </div>
-          <span>In-House Steel & Fabric Facility</span>
+          <span class="text-xs sm:text-sm">In-House Steel & Fabric Facility</span>
         </div>
-        <div class="flex items-center gap-2.5 text-sm font-medium text-ink">
-          <div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+        
+        <div class="flex items-center gap-2.5 text-sm font-medium text-canvas bg-navy-darker/70 backdrop-blur-md p-2.5 rounded-xl border border-white/20 shadow-lg">
+          <div class="w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center text-primary-light shrink-0">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </div>
-          <span>German & French HDPE Fabric Alliances</span>
+          <span class="text-xs sm:text-sm">German & French Fabric Alliances</span>
         </div>
-        <div class="flex items-center gap-2.5 text-sm font-medium text-ink">
-          <div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+
+        <div class="flex items-center gap-2.5 text-sm font-medium text-canvas bg-navy-darker/70 backdrop-blur-md p-2.5 rounded-xl border border-white/20 shadow-lg">
+          <div class="w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center text-primary-light shrink-0">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </div>
-          <span>Built-to-Order Customization</span>
+          <span class="text-xs sm:text-sm">Built-to-Order Customization</span>
         </div>
-        <div class="flex items-center gap-2.5 text-sm font-medium text-ink">
-          <div class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+
+        <div class="flex items-center gap-2.5 text-sm font-medium text-canvas bg-navy-darker/70 backdrop-blur-md p-2.5 rounded-xl border border-white/20 shadow-lg">
+          <div class="w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center text-primary-light shrink-0">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </div>
-          <span>Design to Installation, Under One Roof</span>
+          <span class="text-xs sm:text-sm">Design to Installation Under One Roof</span>
         </div>
       </div>
 
@@ -57,7 +88,7 @@
       <div class="flex flex-wrap items-center gap-4">
         <a 
           href="#contact" 
-          class="bg-primary hover:bg-primary-soft text-canvas font-body font-semibold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-3 group active:scale-98"
+          class="bg-primary hover:bg-primary-soft text-canvas font-body font-semibold text-base px-8 py-4 rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 flex items-center gap-3 group active:scale-98"
         >
           <span>Request a Free Quote</span>
           <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -67,17 +98,17 @@
 
         <a 
           href="#projects" 
-          class="bg-transparent hover:bg-ink text-ink hover:text-canvas border border-ink font-body font-semibold text-base px-7 py-4 rounded-xl transition-all duration-300 flex items-center gap-2"
+          class="bg-navy-darker/60 hover:bg-canvas hover:text-ink text-canvas border border-white/20 font-body font-semibold text-base px-7 py-4 rounded-xl transition-all duration-300 flex items-center gap-2 backdrop-blur-md"
         >
           <span>View UAE Projects</span>
         </a>
 
-        <!-- Direct WhatsApp / Call Shortcut -->
+        <!-- Direct WhatsApp Shortcut -->
         <a 
           href="https://wa.me/971505077179?text=Hello%20Al%20Sahra%20Tents,%20I%20would%20like%20to%20inquire%20about%20a%20project." 
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-dark px-3 py-2 transition-colors"
+          class="inline-flex items-center gap-2 text-sm font-semibold text-gold-accent hover:text-gold-glow px-3 py-2 transition-colors"
         >
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
@@ -85,60 +116,76 @@
           <span>Direct WhatsApp</span>
         </a>
       </div>
-    </div>
 
-    <!-- Right Column: Hero Visual Showcase (5 cols) -->
-    <div class="lg:col-span-5" data-reveal="scale-up" data-reveal-delay="0.15">
-      <div 
-        id="hero-showcase-card"
-        class="relative rounded-[28px] overflow-hidden p-3 bg-canvas/60 border border-hairline shadow-2xl transition-transform duration-200"
-      >
-        <div class="relative rounded-[22px] overflow-hidden aspect-[4/4.2] bg-navy-darker">
-          <img 
-            src="/images/hero_main.png" 
-            alt="Al Sahra Tensile Shade & Steel Structure" 
-            class="w-full h-full object-cover"
-            loading="eager"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-navy-darker/70 via-transparent to-transparent"></div>
-
-          <!-- Bottom Showcase Tag -->
-          <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass-dark text-canvas">
-            <div class="flex items-center justify-between mb-1">
-              <span class="font-mono text-xs text-gold-accent font-semibold uppercase tracking-wider">Turnkey Engineering</span>
-              <span class="text-xs bg-primary/80 px-2 py-0.5 rounded font-mono">UAE Wide</span>
-            </div>
-            <p class="font-body text-sm font-medium text-canvas/90">
-              Custom architectural tensile membranes & heavy structural steel frameworks
-            </p>
-          </div>
+      <!-- Bottom Trust Metrics Bar -->
+      <div class="mt-12 pt-8 border-t border-white/10 flex flex-wrap items-center gap-6 sm:gap-10 text-xs font-mono text-ink-secondary">
+        <div class="flex items-center gap-2">
+          <span class="font-display text-xl font-bold text-gold-accent">500+</span>
+          <span class="leading-tight">Projects Built<br/>Across UAE</span>
         </div>
-
-        <!-- Floating Glass Metric Badges -->
-        <div class="absolute -top-4 -right-4 glass-light p-3.5 rounded-2xl shadow-xl border border-canvas/80 hidden sm:flex items-center gap-3 animate-float">
-          <div class="w-10 h-10 rounded-xl bg-gold-accent/20 flex items-center justify-center text-gold-accent">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
-          </div>
-          <div>
-            <div class="font-display font-bold text-lg text-ink leading-tight">500+</div>
-            <div class="font-body text-xs text-ink-muted">Projects Built</div>
-          </div>
+        <div class="h-6 w-px bg-white/15 hidden sm:block"></div>
+        <div class="flex items-center gap-2">
+          <span class="font-display text-xl font-bold text-primary-light">100%</span>
+          <span class="leading-tight">In-House Facility<br/>Sharjah Al Dhaid</span>
         </div>
-
-        <div class="absolute -bottom-4 -left-4 glass-light p-3.5 rounded-2xl shadow-xl border border-canvas/80 hidden sm:flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-            </svg>
-          </div>
-          <div>
-            <div class="font-display font-bold text-lg text-ink leading-tight">100%</div>
-            <div class="font-body text-xs text-ink-muted">In-House Facility</div>
-          </div>
+        <div class="h-6 w-px bg-white/15 hidden sm:block"></div>
+        <div class="flex items-center gap-2">
+          <span class="font-display text-xl font-bold text-canvas">24/7</span>
+          <span class="leading-tight">Turnkey Support<br/>& Renovation</span>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Bottom Floating Video Playback & Sound Control Pill -->
+  <div class="absolute bottom-4 right-6 z-20 hidden md:flex items-center gap-2 bg-navy-darker/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 text-[11px] font-mono text-ink-secondary shadow-xl">
+    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+    <span>Background Reel</span>
+    <button 
+      id="video-toggle-btn"
+      type="button" 
+      class="ml-2 hover:text-canvas transition-colors p-1"
+      aria-label="Pause or Play Background Video"
+      title="Pause / Play Video"
+    >
+      <svg id="video-pause-icon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <svg id="video-play-icon" class="w-3.5 h-3.5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </button>
+  </div>
 </section>
+
+<!-- Hero Video Interactive Controller Script -->
+<script>
+  function initHeroVideo() {
+    const video = document.getElementById('hero-bg-video') as HTMLVideoElement;
+    const toggleBtn = document.getElementById('video-toggle-btn');
+    const pauseIcon = document.getElementById('video-pause-icon');
+    const playIcon = document.getElementById('video-play-icon');
+
+    if (!video || !toggleBtn) return;
+
+    toggleBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        pauseIcon?.classList.remove('hidden');
+        playIcon?.classList.add('hidden');
+      } else {
+        video.pause();
+        pauseIcon?.classList.add('hidden');
+        playIcon?.classList.remove('hidden');
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroVideo);
+  } else {
+    initHeroVideo();
+  }
+</script>
+

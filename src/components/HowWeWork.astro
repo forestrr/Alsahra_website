@@ -1,12 +1,74 @@
 ---
+const processSteps = [
+  {
+    step: "01",
+    phase: "Phase 01",
+    title: "Site Survey & 3D Design",
+    subtitle: "Custom Engineering",
+    description: "Our engineers inspect the site, calculate wind loads to UAE municipality standards, and generate precise 3D structural and membrane models.",
+    image: "/images/service_tensile_2.png",
+    tag: "Design & Calculation",
+    specs: "3D CAD • Wind Load Codes",
+    metric: "100% Tailored Specs"
+  },
+  {
+    step: "02",
+    phase: "Phase 02",
+    title: "In-House Forging",
+    subtitle: "Sharjah Al Dhaid Workshop",
+    description: "Precision CNC cutting, certified welding, sandblasting, primer coating, and automated patterning of international HDPE/PVC membranes.",
+    image: "/images/inhouse_factory.png",
+    tag: "In-House Fabrication",
+    specs: "CNC Cutting • Certified Welding",
+    metric: "Zero Subcontracting"
+  },
+  {
+    step: "03",
+    phase: "Phase 03",
+    title: "Foundation & Erection",
+    subtitle: "Certified Rigging Teams",
+    description: "Cast-in-place anchor bolts, crane erection of structural steel columns, and hydraulic tensioning of architectural cable membranes.",
+    image: "/images/service_parking_1.png",
+    tag: "Site Installation",
+    specs: "Hydraulic Tensioning • Crane Crews",
+    metric: "UAE Safety Certified"
+  },
+  {
+    step: "04",
+    phase: "Phase 04",
+    title: "Testing & Handover",
+    subtitle: "Quality Certification",
+    description: "Rigorous tension testing, weld integrity checks, weather-tightness verification, and formal municipal authority signoff documentation.",
+    image: "/images/service_tensile_1.png",
+    tag: "Quality Handover",
+    specs: "Tension Testing • Municipality Signoff",
+    metric: "Full Warranty Pack"
+  },
+  {
+    step: "05",
+    phase: "Phase 05",
+    title: "Care, Fix & Renovation",
+    subtitle: "Full Lifecycle Support",
+    description: "Scheduled preventive maintenance, fabric re-tensioning, UV protection inspections, and renovation of existing structures across UAE.",
+    image: "/images/about_main.png",
+    tag: "Ongoing Support",
+    specs: "Re-tensioning • Rapid Repairs",
+    metric: "24/7 Response Across UAE"
+  }
+];
 ---
-<section class="bg-navy-canvas py-24 px-6 sm:px-10 lg:px-16 border-t border-navy-mid relative overflow-hidden">
-  <div class="max-w-7xl mx-auto">
-    <!-- Why Al Sahra Header (Page 10) -->
+<section id="process" class="bg-navy-canvas py-24 px-4 sm:px-8 lg:px-16 border-t border-navy-mid relative overflow-hidden">
+  <!-- Subtle ambient background glow orbs -->
+  <div class="absolute top-1/4 left-1/5 w-[550px] h-[550px] bg-primary/15 rounded-full blur-[140px] pointer-events-none"></div>
+  <div class="absolute bottom-1/4 right-1/5 w-[550px] h-[550px] bg-gold-accent/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <!-- Why Al Sahra Section Header (Page 10 of Profile) -->
     <div class="max-w-3xl mb-16" data-reveal="fade-up">
-      <span class="font-mono text-gold-accent text-xs uppercase tracking-[2px] font-semibold block mb-4">
-        Why Al Sahra
-      </span>
+      <div class="inline-flex items-center gap-2 bg-navy-mid/60 px-3 py-1 rounded-full border border-navy-border text-gold-accent font-mono text-xs uppercase tracking-wider mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-gold-accent animate-ping"></span>
+        <span>Why Al Sahra</span>
+      </div>
       <h2 class="font-display text-3xl sm:text-4xl lg:text-[46px] leading-tight text-canvas mb-4">
         Strengths that set us apart
       </h2>
@@ -16,36 +78,32 @@
     </div>
 
     <!-- 4 Strengths Grid (Page 10) -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-      <!-- 01 -->
-      <div class="bg-navy-darker p-7 rounded-2xl border border-navy-mid hover:border-gold-accent/40 transition-colors group shadow-lg" data-reveal="fade-up" data-reveal-delay="0.05">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+      <div class="bg-navy-darker p-7 rounded-2xl border border-navy-mid hover:border-gold-accent/50 transition-all duration-300 group shadow-xl hover:-translate-y-1" data-reveal="fade-up" data-reveal-delay="0.05">
         <div class="font-display text-gold-accent text-3xl font-bold mb-4">01</div>
         <h3 class="font-body font-bold text-canvas text-lg mb-2 group-hover:text-gold-accent transition-colors">One-Stop Service Model</h3>
         <p class="font-body text-ink-secondary text-sm leading-relaxed">
-          Design, fabrication, installation, and ongoing maintenance fully coordinated under one roof.
+          Design, fabrication, installation, and maintenance fully coordinated under one roof.
         </p>
       </div>
 
-      <!-- 02 -->
-      <div class="bg-navy-darker p-7 rounded-2xl border border-navy-mid hover:border-gold-accent/40 transition-colors group shadow-lg" data-reveal="fade-up" data-reveal-delay="0.1">
+      <div class="bg-navy-darker p-7 rounded-2xl border border-navy-mid hover:border-gold-accent/50 transition-all duration-300 group shadow-xl hover:-translate-y-1" data-reveal="fade-up" data-reveal-delay="0.1">
         <div class="font-display text-gold-accent text-3xl font-bold mb-4">02</div>
         <h3 class="font-body font-bold text-canvas text-lg mb-2 group-hover:text-gold-accent transition-colors">Membrane & Steel Expertise</h3>
         <p class="font-body text-ink-secondary text-sm leading-relaxed">
-          Proven dual technical capability spanning both architectural fabric membranes and heavy structural steel.
+          Proven dual capability across architectural fabric tensile systems and heavy structural steel.
         </p>
       </div>
 
-      <!-- 03 -->
-      <div class="bg-navy-darker p-7 rounded-2xl border border-navy-mid hover:border-gold-accent/40 transition-colors group shadow-lg" data-reveal="fade-up" data-reveal-delay="0.15">
+      <div class="bg-navy-darker p-7 rounded-2xl border border-navy-mid hover:border-gold-accent/50 transition-all duration-300 group shadow-xl hover:-translate-y-1" data-reveal="fade-up" data-reveal-delay="0.15">
         <div class="font-display text-gold-accent text-3xl font-bold mb-4">03</div>
         <h3 class="font-body font-bold text-canvas text-lg mb-2 group-hover:text-gold-accent transition-colors">Built-to-Order Customization</h3>
         <p class="font-body text-ink-secondary text-sm leading-relaxed">
-          Every product tailored to client briefs and project site parameters — never rigid cookie-cutter templates.
+          Every product tailored to client brief and site parameters — never rigid cookie-cutter templates.
         </p>
       </div>
 
-      <!-- 04 -->
-      <div class="bg-navy-darker p-7 rounded-2xl border border-navy-mid hover:border-gold-accent/40 transition-colors group shadow-lg" data-reveal="fade-up" data-reveal-delay="0.2">
+      <div class="bg-navy-darker p-7 rounded-2xl border border-navy-mid hover:border-gold-accent/50 transition-all duration-300 group shadow-xl hover:-translate-y-1" data-reveal="fade-up" data-reveal-delay="0.2">
         <div class="font-display text-gold-accent text-3xl font-bold mb-4">04</div>
         <h3 class="font-body font-bold text-canvas text-lg mb-2 group-hover:text-gold-accent transition-colors">Quality & Realistic Pricing</h3>
         <p class="font-body text-ink-secondary text-sm leading-relaxed">
@@ -54,42 +112,495 @@
       </div>
     </div>
 
-    <!-- Process Timeline -->
-    <div class="pt-16 border-t border-navy-mid" data-reveal="fade-up">
-      <div class="mb-12">
-        <span class="font-mono text-primary text-xs uppercase tracking-[2px] font-semibold block mb-2">Our Process</span>
-        <h3 class="font-display text-2xl sm:text-3xl text-canvas">
-          From first brief to ongoing lifecycle care
-        </h3>
+    <!-- ================================================================= -->
+    <!-- ANIMATED CONNECTED PROCESS TIMELINE (HYPERFRAMES PROGRESS ENGINE) -->
+    <!-- ================================================================= -->
+    <div id="process-timeline-container" class="pt-16 border-t border-navy-mid relative scroll-mt-24">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6" data-reveal="fade-up">
+        <div class="max-w-2xl">
+          <span class="font-mono text-primary text-xs uppercase tracking-[2px] font-semibold block mb-2">
+            Interactive Engineering Flow
+          </span>
+          <h3 class="font-display text-2xl sm:text-3xl lg:text-4xl text-canvas tracking-tight">
+            Connected Step-by-Step Execution
+          </h3>
+          <p class="font-body text-ink-secondary text-sm sm:text-base mt-2">
+            Scroll down or up to drive the progress line through every stage of construction. Click or hover any step to inspect details.
+          </p>
+        </div>
+
+        <!-- Interactive Milestone Filter / Scrubber Tabs -->
+        <div class="flex flex-wrap items-center gap-1.5 p-1.5 bg-navy-darker rounded-xl border border-navy-border self-start md:self-auto shadow-lg">
+          {processSteps.map((step, idx) => (
+            <button
+              type="button"
+              class="process-tab-btn px-3 py-1.5 rounded-lg text-xs font-mono font-medium text-ink-secondary hover:text-canvas hover:bg-navy-mid/60 transition-all duration-200 flex items-center gap-1.5 cursor-pointer"
+              data-tab-index={idx}
+            >
+              <span class="tab-number text-primary font-bold">{step.step}</span>
+              <span class="hidden sm:inline">{step.title.split(' ')[0]}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-        <div class="relative bg-navy-card/60 p-5 rounded-xl border border-white/5">
-          <div class="font-mono text-xs text-primary font-bold mb-2">STEP 01</div>
-          <h4 class="font-body font-semibold text-canvas text-base mb-1">Site & Engineering</h4>
-          <p class="font-body text-ink-secondary text-xs">Site inspection, 3D modelling, wind load calculation & custom design.</p>
+      <!-- DESKTOP TIMELINE (Visible on lg screens) -->
+      <div class="hidden lg:block relative mb-16 pt-8">
+        <!-- Connecting Line Background Track -->
+        <div class="absolute top-[52px] left-[10%] right-[10%] h-[4px] bg-navy-mid/80 rounded-full z-0 overflow-hidden">
+          <div class="w-full h-full bg-gradient-to-r from-navy-border/40 via-white/5 to-navy-border/40"></div>
         </div>
-        <div class="relative bg-navy-card/60 p-5 rounded-xl border border-white/5">
-          <div class="font-mono text-xs text-primary font-bold mb-2">STEP 02</div>
-          <h4 class="font-body font-semibold text-canvas text-base mb-1">In-House Forging</h4>
-          <p class="font-body text-ink-secondary text-xs">Precision steel cutting, welding, primer coating & fabric patterning.</p>
+
+        <!-- Animated Progress Connecting Line (Bidirectional Dynamic Scrub) -->
+        <div 
+          id="process-progress-line" 
+          class="absolute top-[52px] left-[10%] h-[4px] bg-gradient-to-r from-primary via-primary-light to-gold-accent rounded-full z-0 transition-all duration-300 ease-out shadow-[0_0_12px_rgba(46,139,87,0.8)]"
+          style="width: 0%;"
+        ></div>
+
+        <!-- Traveling Laser Beacon Head -->
+        <div 
+          id="process-laser-dot"
+          class="absolute top-[52px] -translate-y-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-gold-accent shadow-[0_0_18px_#d4a72c] border-2 border-white z-20 pointer-events-none transition-all duration-300 ease-out flex items-center justify-center opacity-0"
+          style="left: 10%;"
+        >
+          <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
         </div>
-        <div class="relative bg-navy-card/60 p-5 rounded-xl border border-white/5">
-          <div class="font-mono text-xs text-primary font-bold mb-2">STEP 03</div>
-          <h4 class="font-body font-semibold text-canvas text-base mb-1">Site Installation</h4>
-          <p class="font-body text-ink-secondary text-xs">Certified site teams handle foundation anchor bolts, erection & tensioning.</p>
+
+        <!-- 5 Steps Horizontal Grid -->
+        <div class="grid grid-cols-5 gap-4 relative z-10">
+          {processSteps.map((step, idx) => (
+            <div 
+              class="process-step-node flex flex-col items-center group cursor-pointer transition-all duration-300"
+              data-step-index={idx}
+            >
+              <!-- Step Circle Node on the Line -->
+              <div 
+                class="process-node-circle w-14 h-14 rounded-full bg-navy-darker border-2 border-navy-mid text-ink-muted flex items-center justify-center font-display font-bold text-base transition-all duration-400 group-hover:scale-110 mb-6 shadow-xl relative select-none"
+              >
+                <span class="step-num-text z-10 transition-colors duration-300">{step.step}</span>
+                <span class="pulse-ring absolute inset-0 rounded-full border-2 border-primary opacity-0 transition-all duration-400"></span>
+                <span class="active-badge absolute -top-2.5 px-2 py-0.2 rounded-full bg-gold-accent text-navy-darker text-[9px] font-mono font-bold uppercase tracking-wider opacity-0 transition-opacity duration-300 shadow-md">
+                  Active
+                </span>
+              </div>
+
+              <!-- Step Card with Aesthetic Picture -->
+              <div class="process-card w-full bg-navy-card rounded-2xl overflow-hidden border border-navy-border group-hover:border-primary/60 transition-all duration-400 flex flex-col shadow-lg group-hover:-translate-y-2 group-hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)]">
+                <!-- Aesthetic Picture Frame -->
+                <div class="relative aspect-[16/10] overflow-hidden bg-navy-darker">
+                  <img 
+                    src={step.image} 
+                    alt={step.title} 
+                    class="process-card-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-navy-card via-transparent to-transparent opacity-70"></div>
+                  
+                  <!-- Phase Tag -->
+                  <span class="absolute top-2.5 left-2.5 text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-navy-darker/90 text-gold-accent border border-white/10 shadow-sm">
+                    {step.phase}
+                  </span>
+
+                  <!-- Metric Pill -->
+                  <span class="card-metric absolute bottom-2 left-2.5 right-2.5 text-[9px] font-mono text-canvas bg-navy-darker/80 backdrop-blur-xs px-2 py-0.5 rounded truncate border border-white/5 opacity-80 group-hover:opacity-100 transition-opacity">
+                    {step.metric}
+                  </span>
+                </div>
+
+                <!-- Text Content -->
+                <div class="p-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h4 class="card-title font-body font-bold text-sm text-canvas group-hover:text-gold-accent transition-colors mb-1">
+                      {step.title}
+                    </h4>
+                    <p class="font-mono text-[10px] text-primary font-medium mb-2">
+                      {step.subtitle}
+                    </p>
+                    <p class="font-body text-ink-secondary text-xs leading-relaxed line-clamp-3">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  <div class="mt-3 pt-3 border-t border-navy-mid/60 text-[10px] font-mono text-ink-muted group-hover:text-ink-secondary transition-colors">
+                    {step.specs}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-        <div class="relative bg-navy-card/60 p-5 rounded-xl border border-white/5">
-          <div class="font-mono text-xs text-primary font-bold mb-2">STEP 04</div>
-          <h4 class="font-body font-semibold text-canvas text-base mb-1">Inspection & Signoff</h4>
-          <p class="font-body text-ink-secondary text-xs">Tension testing, safety verification, and formal client handover.</p>
+      </div>
+
+      <!-- MOBILE & TABLET TIMELINE (Vertical Connected Spine with Scroll-Linked Draw) -->
+      <div class="lg:hidden relative pl-8 sm:pl-10 space-y-8 my-8">
+        <!-- Vertical Connecting Track -->
+        <div class="absolute top-4 bottom-4 left-[15px] sm:left-[19px] w-[3px] bg-navy-mid/70 rounded-full"></div>
+        
+        <!-- Vertical Progress Fill Line -->
+        <div 
+          id="process-mobile-progress-line" 
+          class="absolute top-4 left-[15px] sm:left-[19px] w-[3px] bg-gradient-to-b from-primary via-primary-light to-gold-accent rounded-full transition-all duration-300 shadow-[0_0_10px_rgba(46,139,87,0.7)]"
+          style="height: 0%;"
+        ></div>
+
+        <!-- Mobile Traveling Dot -->
+        <div 
+          id="process-mobile-laser-dot"
+          class="absolute left-[15px] sm:left-[19px] -translate-x-1/2 w-4 h-4 rounded-full bg-gold-accent shadow-[0_0_12px_#d4a72c] border-2 border-white z-20 pointer-events-none transition-all duration-300 opacity-0"
+          style="top: 16px;"
+        ></div>
+
+        {processSteps.map((step, idx) => (
+          <div 
+            class="process-mobile-step relative cursor-pointer"
+            data-step-index={idx}
+          >
+            <!-- Step Node on Spine -->
+            <div class="mobile-node-circle absolute -left-[30px] sm:-left-[34px] top-4 w-8 h-8 rounded-full bg-navy-darker border-2 border-navy-mid text-ink-muted flex items-center justify-center font-display font-bold text-xs shadow-lg z-10 transition-all duration-300">
+              {step.step}
+            </div>
+
+            <!-- Mobile Card with Picture -->
+            <div class="mobile-card bg-navy-card rounded-2xl overflow-hidden border border-navy-border shadow-xl transition-all duration-300">
+              <div class="relative aspect-[16/9] overflow-hidden bg-navy-darker">
+                <img 
+                  src={step.image} 
+                  alt={step.title} 
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-navy-card via-transparent to-transparent opacity-70"></div>
+                <span class="absolute top-3 left-3 text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-navy-darker/85 text-gold-accent border border-white/10">
+                  {step.phase}
+                </span>
+                <span class="absolute bottom-3 left-3 text-[10px] font-mono text-canvas bg-navy-darker/80 px-2 py-0.5 rounded border border-white/10">
+                  {step.metric}
+                </span>
+              </div>
+              <div class="p-5">
+                <div class="font-mono text-xs text-primary font-semibold mb-1">{step.subtitle}</div>
+                <h4 class="font-body font-bold text-lg text-canvas mb-2">{step.title}</h4>
+                <p class="font-body text-ink-secondary text-sm leading-relaxed mb-3">{step.description}</p>
+                <div class="text-xs font-mono text-ink-muted pt-3 border-t border-navy-mid/60">
+                  Specification: {step.specs}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bottom Interactive Status Banner -->
+      <div id="process-active-status" class="mt-8 p-4 rounded-xl bg-navy-darker/90 border border-navy-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-ink-secondary">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+          <span class="text-canvas font-semibold">Active Milestone:</span>
+          <span id="active-step-label" class="text-gold-accent font-bold">Phase 01: Site Survey & 3D Design</span>
         </div>
-        <div class="relative bg-navy-card/60 p-5 rounded-xl border border-white/5">
-          <div class="font-mono text-xs text-primary font-bold mb-2">STEP 05</div>
-          <h4 class="font-body font-semibold text-canvas text-base mb-1">Fix & Renovation</h4>
-          <p class="font-body text-ink-secondary text-xs">Ongoing preventive maintenance, fabric replacement & re-tensioning.</p>
+        <div class="text-ink-muted text-[11px]">
+          Sharjah Al Dhaid In-House Fabrication Facility • Serving All 7 UAE Emirates
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ================================================================= -->
+<!-- BIDIRECTIONAL SCROLL & INTERACTIVE STEP ENGINE -->
+<!-- ================================================================= -->
+<script>
+  function initInteractiveProcess() {
+    const container = document.getElementById('process-timeline-container');
+    const desktopLine = document.getElementById('process-progress-line');
+    const desktopLaser = document.getElementById('process-laser-dot');
+    const mobileLine = document.getElementById('process-mobile-progress-line');
+    const mobileLaser = document.getElementById('process-mobile-laser-dot');
+    const nodes = document.querySelectorAll<HTMLElement>('.process-step-node');
+    const mobileSteps = document.querySelectorAll<HTMLElement>('.process-mobile-step');
+    const tabBtns = document.querySelectorAll<HTMLButtonElement>('.process-tab-btn');
+    const activeLabel = document.getElementById('active-step-label');
+
+    if (!container) return;
+
+    const stepTitles = [
+      "Phase 01: Site Survey & 3D Wind Analysis",
+      "Phase 02: Sharjah In-House CNC Forging",
+      "Phase 03: Certified Crane Erection & Rigging",
+      "Phase 04: Tension Testing & Municipality Signoff",
+      "Phase 05: 24/7 Care, Fix & Renovation"
+    ];
+
+    // Center coordinates for the 5 desktop steps relative to the container track (10% to 90%)
+    // Step 0: 10%, Step 1: 30%, Step 2: 50%, Step 3: 70%, Step 4: 90%
+    const stepCenters = [10, 30, 50, 70, 90];
+    let activeStepIdx = 0;
+    let isHoverLocked = false;
+    let hoverUnlockTimeout: number | null = null;
+
+    function setActiveStep(idx: number, animateBeam = true) {
+      if (idx < 0) idx = 0;
+      if (idx > 4) idx = 4;
+      activeStepIdx = idx;
+
+      // Update active banner label
+      if (activeLabel && stepTitles[idx]) {
+        activeLabel.textContent = stepTitles[idx];
+      }
+
+      // Update Desktop Tabs
+      tabBtns.forEach((btn, i) => {
+        if (i === idx) {
+          btn.classList.add('bg-primary/20', 'text-canvas', 'border', 'border-primary/40');
+          btn.classList.remove('text-ink-secondary');
+        } else {
+          btn.classList.remove('bg-primary/20', 'text-canvas', 'border', 'border-primary/40');
+          btn.classList.add('text-ink-secondary');
+        }
+      });
+
+      // Update Desktop Nodes and Cards
+      nodes.forEach((node, i) => {
+        const circle = node.querySelector('.process-node-circle');
+        const numText = node.querySelector('.step-num-text');
+        const ring = node.querySelector('.pulse-ring');
+        const activeBadge = node.querySelector('.active-badge');
+        const card = node.querySelector('.process-card');
+        const img = node.querySelector('.process-card-img');
+
+        if (i <= idx) {
+          // Connected / passed steps
+          if (circle) {
+            circle.classList.remove('border-navy-mid', 'text-ink-muted');
+            circle.classList.add('border-primary', 'bg-primary/25', 'text-canvas', 'shadow-primary/30');
+          }
+          if (numText) {
+            numText.classList.add('text-gold-accent');
+          }
+        } else {
+          // Future / yet to reach steps
+          if (circle) {
+            circle.classList.remove('border-primary', 'bg-primary/25', 'text-canvas', 'shadow-primary/30', 'border-gold-accent', 'scale-115');
+            circle.classList.add('border-navy-mid', 'text-ink-muted');
+          }
+          if (numText) {
+            numText.classList.remove('text-gold-accent');
+          }
+        }
+
+        if (i === idx) {
+          // Currently Active Step
+          if (circle) {
+            circle.classList.add('border-gold-accent', 'scale-115', 'shadow-[0_0_20px_rgba(212,167,44,0.6)]');
+          }
+          if (ring) {
+            ring.classList.remove('opacity-0');
+            ring.classList.add('opacity-100', 'animate-ping');
+          }
+          if (activeBadge) {
+            activeBadge.classList.remove('opacity-0');
+            activeBadge.classList.add('opacity-100');
+          }
+          if (card) {
+            card.classList.add('border-gold-accent/80', '-translate-y-3', 'shadow-[0_15px_35px_rgba(0,0,0,0.6)]', 'ring-1', 'ring-gold-accent/30');
+          }
+          if (img) {
+            img.classList.add('scale-108');
+          }
+        } else {
+          if (circle) {
+            circle.classList.remove('border-gold-accent', 'scale-115', 'shadow-[0_0_20px_rgba(212,167,44,0.6)]');
+          }
+          if (ring) {
+            ring.classList.remove('opacity-100', 'animate-ping');
+            ring.classList.add('opacity-0');
+          }
+          if (activeBadge) {
+            activeBadge.classList.remove('opacity-100');
+            activeBadge.classList.add('opacity-0');
+          }
+          if (card) {
+            card.classList.remove('border-gold-accent/80', '-translate-y-3', 'shadow-[0_15px_35px_rgba(0,0,0,0.6)]', 'ring-1', 'ring-gold-accent/30');
+          }
+          if (img) {
+            img.classList.remove('scale-108');
+          }
+        }
+      });
+
+      // Update Mobile Steps
+      mobileSteps.forEach((mStep, i) => {
+        const mCircle = mStep.querySelector('.mobile-node-circle');
+        const mCard = mStep.querySelector('.mobile-card');
+        if (i <= idx) {
+          if (mCircle) {
+            mCircle.classList.remove('border-navy-mid', 'text-ink-muted');
+            mCircle.classList.add('border-primary', 'bg-primary/20', 'text-canvas');
+          }
+        } else {
+          if (mCircle) {
+            mCircle.classList.remove('border-primary', 'bg-primary/20', 'text-canvas', 'border-gold-accent');
+            mCircle.classList.add('border-navy-mid', 'text-ink-muted');
+          }
+        }
+
+        if (i === idx) {
+          if (mCircle) {
+            mCircle.classList.add('border-gold-accent', 'scale-110', 'shadow-gold-accent/50');
+          }
+          if (mCard) {
+            mCard.classList.add('border-gold-accent/70', 'shadow-xl');
+          }
+        } else {
+          if (mCircle) {
+            mCircle.classList.remove('border-gold-accent', 'scale-110', 'shadow-gold-accent/50');
+          }
+          if (mCard) {
+            mCard.classList.remove('border-gold-accent/70', 'shadow-xl');
+          }
+        }
+      });
+
+      // Position Desktop Beam & Laser Dot when prompted
+      if (animateBeam && desktopLine && desktopLaser) {
+        const targetPercent = stepCenters[idx] - 10; // width from left 10%
+        desktopLine.style.width = `${targetPercent}%`;
+        desktopLaser.style.left = `${stepCenters[idx]}%`;
+        desktopLaser.style.opacity = '1';
+      }
+    }
+
+    // Interactive Hover & Click Listeners
+    nodes.forEach((node, idx) => {
+      node.addEventListener('mouseenter', () => {
+        isHoverLocked = true;
+        if (hoverUnlockTimeout) clearTimeout(hoverUnlockTimeout);
+        setActiveStep(idx, true);
+      });
+
+      node.addEventListener('mouseleave', () => {
+        hoverUnlockTimeout = window.setTimeout(() => {
+          isHoverLocked = false;
+          handleScroll(); // resume scroll sync
+        }, 1200);
+      });
+
+      node.addEventListener('click', () => {
+        isHoverLocked = true;
+        setActiveStep(idx, true);
+        if (hoverUnlockTimeout) clearTimeout(hoverUnlockTimeout);
+        hoverUnlockTimeout = window.setTimeout(() => {
+          isHoverLocked = false;
+        }, 2500);
+      });
+    });
+
+    // Milestone Tab Buttons Click
+    tabBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.getAttribute('data-tab-index') || '0', 10);
+        isHoverLocked = true;
+        setActiveStep(idx, true);
+        if (hoverUnlockTimeout) clearTimeout(hoverUnlockTimeout);
+        hoverUnlockTimeout = window.setTimeout(() => {
+          isHoverLocked = false;
+        }, 3000);
+      });
+    });
+
+    // Mobile Step Click
+    mobileSteps.forEach((mStep, idx) => {
+      mStep.addEventListener('click', () => {
+        setActiveStep(idx, false);
+      });
+    });
+
+    // =========================================================================
+    // BIDIRECTIONAL SCROLL-LINKED ENGINE (RESPONDS SCROLL DOWN & SCROLL UP)
+    // =========================================================================
+    let ticking = false;
+
+    function handleScroll() {
+      if (isHoverLocked) return;
+
+      const rect = container.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Check if section is anywhere near viewport
+      if (rect.bottom < 0 || rect.top > windowHeight) {
+        return;
+      }
+
+      // Calculate smooth entry/exit scroll progress
+      // Progress starts when top of container reaches 75% down the viewport
+      // Progress ends when bottom of container reaches 35% down the viewport
+      const startPoint = windowHeight * 0.75;
+      const endPoint = windowHeight * 0.25;
+      const scrollableRange = rect.height + (startPoint - endPoint);
+      const scrolledDist = startPoint - rect.top;
+
+      let progress = scrolledDist / scrollableRange;
+      progress = Math.max(0, Math.min(progress, 1));
+
+      // 1. DESKTOP ANIMATION UPDATE (Horizontal connecting beam & laser)
+      if (desktopLine && desktopLaser) {
+        // Line spans from 10% to 90% (80% total width span)
+        const lineWidthPercent = progress * 80;
+        desktopLine.style.width = `${lineWidthPercent}%`;
+
+        // Laser head travels along the line
+        const laserPositionPercent = 10 + lineWidthPercent;
+        desktopLaser.style.left = `${laserPositionPercent}%`;
+        desktopLaser.style.opacity = progress > 0.02 ? '1' : '0';
+
+        // Determine active step based on progress thresholds
+        // 5 steps distributed across 0..1
+        let currentStep = 0;
+        if (progress >= 0.85) {
+          currentStep = 4;
+        } else if (progress >= 0.65) {
+          currentStep = 3;
+        } else if (progress >= 0.42) {
+          currentStep = 2;
+        } else if (progress >= 0.20) {
+          currentStep = 1;
+        } else {
+          currentStep = 0;
+        }
+
+        setActiveStep(currentStep, false);
+      }
+
+      // 2. MOBILE ANIMATION UPDATE (Vertical spine & tracker)
+      if (mobileLine && mobileLaser) {
+        const mobileHeightPercent = progress * 96;
+        mobileLine.style.height = `${mobileHeightPercent}%`;
+        mobileLaser.style.top = `${16 + (progress * (rect.height * 0.75))}px`;
+        mobileLaser.style.opacity = progress > 0.05 ? '1' : '0';
+      }
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+
+    // Initial calculation on load
+    handleScroll();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initInteractiveProcess);
+  } else {
+    initInteractiveProcess();
+  }
+</script>
+
