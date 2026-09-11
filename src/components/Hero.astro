@@ -1,6 +1,6 @@
-<section class="relative min-h-[85vh] lg:min-h-[90vh] flex items-center py-12 sm:py-16 md:py-20 px-6 sm:px-10 lg:px-16 overflow-hidden bg-navy-darker text-canvas">
+<section class="relative min-h-[92vh] sm:min-h-[85vh] lg:min-h-[90vh] flex items-center pt-24 pb-12 sm:py-16 md:py-20 px-5 sm:px-10 lg:px-16 overflow-hidden bg-navy-darker text-canvas">
   <!-- ========================================================================= -->
-  <!-- HERO BACKGROUND VIDEO (SEAMLESS COVER WITH REFINED CINEMATIC OVERLAY) -->
+  <!-- HERO BACKGROUND VIDEO (MOBILE OPTIMIZED: OBJECT POSITIONING & AUTOPLAY) -->
   <!-- ========================================================================= -->
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <video
@@ -9,9 +9,11 @@
       loop
       muted
       playsinline
+      webkit-playsinline="true"
+      disablepictureinpicture
       preload="auto"
       poster="/images/hero_main.png"
-      class="w-full h-full object-cover object-center transition-opacity duration-700 [image-rendering:-webkit-optimize-contrast]"
+      class="w-full h-full object-cover object-[55%_center] sm:object-center transition-opacity duration-700 [image-rendering:-webkit-optimize-contrast]"
     >
       <source src="/videos/hero-Section.mp4" type="video/mp4" />
       <source src="/videos/hero_bg.mp4" type="video/mp4" />
@@ -21,29 +23,29 @@
   <!-- Foreground Content Container -->
   <div class="max-w-7xl mx-auto w-full relative z-10">
     <div class="max-w-3xl" data-reveal="fade-up">
-      <!-- Minimalist Eyebrow Badge -->
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 mb-6 text-white/90 shadow-sm">
+      <!-- Crisp Solid Eyebrow Badge (No murky glassmorphism) -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-navy-darker text-white shadow-md border border-navy-border/40 mb-4 sm:mb-5">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="font-mono text-xs uppercase tracking-wider font-medium">
+        <span class="font-mono text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-100">
           Sharjah Al Dhaid • Direct UAE Manufacturer
         </span>
       </div>
 
-      <!-- Main Headline: Balanced, authoritative, spacious -->
-      <h1 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-[1.12] tracking-tight text-white mb-5 drop-shadow-sm">
-        Architectural <span class="text-emerald-300">Tensile Shades</span>, Tents & Steel Fabrication
+      <!-- Main Headline: Deep navy & bold emerald for high-contrast visibility against daytime sky -->
+      <h1 class="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-[1.14] tracking-tight text-navy-darker mb-4 sm:mb-5">
+        Architectural <span class="text-primary-dark">Tensile Shades</span>, Tents & Steel Fabrication
       </h1>
 
-      <!-- Minimal Subheadline -->
-      <p class="font-body text-white/95 text-base sm:text-lg md:text-xl leading-relaxed mb-8 max-w-2xl font-light drop-shadow-sm">
+      <!-- High-Visibility Subheadline -->
+      <p class="font-body text-slate-800 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-6 sm:mb-8 max-w-2xl font-medium">
         Custom engineering, in-house steel & fabric manufacturing, and turnkey installation across all 7 Emirates.
       </p>
 
-      <!-- Clean, Uncrowded Action CTAs -->
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8">
+      <!-- Clean, High-Contrast Action CTAs (Optimized for Mobile Tapping) -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
         <a 
           href="/#contact" 
-          class="bg-primary hover:bg-primary-soft text-canvas font-body font-semibold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 flex items-center justify-center gap-2.5 group active:scale-98"
+          class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white font-body font-semibold text-sm sm:text-base px-6 sm:px-7 py-3.5 rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 flex items-center justify-center gap-2.5 group active:scale-98"
         >
           <span>Request a Free Quote</span>
           <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,51 +55,37 @@
 
         <a 
           href="/projects" 
-          class="bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/30 font-body font-medium text-sm sm:text-base px-6 py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-md"
+          class="w-full sm:w-auto bg-white hover:bg-slate-50 text-navy-darker border border-slate-300/90 font-body font-semibold text-sm sm:text-base px-6 py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-sm hover:shadow-md active:scale-98"
         >
           <span>Explore Projects</span>
         </a>
-
-        <!-- WhatsApp Quick Link (Subtle & clean) -->
-        <a 
-          href="https://wa.me/971505077179?text=Hello%20Al%20Sahra%20Tents,%20I%20would%20like%20to%20inquire%20about%20a%20project." 
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-medium text-emerald-300 hover:text-emerald-200 px-3 py-2 transition-colors group"
-          title="Chat on WhatsApp"
-        >
-          <svg class="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-          </svg>
-          <span>WhatsApp Us</span>
-        </a>
       </div>
 
-      <!-- Minimal Trust Points (Clean, sleek, zero box clutter) -->
-      <div class="flex flex-wrap items-center gap-y-2 gap-x-5 text-xs sm:text-sm text-slate-300/90 font-mono">
+      <!-- Minimal Trust Points (Clean & Legible) -->
+      <div class="flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-5 text-xs sm:text-sm text-slate-800 font-mono font-medium">
         <span class="inline-flex items-center gap-1.5">
-          <span class="text-emerald-400">✓</span> 500+ UAE Projects
+          <span class="text-emerald-700 font-bold">✓</span> 500+ UAE Projects
         </span>
-        <span class="text-white/20 hidden sm:inline">•</span>
+        <span class="text-slate-400 hidden sm:inline">•</span>
         <span class="inline-flex items-center gap-1.5">
-          <span class="text-emerald-400">✓</span> 100% In-House Facility
+          <span class="text-emerald-700 font-bold">✓</span> 100% In-House Facility
         </span>
-        <span class="text-white/20 hidden sm:inline">•</span>
+        <span class="text-slate-400 hidden sm:inline">•</span>
         <span class="inline-flex items-center gap-1.5">
-          <span class="text-emerald-400">✓</span> Turnkey Delivery
+          <span class="text-emerald-700 font-bold">✓</span> Turnkey Delivery
         </span>
       </div>
     </div>
   </div>
 
   <!-- Bottom Floating Video Control Pill -->
-  <div class="absolute bottom-5 right-6 z-20 hidden md:flex items-center gap-2 bg-navy-darker/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 text-[11px] font-mono text-white/70 shadow-lg">
+  <div class="absolute bottom-4 right-4 sm:bottom-5 sm:right-6 z-20 flex items-center gap-1.5 sm:gap-2 bg-navy-darker/80 backdrop-blur-md px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-white/10 text-[10px] sm:text-[11px] font-mono text-white/80 shadow-lg">
     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-    <span>Facility Reel</span>
+    <span class="hidden xs:inline">Facility Reel</span>
     <button 
       id="video-toggle-btn"
       type="button" 
-      class="ml-1 hover:text-white transition-colors p-1"
+      class="ml-0.5 sm:ml-1 hover:text-white transition-colors p-1"
       aria-label="Pause or Play Background Video"
       title="Pause / Play Video"
     >
@@ -112,7 +100,7 @@
   </div>
 </section>
 
-<!-- Hero Video Interactive Controller Script -->
+<!-- Hero Video Interactive Controller Script with Mobile Autoplay Assurance -->
 <script>
   function initHeroVideo() {
     const video = document.getElementById('hero-bg-video') as HTMLVideoElement;
@@ -120,19 +108,37 @@
     const pauseIcon = document.getElementById('video-pause-icon');
     const playIcon = document.getElementById('video-play-icon');
 
-    if (!video || !toggleBtn) return;
+    if (!video) return;
 
-    toggleBtn.addEventListener('click', () => {
-      if (video.paused) {
-        video.play();
-        pauseIcon?.classList.remove('hidden');
-        playIcon?.classList.add('hidden');
-      } else {
-        video.pause();
-        pauseIcon?.classList.add('hidden');
-        playIcon?.classList.remove('hidden');
-      }
-    });
+    // Mobile Autoplay Assurance (iOS Low-Power mode / gesture unlock)
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Auto-play was prevented by mobile browser policies; play on first interaction
+        const startPlayOnInteraction = () => {
+          video.play().catch(() => {});
+          document.removeEventListener('touchstart', startPlayOnInteraction);
+          document.removeEventListener('scroll', startPlayOnInteraction);
+        };
+        document.addEventListener('touchstart', startPlayOnInteraction, { passive: true, once: true });
+        document.addEventListener('scroll', startPlayOnInteraction, { passive: true, once: true });
+      });
+    }
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (video.paused) {
+          video.play();
+          pauseIcon?.classList.remove('hidden');
+          playIcon?.classList.add('hidden');
+        } else {
+          video.pause();
+          pauseIcon?.classList.add('hidden');
+          playIcon?.classList.remove('hidden');
+        }
+      });
+    }
   }
 
   if (document.readyState === 'loading') {
