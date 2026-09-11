@@ -1,8 +1,6 @@
----
----
-<section class="relative min-h-[88vh] lg:min-h-[92vh] flex items-center py-6 sm:py-8 md:py-10 px-6 sm:px-10 lg:px-16 overflow-hidden bg-navy-darker text-canvas">
+<section class="relative min-h-[85vh] lg:min-h-[90vh] flex items-center py-12 sm:py-16 md:py-20 px-6 sm:px-10 lg:px-16 overflow-hidden bg-navy-darker text-canvas">
   <!-- ========================================================================= -->
-  <!-- HERO BACKGROUND VIDEO (SEAMLESS EDGE-TO-EDGE COVER - ZERO GAPS ABOVE/BELOW) -->
+  <!-- HERO BACKGROUND VIDEO (SEAMLESS COVER WITH REFINED CINEMATIC OVERLAY) -->
   <!-- ========================================================================= -->
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <video
@@ -13,73 +11,39 @@
       playsinline
       preload="auto"
       poster="/images/hero_main.png"
-      class="w-full h-full object-cover object-center filter brightness-[1.03] contrast-[1.06] transition-opacity duration-700 [image-rendering:-webkit-optimize-contrast]"
+      class="w-full h-full object-cover object-center transition-opacity duration-700 [image-rendering:-webkit-optimize-contrast]"
     >
+      <source src="/videos/hero-Section.mp4" type="video/mp4" />
       <source src="/videos/hero_bg.mp4" type="video/mp4" />
-      <source src="/Hero%20vid.mp4" type="video/mp4" />
     </video>
-
-    <!-- Soft Left Cinematic Scrim (Smooth Edge-to-Edge Fade for 100% Text Readability, NO Box, NO Vignette) -->
-    <div class="absolute inset-y-0 left-0 w-full sm:w-4/5 lg:w-3/5 bg-gradient-to-r from-navy-darker/85 via-navy-darker/45 to-transparent"></div>
   </div>
 
-  <!-- Foreground Content Container (Floating Naturally Over Video, NO Bounding Card) -->
+  <!-- Foreground Content Container -->
   <div class="max-w-7xl mx-auto w-full relative z-10">
-    <div class="max-w-3xl lg:max-w-4xl" data-reveal="fade-up">
-      <!-- Location & Facility Eyebrow Badge -->
-      <div class="inline-flex items-center gap-2.5 bg-navy-darker/80 backdrop-blur-md px-3.5 py-1 rounded-full border border-white/20 mb-3 sm:mb-4 shadow-xl">
+    <div class="max-w-3xl" data-reveal="fade-up">
+      <!-- Minimalist Eyebrow Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 mb-6 text-white/90 shadow-sm">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="font-mono text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-white">
-          Sharjah Al Dhaid, U.A.E. • In-House Fabrication
+        <span class="font-mono text-xs uppercase tracking-wider font-medium">
+          Sharjah Al Dhaid • Direct UAE Manufacturer
         </span>
       </div>
 
-      <!-- Main Headline with High-Contrast Color Accents for Maximum Readability -->
-      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] leading-[1.12] tracking-[-0.5px] text-white mb-3 sm:mb-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
-        Tents, <span class="text-emerald-300 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">Tensile Shade Structures</span> & <span class="text-amber-300 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">Steel Fabrication</span>
+      <!-- Main Headline: Balanced, authoritative, spacious -->
+      <h1 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-[1.12] tracking-tight text-white mb-5 drop-shadow-sm">
+        Architectural <span class="text-emerald-300">Tensile Shades</span>, Tents & Steel Fabrication
       </h1>
 
-      <!-- Subheadline with High Readability Contrast -->
-      <p class="font-body text-slate-100 text-sm sm:text-base lg:text-[17px] leading-relaxed mb-4 sm:mb-6 max-w-2xl font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
-        Designed, forged, and installed across the United Arab Emirates. A <span class="text-white font-semibold">one-stop turnkey partner</span> delivering specialized engineering, fabrication, and maintenance backed by our <span class="text-emerald-200 font-semibold">in-house manufacturing facility</span> in Sharjah Al Dhaid.
+      <!-- Minimal Subheadline -->
+      <p class="font-body text-white/95 text-base sm:text-lg md:text-xl leading-relaxed mb-8 max-w-2xl font-light drop-shadow-sm">
+        Custom engineering, in-house steel & fabric manufacturing, and turnkey installation across all 7 Emirates.
       </p>
 
-      <!-- Key Value Points Pills (Crisp Frosted Glass) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-5 sm:mb-6 max-w-xl">
-        <div class="flex items-center gap-2.5 text-xs sm:text-[13px] font-medium text-white bg-navy-darker/80 backdrop-blur-md px-3 py-2 rounded-xl border border-white/20 shadow-lg">
-          <div class="w-4 h-4 rounded-full bg-emerald-500/30 flex items-center justify-center text-emerald-300 shrink-0">
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="font-semibold">In-House Steel & Fabric Facility</span>
-        </div>
-        
-        <div class="flex items-center gap-2.5 text-xs sm:text-[13px] font-medium text-white bg-navy-darker/80 backdrop-blur-md px-3 py-2 rounded-xl border border-white/20 shadow-lg">
-          <div class="w-4 h-4 rounded-full bg-emerald-500/30 flex items-center justify-center text-emerald-300 shrink-0">
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="font-semibold">German & French Fabric Alliances</span>
-        </div>
-
-        <div class="flex items-center gap-2.5 text-xs sm:text-[13px] font-medium text-white bg-navy-darker/80 backdrop-blur-md px-3 py-2 rounded-xl border border-white/20 shadow-lg">
-          <div class="w-4 h-4 rounded-full bg-emerald-500/30 flex items-center justify-center text-emerald-300 shrink-0">
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="font-semibold">Built-to-Order Customization</span>
-        </div>
-
-        <div class="flex items-center gap-2.5 text-xs sm:text-[13px] font-medium text-white bg-navy-darker/80 backdrop-blur-md px-3 py-2 rounded-xl border border-white/20 shadow-lg">
-          <div class="w-4 h-4 rounded-full bg-emerald-500/30 flex items-center justify-center text-emerald-300 shrink-0">
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="font-semibold">Design to Installation Under One Roof</span>
-        </div>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="flex flex-wrap items-center gap-3.5">
+      <!-- Clean, Uncrowded Action CTAs -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8">
         <a 
           href="/#contact" 
-          class="bg-primary hover:bg-primary-soft text-canvas font-body font-semibold text-xs sm:text-sm px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 flex items-center gap-2.5 group active:scale-98"
+          class="bg-primary hover:bg-primary-soft text-canvas font-body font-semibold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 flex items-center justify-center gap-2.5 group active:scale-98"
         >
           <span>Request a Free Quote</span>
           <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,53 +53,51 @@
 
         <a 
           href="/projects" 
-          class="bg-navy-darker/70 hover:bg-canvas hover:text-ink text-white border border-white/20 font-body font-semibold text-xs sm:text-sm px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl transition-all duration-300 flex items-center gap-2 backdrop-blur-md shadow-lg"
+          class="bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/30 font-body font-medium text-sm sm:text-base px-6 py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-md"
         >
-          <span>View UAE Projects</span>
+          <span>Explore Projects</span>
         </a>
 
-        <!-- Direct WhatsApp Shortcut -->
+        <!-- WhatsApp Quick Link (Subtle & clean) -->
         <a 
           href="https://wa.me/971505077179?text=Hello%20Al%20Sahra%20Tents,%20I%20would%20like%20to%20inquire%20about%20a%20project." 
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-amber-300 hover:text-amber-200 px-3 py-2 transition-colors drop-shadow-md"
+          class="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-medium text-emerald-300 hover:text-emerald-200 px-3 py-2 transition-colors group"
+          title="Chat on WhatsApp"
         >
-          <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
           </svg>
-          <span>Direct WhatsApp</span>
+          <span>WhatsApp Us</span>
         </a>
       </div>
 
-      <!-- Trust Metrics Floating Pill Bar (100% Legible across all Video Frames) -->
-      <div class="mt-5 sm:mt-6 inline-flex flex-wrap items-center gap-3.5 sm:gap-6 bg-navy-darker/85 backdrop-blur-md px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl border border-white/20 shadow-2xl">
-        <div class="flex items-center gap-2.5">
-          <span class="font-display text-xl sm:text-2xl font-bold text-amber-300 drop-shadow-sm">500+</span>
-          <span class="text-[11px] sm:text-xs font-mono font-medium text-white leading-tight">Projects Built<br/><span class="text-white/80">Across UAE</span></span>
-        </div>
-        <div class="h-6 w-px bg-white/20 hidden sm:block"></div>
-        <div class="flex items-center gap-2.5">
-          <span class="font-display text-xl sm:text-2xl font-bold text-emerald-400 drop-shadow-sm">100%</span>
-          <span class="text-[11px] sm:text-xs font-mono font-medium text-white leading-tight">In-House Facility<br/><span class="text-white/80">Sharjah Al Dhaid</span></span>
-        </div>
-        <div class="h-6 w-px bg-white/20 hidden sm:block"></div>
-        <div class="flex items-center gap-2.5">
-          <span class="font-display text-xl sm:text-2xl font-bold text-white drop-shadow-sm">24/7</span>
-          <span class="text-[11px] sm:text-xs font-mono font-medium text-white leading-tight">Turnkey Support<br/><span class="text-white/80">& Renovation</span></span>
-        </div>
+      <!-- Minimal Trust Points (Clean, sleek, zero box clutter) -->
+      <div class="flex flex-wrap items-center gap-y-2 gap-x-5 text-xs sm:text-sm text-slate-300/90 font-mono">
+        <span class="inline-flex items-center gap-1.5">
+          <span class="text-emerald-400">✓</span> 500+ UAE Projects
+        </span>
+        <span class="text-white/20 hidden sm:inline">•</span>
+        <span class="inline-flex items-center gap-1.5">
+          <span class="text-emerald-400">✓</span> 100% In-House Facility
+        </span>
+        <span class="text-white/20 hidden sm:inline">•</span>
+        <span class="inline-flex items-center gap-1.5">
+          <span class="text-emerald-400">✓</span> Turnkey Delivery
+        </span>
       </div>
     </div>
   </div>
 
-  <!-- Bottom Floating Video Playback & Sound Control Pill -->
-  <div class="absolute bottom-4 right-6 z-20 hidden md:flex items-center gap-2 bg-navy-darker/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 text-[11px] font-mono text-ink-secondary shadow-xl">
-    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-    <span>Background Reel</span>
+  <!-- Bottom Floating Video Control Pill -->
+  <div class="absolute bottom-5 right-6 z-20 hidden md:flex items-center gap-2 bg-navy-darker/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 text-[11px] font-mono text-white/70 shadow-lg">
+    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+    <span>Facility Reel</span>
     <button 
       id="video-toggle-btn"
       type="button" 
-      class="ml-2 hover:text-canvas transition-colors p-1"
+      class="ml-1 hover:text-white transition-colors p-1"
       aria-label="Pause or Play Background Video"
       title="Pause / Play Video"
     >
