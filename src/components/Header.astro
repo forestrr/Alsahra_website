@@ -1,52 +1,50 @@
 ---
 ---
-<header class="sticky top-0 z-50 transition-all duration-300 bg-cream/95 backdrop-blur-md border-b border-hairline px-4 sm:px-8 lg:px-12 py-1 sm:py-1.5 flex items-center justify-between">
-  <!-- Brand Logo (Prominent Large Size with Tight Crop) -->
-  <div class="flex items-center">
-    <a href="/" aria-label="Al Sahra Tents & Sheds Fix" class="flex items-center gap-2 group py-0.5">
+<header class="sticky top-0 z-50 transition-all duration-300 bg-cream/95 backdrop-blur-md border-b border-hairline px-4 sm:px-8 lg:px-12 h-16 sm:h-[72px] flex items-center justify-between">
+  <!-- Brand Logo (Maximized within Fixed Header Height, High-Res Retina, No Edge Cutting) -->
+  <div class="flex items-center h-full py-1.5 sm:py-2">
+    <a href="/" aria-label="Al Sahra Tents & Sheds Fix" class="flex items-center h-full group">
       <img 
-        src="/logo1.png" 
+        src="/logo-retina.png" 
         alt="Al Sahra Tents & Sheds Fix" 
-        class="h-12 sm:h-14 md:h-16 lg:h-18 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+        width="894"
+        height="432"
+        class="h-full max-h-[50px] sm:max-h-[56px] w-auto object-contain [image-rendering:-webkit-optimize-contrast] transition-transform duration-300 group-hover:scale-105" 
       />
     </a>
   </div>
   
-  <!-- Navigation Links with Animated Underlines -->
-  <nav class="hidden md:flex gap-6 lg:gap-8 items-center">
-    <a href="/#about" class="relative text-ink font-body font-medium text-[14px] lg:text-[15px] hover:text-primary transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300">
+  <!-- Navigation Links with Animated Expanding Underlines (Hover & Selecting) -->
+  <nav class="hidden md:flex gap-6 lg:gap-8 items-center" id="desktop-nav">
+    <a href="/#about" class="header-nav-link text-ink font-body font-medium text-[13.5px] lg:text-[14.5px] hover:text-primary transition-colors">
       About
     </a>
-    <a href="/#services" class="relative text-ink font-body font-medium text-[14px] lg:text-[15px] hover:text-primary transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300">
+    <a href="/#services" class="header-nav-link text-ink font-body font-medium text-[13.5px] lg:text-[14.5px] hover:text-primary transition-colors">
       Services
     </a>
-    <a href="/#industries" class="relative text-ink font-body font-medium text-[14px] lg:text-[15px] hover:text-primary transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300">
+    <a href="/#industries" class="header-nav-link text-ink font-body font-medium text-[13.5px] lg:text-[14.5px] hover:text-primary transition-colors">
       Industries
     </a>
-    <a href="/projects" class="relative text-ink font-body font-medium text-[14px] lg:text-[15px] hover:text-primary transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300">
+    <a href="/projects" class="header-nav-link text-ink font-body font-medium text-[13.5px] lg:text-[14.5px] hover:text-primary transition-colors">
       Projects
     </a>
-    <a href="/trades" class="relative text-ink font-body font-medium text-[14px] lg:text-[15px] hover:text-primary transition-colors flex items-center gap-1.5 py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300 group">
-      <span>Our Trades</span>
-      <span class="text-[9px] uppercase font-mono px-1.5 py-0.5 rounded bg-primary/10 text-primary font-bold transition-transform duration-200 group-hover:scale-105">Panels</span>
+    <a href="/trades" class="header-nav-link text-ink font-body font-medium text-[13.5px] lg:text-[14.5px] hover:text-primary transition-colors">
+      Our Trades
     </a>
-    <a href="/#contact" class="relative text-ink font-body font-medium text-[14px] lg:text-[15px] hover:text-primary transition-colors py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300">
+    <a href="/#contact" class="header-nav-link text-ink font-body font-medium text-[13.5px] lg:text-[14.5px] hover:text-primary transition-colors">
       Contact
     </a>
   </nav>
 
   <!-- Right Actions -->
   <div class="flex items-center gap-3 sm:gap-4">
-    <!-- Animated CTA Button with Shimmer and Motion -->
+    <!-- CTA Button (Proportional Size Matching Medium Logo) -->
     <a 
       href="/#contact" 
-      class="relative overflow-hidden group bg-primary hover:bg-primary-soft text-white font-body font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-primary/30 active:scale-95 flex items-center gap-1.5"
+      class="btn-live-header btn-shimmer font-body font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-lg sm:rounded-xl flex items-center gap-1.5"
     >
-      <!-- Shimmer effect sweep on hover -->
-      <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out pointer-events-none"></span>
-      
       <span class="relative z-10">Get Free Quote</span>
-      <svg class="w-3.5 h-3.5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-3.5 h-3.5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
       </svg>
     </a>
@@ -58,7 +56,7 @@
       class="md:hidden p-1.5 rounded-lg text-ink hover:bg-sand transition-colors"
       aria-label="Toggle Navigation Menu"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
@@ -70,7 +68,7 @@
   <div class="bg-cream w-4/5 max-w-sm h-full p-6 shadow-2xl flex flex-col justify-between overflow-y-auto">
     <div>
       <div class="flex items-center justify-between pb-4 border-b border-hairline">
-        <img src="/logo1.png" alt="Al Sahra" class="h-12 w-auto object-contain" />
+        <img src="/logo-retina.png" alt="Al Sahra" class="h-10 w-auto object-contain [image-rendering:-webkit-optimize-contrast]" />
         <button id="close-menu-btn" class="p-2 text-ink" aria-label="Close Menu">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -83,7 +81,7 @@
         <a href="/#services" class="mobile-nav-link py-1.5 hover:text-primary">Services & Pillars</a>
         <a href="/#industries" class="mobile-nav-link py-1.5 hover:text-primary">Industries We Serve</a>
         <a href="/projects" class="mobile-nav-link py-1.5 hover:text-primary">Project Gallery</a>
-        <a href="/trades" class="mobile-nav-link py-1.5 hover:text-primary">Our Trades & Panels</a>
+        <a href="/trades" class="mobile-nav-link py-1.5 hover:text-primary">Our Trades</a>
         <a href="/#contact" class="mobile-nav-link py-1.5 hover:text-primary">Contact & Location</a>
       </nav>
     </div>
@@ -92,18 +90,49 @@
       <div class="text-xs font-mono text-ink-muted mb-1.5">Direct Contact</div>
       <a href="tel:+971505077179" class="block font-mono font-semibold text-primary text-sm mb-1">+971 50 507 7179</a>
       <a href="tel:+97165431993" class="block font-mono font-semibold text-ink text-xs mb-3">+971 6 543 1993</a>
-      <a href="#contact" class="w-full bg-primary text-canvas text-center font-semibold py-2.5 rounded-lg block text-sm">
+      <a href="#contact" class="btn-live-header btn-shimmer w-full text-center font-semibold py-2.5 rounded-lg block text-sm">
         Request a Consultation
       </a>
     </div>
   </div>
 </div>
 
+<style>
+  .header-nav-link {
+    position: relative;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    transition: color 0.25s ease;
+  }
+  .header-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    border-radius: 9999px;
+    transform: translateX(-50%);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .header-nav-link:hover::after,
+  .header-nav-link:focus-visible::after,
+  .header-nav-link.active-link::after {
+    width: 100%;
+  }
+  .header-nav-link.active-link {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+</style>
+
 <script>
   const menuBtn = document.getElementById('mobile-menu-btn');
   const closeBtn = document.getElementById('close-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const navLinks = document.querySelectorAll('.mobile-nav-link');
+  const headerLinks = document.querySelectorAll('.header-nav-link');
 
   function toggleMenu() {
     if (mobileMenu) {
@@ -114,4 +143,32 @@
   menuBtn?.addEventListener('click', toggleMenu);
   closeBtn?.addEventListener('click', toggleMenu);
   navLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+  // Sync active underline selection on click and page load
+  function syncActiveLink() {
+    const hash = window.location.hash;
+    const path = window.location.pathname;
+
+    headerLinks.forEach(link => {
+      const href = link.getAttribute('href') || '';
+      if (hash && href.includes(hash)) {
+        link.classList.add('active-link');
+      } else if (!hash && (href === path || (path !== '/' && href.startsWith(path)))) {
+        link.classList.add('active-link');
+      } else {
+        link.classList.remove('active-link');
+      }
+    });
+  }
+
+  headerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      headerLinks.forEach(l => l.classList.remove('active-link'));
+      link.classList.add('active-link');
+    });
+  });
+
+  window.addEventListener('hashchange', syncActiveLink);
+  document.addEventListener('DOMContentLoaded', syncActiveLink);
+  syncActiveLink();
 </script>
