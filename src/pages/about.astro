@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import TradesSection from '../components/TradesSection.astro';
+import About from '../components/About.astro';
+import IndustriesSection from '../components/IndustriesSection.astro';
 import ClientsMarquee from '../components/ClientsMarquee.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import Footer from '../components/Footer.astro';
@@ -9,8 +10,8 @@ import FloatingActions from '../components/FloatingActions.astro';
 ---
 
 <Layout
-  title="Our Trades & Industrial Panels | Al Sahra Tents & Sheds Fix"
-  description="Explore Al Sahra's industrial trading, steel fabrication, sandwich panels, corrugated sheets, and raw material supply from our Sharjah Al Dhaid facility."
+  title="About Us & Industries Served | Al Sahra Tents & Sheds Fix UAE"
+  description="Learn about Al Sahra Tents & Sheds Fix — Sharjah Al Dhaid manufacturer of architectural tensile structures, custom majlis tents, and structural steel sheds across UAE."
 >
   <Header />
   
@@ -24,30 +25,33 @@ import FloatingActions from '../components/FloatingActions.astro';
       <div class="max-w-7xl mx-auto relative z-10 text-center">
         <div class="inline-flex items-center gap-2 bg-navy-card/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 text-gold-accent font-mono text-xs uppercase tracking-wider mb-5">
           <span class="w-1.5 h-1.5 rounded-full bg-gold-accent animate-ping"></span>
-          <span>In-House Manufacturing & Trading</span>
+          <span>Corporate Overview & Specialized Engineering</span>
         </div>
 
         <h1 class="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-canvas mb-4">
-          Our Trades & Industrial Panel Supply
+          Engineering Excellence & Purpose-Built Structures
         </h1>
 
         <p class="font-body text-ink-secondary text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-          Full-scope structural steel fabrication, architectural membranes, insulated sandwich panels, corrugated roofing, and custom industrial metalworks direct from our Sharjah Al Dhaid workshop.
+          From our Sharjah Al Dhaid manufacturing facility to landmark projects across the 7 Emirates, we deliver certified architectural tensile shades, custom tents, and turnkey steel fabrication.
         </p>
 
-        <!-- Quick Facility Metrics -->
+        <!-- Quick Credentials Metrics -->
         <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-mono text-ink-secondary pt-6 border-t border-navy-mid/60 max-w-2xl mx-auto">
-          <div><span class="text-canvas font-bold text-base">Direct</span> Manufacturer Supply</div>
+          <div><span class="text-canvas font-bold text-base">500+</span> UAE Clients</div>
           <div class="w-1 h-1 rounded-full bg-navy-mid"></div>
-          <div><span class="text-canvas font-bold text-base">PIR & PU</span> Insulated Cores</div>
+          <div><span class="text-canvas font-bold text-base">100%</span> In-House Manufacturing</div>
           <div class="w-1 h-1 rounded-full bg-navy-mid"></div>
-          <div><span class="text-canvas font-bold text-base">Fast</span> UAE Delivery</div>
+          <div><span class="text-canvas font-bold text-base">Sharjah</span> Al Dhaid Hub</div>
         </div>
       </div>
     </section>
 
-    <!-- Full Trades & Panels Section Component -->
-    <TradesSection />
+    <!-- About Section & What We Do -->
+    <About />
+
+    <!-- Industries We Serve Section -->
+    <IndustriesSection />
 
     <!-- Client References Marquee -->
     <ClientsMarquee />
