@@ -1,5 +1,20 @@
 ---
 import { services } from '../data/services';
+
+const getBentoClasses = (idx: number) => {
+  switch (idx) {
+    case 0: return 'md:col-span-2 lg:col-span-2 lg:row-span-2 min-h-[400px] lg:min-h-[500px]'; // Large
+    case 1: return 'md:col-span-2 lg:col-span-2 min-h-[300px] lg:min-h-[240px]'; // Wide
+    case 2: return 'md:col-span-1 lg:col-span-1 min-h-[300px] lg:min-h-[240px]'; // Small
+    case 3: return 'md:col-span-1 lg:col-span-1 min-h-[300px] lg:min-h-[240px]'; // Small
+    case 4: return 'md:col-span-2 lg:col-span-2 min-h-[300px] lg:min-h-[240px]'; // Wide
+    case 5: return 'md:col-span-2 lg:col-span-2 min-h-[300px] lg:min-h-[240px]'; // Wide
+    case 6: return 'md:col-span-1 lg:col-span-1 min-h-[300px] lg:min-h-[240px]'; // Small
+    case 7: return 'md:col-span-1 lg:col-span-1 min-h-[300px] lg:min-h-[240px]'; // Small
+    case 8: return 'md:col-span-2 lg:col-span-2 min-h-[300px] lg:min-h-[240px]'; // Wide
+    default: return 'col-span-1 min-h-[300px] lg:min-h-[240px]';
+  }
+};
 ---
 <section id="services" class="bg-navy-canvas py-24 px-6 sm:px-10 lg:px-16 relative overflow-hidden">
   <!-- Decorative background subtle glow -->
@@ -30,71 +45,66 @@ import { services } from '../data/services';
       </a>
     </div>
 
-    <!-- 9 Core Services Grid (3x3) -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+    <!-- 9 Core Services Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:auto-rows-[minmax(0,1fr)]">
       {services.map((category, idx) => (
         <a 
           href={`/services/${category.slug}`}
-          class="bg-navy-card rounded-2xl overflow-hidden border border-navy-border hover:border-gold-accent/50 transition-all duration-300 flex flex-col group hover:-translate-y-2 shadow-lg hover:shadow-2xl hover:shadow-black/40 cursor-pointer"
+          class={`relative overflow-hidden rounded-[24px] border border-white/10 group shadow-lg hover:shadow-2xl hover:shadow-gold-accent/20 transition-all duration-500 cursor-pointer flex flex-col justify-between p-5 md:p-6 lg:p-8 ${getBentoClasses(idx)}`}
           data-reveal="fade-up"
           data-reveal-delay={String((idx % 3) * 0.08)}
         >
-          <!-- Image Frame -->
-          <div class="relative aspect-[16/11] overflow-hidden bg-navy-darker">
-            <img 
-              src={category.heroImage} 
-              alt={category.name} 
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108 [image-rendering:-webkit-optimize-contrast]"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-navy-card via-navy-card/30 to-transparent opacity-70 group-hover:opacity-50 transition-opacity"></div>
-            
-            <!-- Sub-item count badge -->
-            <span class="absolute top-3 left-3 text-[10.5px] font-mono px-2.5 py-1 rounded-md bg-navy-darker/80 backdrop-blur-md text-gold-accent border border-white/10 shadow-sm">
+          <!-- Background Image -->
+          <img 
+            src={category.heroImage} 
+            alt={category.name} 
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 [image-rendering:-webkit-optimize-contrast]"
+            loading="lazy"
+          />
+          
+          <!-- Gradients for readability -->
+          <div class="absolute inset-0 bg-gradient-to-t from-navy-darker via-navy-darker/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-navy-darker/30 group-hover:bg-transparent transition-colors duration-500"></div>
+
+          <!-- Top Badges -->
+          <div class="relative z-10 flex justify-between items-start w-full mb-4">
+            <span class="text-[10px] font-mono px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md text-gold-accent border border-white/10">
               {category.subItems.length} Solutions
             </span>
-
-            <!-- Quick Arrow Icon Button -->
-            <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-navy-darker/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-canvas group-hover:bg-primary group-hover:border-primary transition-all duration-300 shadow-md">
-              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white group-hover:bg-gold-accent group-hover:text-navy-darker transition-all duration-500 transform group-hover:-rotate-45 shrink-0">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
               </svg>
             </div>
           </div>
 
           <!-- Content Area -->
-          <div class="p-6 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="font-mono text-[10px] text-ink-muted uppercase tracking-wider mb-1">Service Division {String(idx + 1).padStart(2, '0')}</div>
-              <h3 class="font-display font-bold text-xl text-canvas mb-2.5 group-hover:text-gold-accent transition-colors">
-                {category.name}
-              </h3>
-              <p class="font-body text-ink-secondary text-xs leading-relaxed mb-4 line-clamp-3">
+          <div class="relative z-10 mt-auto transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <div class="font-mono text-[10px] text-gold-accent uppercase tracking-widest mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+              Service Division {String(idx + 1).padStart(2, '0')}
+            </div>
+            <h3 class="font-display font-bold text-2xl md:text-3xl text-white mb-3 drop-shadow-lg">
+              {category.name}
+            </h3>
+            
+            <div class="h-0 group-hover:h-auto overflow-hidden transition-all duration-500 opacity-0 group-hover:opacity-100 mb-4">
+              <p class="font-body text-white/80 text-sm leading-relaxed">
                 {category.intro}
               </p>
             </div>
 
-            <!-- Sub-item Pills & Action -->
-            <div>
-              <div class="pt-4 border-t border-navy-mid/70 flex flex-wrap gap-1.5 mb-4">
-                {category.subItems.slice(0, 3).map(sub => (
-                  <span class="text-[10px] font-mono bg-navy-darker/80 text-ink-secondary px-2 py-0.5 rounded border border-white/5">
-                    {sub.name}
-                  </span>
-                ))}
-                {category.subItems.length > 3 && (
-                  <span class="text-[10px] font-mono bg-navy-darker/80 text-gold-accent px-2 py-0.5 rounded border border-white/5">
-                    +{category.subItems.length - 3} more
-                  </span>
-                )}
-              </div>
-
-              <div class="flex items-center gap-1.5 text-xs font-semibold text-gold-accent group-hover:text-canvas transition-colors">
-                <span>Explore Solutions</span>
-                <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </div>
+            <!-- Sub-item Pills -->
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/10">
+              {category.subItems.slice(0, idx === 0 ? 4 : 2).map(sub => (
+                <span class="text-[10px] font-mono bg-white/10 backdrop-blur-md text-white px-2.5 py-1 rounded-full border border-white/10 group-hover:bg-white/20 transition-colors">
+                  {sub.name}
+                </span>
+              ))}
+              {category.subItems.length > (idx === 0 ? 4 : 2) && (
+                <span class="text-[10px] font-mono bg-gold-accent/20 backdrop-blur-md text-gold-accent px-2.5 py-1 rounded-full border border-gold-accent/30 group-hover:bg-gold-accent group-hover:text-navy-darker transition-colors">
+                  +{category.subItems.length - (idx === 0 ? 4 : 2)}
+                </span>
+              )}
             </div>
           </div>
         </a>

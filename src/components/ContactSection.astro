@@ -1,86 +1,91 @@
 ---
 import ContactForm from './ContactForm';
 ---
-<section id="contact" class="bg-navy-canvas py-24 px-6 sm:px-10 lg:px-16 relative overflow-hidden">
-  <!-- Subtle decorative ambient glow -->
-  <div class="absolute -bottom-20 -right-20 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<section id="contact" class="relative w-full min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+  
+  <!-- Full Bleed Map Background -->
+  <div class="absolute inset-0 z-0 bg-navy-darker">
+    <!-- Overlay to darken and tint the map to match brand -->
+    <div class="absolute inset-0 bg-navy-darker/80 mix-blend-multiply z-10 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-navy-darker via-navy-darker/60 to-transparent z-10 pointer-events-none"></div>
+    
+    <iframe 
+      title="Al Sahra Sharjah Al Dhaid Location"
+      src="https://maps.google.com/maps?q=Al%20Dhaid,%20Sharjah,%20United%20Arab%20Emirates&t=&z=12&ie=UTF8&iwloc=&output=embed" 
+      class="w-full h-[120%] -mt-[10%] border-0 filter grayscale contrast-125 opacity-40"
+      loading="lazy"
+      allowfullscreen
+    ></iframe>
+  </div>
 
-  <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
-    <!-- Left Column: Contact details & official info (5 cols) -->
-    <div class="lg:col-span-5" data-reveal="fade-up">
-      <span class="font-mono text-gold-accent text-xs uppercase tracking-[2px] font-semibold block mb-4">
-        Let's Build Together
-      </span>
-      <h2 class="font-display text-3xl sm:text-4xl lg:text-[46px] leading-[1.12] tracking-tight text-canvas mb-6">
-        Get in touch with our UAE team
-      </h2>
-      <p class="font-body text-ink-secondary text-base sm:text-lg mb-10 leading-relaxed">
-        Whether you are planning a municipal parking shade, luxury villa pergola, sports canopy, or industrial shed, our engineers provide fast, comprehensive support.
-      </p>
-      
-      <!-- Contact Cards -->
-      <div class="space-y-6">
-        <!-- Head Office -->
-        <div class="flex items-start gap-4 p-4 rounded-xl bg-navy-card/60 border border-white/5">
-          <div class="w-10 h-10 rounded-lg bg-gold-accent/15 text-gold-accent flex items-center justify-center shrink-0 mt-0.5">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-          </div>
-          <div>
-            <h4 class="font-mono text-xs uppercase tracking-wider text-ink-muted mb-1">Head Office & Facility</h4>
-            <p class="font-body font-semibold text-canvas text-base">Sharjah Al Dhaid, United Arab Emirates</p>
-            <p class="font-body text-ink-secondary text-xs mt-0.5">In-house steel fabrication & technical membrane workshop</p>
-          </div>
-        </div>
+  <!-- Monolithic Glassmorphic Dossier -->
+  <div class="max-w-7xl w-full mx-auto px-6 sm:px-10 lg:px-16 relative z-20" data-reveal="fade-up">
+    
+    <div class="bg-navy-darker/80 backdrop-blur-2xl rounded-[32px] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+      <div class="grid lg:grid-cols-12">
+        
+        <!-- Left Column: Contact Details -->
+        <div class="lg:col-span-5 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-white/10 bg-gradient-to-br from-white/5 to-transparent relative">
+          <!-- Decorative Glow -->
+          <div class="absolute top-0 left-0 w-full h-full bg-gold-accent/5 blur-[100px] pointer-events-none"></div>
 
-        <!-- Phone Numbers -->
-        <div class="flex items-start gap-4 p-4 rounded-xl bg-navy-card/60 border border-white/5">
-          <div class="w-10 h-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-            </svg>
-          </div>
-          <div>
-            <h4 class="font-mono text-xs uppercase tracking-wider text-ink-muted mb-1">Direct Call & WhatsApp</h4>
-            <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 font-mono">
-              <a href="tel:+971505077179" class="text-canvas text-base font-semibold hover:text-gold-accent transition-colors">
-                +971 50 507 7179
-              </a>
-              <span class="hidden sm:inline text-navy-border">•</span>
-              <a href="tel:+97165431993" class="text-canvas text-base font-semibold hover:text-gold-accent transition-colors">
-                +971 6 543 1993
-              </a>
+          <span class="font-mono text-gold-accent text-xs uppercase tracking-[0.2em] font-semibold block mb-4">
+            Official UAE Consultation
+          </span>
+          <h2 class="font-display font-black text-3xl sm:text-4xl text-canvas tracking-tight mb-6">
+            Get in touch with our engineers.
+          </h2>
+          <p class="font-body text-ink-secondary text-base leading-relaxed mb-12">
+            Direct manufacturer consultation, structural engineering guidance, and formal quotation for tensile structures, car parking shades, and steel works.
+          </p>
+          
+          <div class="space-y-8">
+            <!-- Facility -->
+            <div>
+              <h4 class="font-mono text-[10px] uppercase tracking-widest text-ink-muted mb-2">Workshop & Fabrication Yard</h4>
+              <p class="font-body font-semibold text-canvas text-base mb-1">Sharjah Al Dhaid, United Arab Emirates</p>
+              <div class="flex items-center gap-2 font-body text-xs text-ink-secondary">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                Open Mon-Sat: 8:00 AM - 7:00 PM
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <h4 class="font-mono text-[10px] uppercase tracking-widest text-ink-muted mb-2">Direct Call & WhatsApp</h4>
+              <div class="flex flex-col gap-1 font-mono text-lg">
+                <a href="tel:+971505077179" class="text-canvas font-semibold hover:text-gold-accent transition-colors flex items-center gap-3">
+                  +971 50 507 7179
+                  <span class="text-[10px] bg-white/10 px-2 py-0.5 rounded-full text-white">Primary</span>
+                </a>
+                <a href="tel:+97165431993" class="text-ink-secondary hover:text-gold-accent transition-colors text-base">
+                  +971 6 543 1993
+                </a>
+              </div>
+            </div>
+
+            <!-- Web & Email -->
+            <div>
+              <h4 class="font-mono text-[10px] uppercase tracking-widest text-ink-muted mb-2">Digital Enquiries</h4>
+              <div class="flex flex-col gap-1 font-mono text-sm">
+                <a href="mailto:info@alsahratents.biz" class="text-canvas font-semibold hover:text-gold-accent transition-colors">
+                  info@alsahratents.biz
+                </a>
+                <a href="https://www.alsahratents.biz" target="_blank" class="text-ink-secondary hover:text-canvas transition-colors">
+                  www.alsahratents.biz
+                </a>
+              </div>
             </div>
           </div>
         </div>
-
-        <!-- Email & Web -->
-        <div class="flex items-start gap-4 p-4 rounded-xl bg-navy-card/60 border border-white/5">
-          <div class="w-10 h-10 rounded-lg bg-white/10 text-canvas flex items-center justify-center shrink-0 mt-0.5">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <div>
-            <h4 class="font-mono text-xs uppercase tracking-wider text-ink-muted mb-1">Email & Website</h4>
-            <div class="flex flex-col font-mono text-sm">
-              <a href="mailto:info@alsahratents.biz" class="text-canvas font-semibold hover:text-gold-accent transition-colors">
-                info@alsahratents.biz
-              </a>
-              <a href="https://www.alsahratents.biz" target="_blank" class="text-primary-soft hover:underline">
-                www.alsahratents.biz
-              </a>
-            </div>
-          </div>
+        
+        <!-- Right Column: Interactive Form -->
+        <div class="lg:col-span-7 p-8 sm:p-12 bg-navy-card/40 relative">
+          <ContactForm client:visible />
         </div>
+        
       </div>
     </div>
     
-    <!-- Right Column: Interactive Form (7 cols) -->
-    <div class="lg:col-span-7" data-reveal="scale-up" data-reveal-delay="0.1">
-      <ContactForm client:visible />
-    </div>
   </div>
 </section>

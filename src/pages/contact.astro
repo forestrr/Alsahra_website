@@ -14,81 +14,13 @@ import FloatingActions from '../components/FloatingActions.astro';
   <Header />
   
   <main>
-    <!-- Page Hero Banner (Uniform Design Language matching other pages) -->
-    <section class="bg-navy-darker py-20 md:py-24 px-6 sm:px-10 lg:px-16 border-b border-navy-mid relative overflow-hidden text-canvas">
-      <!-- Subtle ambient glow -->
-      <div class="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[140px] pointer-events-none"></div>
-      <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gold-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-      <div class="max-w-7xl mx-auto relative z-10 text-center">
-        <div class="inline-flex items-center gap-2 bg-navy-card/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 text-gold-accent font-mono text-xs uppercase tracking-wider mb-5">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Official UAE Consultation & Support</span>
-        </div>
-
-        <h1 class="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-canvas mb-4">
-          Contact Our Engineering & Estimation Team
-        </h1>
-
-        <p class="font-body text-ink-secondary text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-          Direct manufacturer consultation, structural engineering guidance, and quotation for tensile structures, car parking shades, majlis tents, and steel works across all 7 Emirates.
-        </p>
-
-        <!-- Quick Response Metrics -->
-        <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs font-mono text-ink-secondary pt-6 border-t border-navy-mid/60 max-w-2xl mx-auto">
-          <div><span class="text-canvas font-bold text-base">24-Hour</span> Formal Quotations</div>
-          <div class="w-1 h-1 rounded-full bg-navy-mid"></div>
-          <div><span class="text-canvas font-bold text-base">Free</span> Site Survey & Specs</div>
-          <div class="w-1 h-1 rounded-full bg-navy-mid"></div>
-          <div><span class="text-canvas font-bold text-base">Sharjah</span> Al Dhaid Workshop</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Full Interactive Contact Section (Form, Phone Numbers, Direct WhatsApp) -->
+    <!-- Full-Bleed Monolithic Contact Dashboard -->
     <ContactSection />
 
-    <!-- Google Map / Workshop Location Embed Section -->
-    <section class="bg-navy-canvas py-16 px-6 sm:px-10 lg:px-16 border-t border-navy-mid">
-      <div class="max-w-7xl mx-auto">
-        <div class="bg-navy-darker rounded-2xl overflow-hidden border border-navy-border shadow-2xl p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-8">
-          <div class="lg:max-w-md">
-            <span class="font-mono text-xs uppercase tracking-wider text-gold-accent font-semibold block mb-2">Workshop & Fabrication Yard</span>
-            <h3 class="font-display font-bold text-2xl text-canvas mb-3">Visit Our Sharjah Al Dhaid Facility</h3>
-            <p class="font-body text-ink-secondary text-sm leading-relaxed mb-6">
-              Our integrated manufacturing facility handles steel frame welding, CNC plasma cutting, automated PVC/PVDF high-frequency membrane welding, and insulated sandwich panel storage.
-            </p>
-            <div class="space-y-3 font-body text-xs text-ink-secondary">
-              <div class="flex items-center gap-2.5">
-                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                <span>Open Monday – Saturday: 8:00 AM – 7:00 PM</span>
-              </div>
-              <div class="flex items-center gap-2.5">
-                <span class="w-2 h-2 rounded-full bg-primary"></span>
-                <span>Direct Site Visits & Client Consultations Welcomed</span>
-              </div>
-              <div class="flex items-center gap-2.5">
-                <span class="w-2 h-2 rounded-full bg-gold-accent"></span>
-                <span>Sharjah Al Dhaid, United Arab Emirates</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="w-full lg:w-3/5 h-[340px] rounded-xl overflow-hidden border border-white/10 shadow-inner bg-navy-card relative">
-            <iframe 
-              title="Al Sahra Sharjah Al Dhaid Location"
-              src="https://maps.google.com/maps?q=Al%20Dhaid,%20Sharjah,%20United%20Arab%20Emirates&t=&z=12&ie=UTF8&iwloc=&output=embed" 
-              class="w-full h-full border-0 filter contrast-[1.05] opacity-90 hover:opacity-100 transition-opacity"
-              loading="lazy"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Client References Marquee -->
-    <ClientsMarquee />
+    <div class="bg-navy-darker relative z-10 border-t border-white/5">
+      <ClientsMarquee />
+    </div>
   </main>
 
   <Footer />

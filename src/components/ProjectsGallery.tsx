@@ -20,30 +20,47 @@ export default function ProjectsGallery() {
     ? projects
     : projects.filter(p => p.category === activeCategory);
 
+  const getGridClasses = (idx: number) => {
+    // Dynamic masonry pattern
+    const pos = idx % 6;
+    switch(pos) {
+      case 0: return "col-span-12 lg:col-span-8 min-h-[500px]"; // Massive feature
+      case 1: return "col-span-12 sm:col-span-6 lg:col-span-4 min-h-[500px]"; // Tall portrait
+      case 2: return "col-span-12 sm:col-span-6 lg:col-span-4 min-h-[400px]"; // Square-ish
+      case 3: return "col-span-12 sm:col-span-6 lg:col-span-4 min-h-[400px]"; // Square-ish
+      case 4: return "col-span-12 sm:col-span-6 lg:col-span-4 min-h-[400px]"; // Square-ish
+      case 5: return "col-span-12 lg:col-span-12 min-h-[600px]"; // Ultra wide cinematic
+      default: return "col-span-12 lg:col-span-4 min-h-[400px]";
+    }
+  };
+
   return (
     <section id="projects" className="bg-navy-darker py-24 px-6 sm:px-10 lg:px-16 border-t border-navy-mid relative">
       <div className="max-w-7xl mx-auto">
         {/* Header and Category Filters */}
-        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <span className="font-mono text-primary text-xs uppercase tracking-[2px] font-semibold block mb-3">
-              Selected Works & References
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-[46px] text-canvas tracking-tight">
-              Engineered Across the UAE
+        <div className="mb-16 flex flex-col xl:flex-row xl:items-end justify-between gap-8">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <span className="w-12 h-[1px] bg-gold-accent"></span>
+              <span className="font-mono text-gold-accent text-xs uppercase tracking-[0.2em] font-semibold">
+                Selected Works & References
+              </span>
+            </div>
+            <h2 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-canvas tracking-tight">
+              Engineered Across the UAE.
             </h2>
           </div>
 
           {/* Category Filter Pills */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 xl:justify-end max-w-3xl">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`font-body text-xs sm:text-sm px-4 py-2 rounded-full border transition-all duration-200 cursor-pointer ${
+                className={`font-body text-xs sm:text-sm px-5 py-2.5 rounded-full border transition-all duration-300 cursor-pointer ${
                   activeCategory === cat
-                    ? 'bg-gold-accent text-navy-darker border-gold-accent font-semibold shadow-md'
-                    : 'bg-navy-card/60 text-ink-secondary border-white/10 hover:text-canvas hover:border-white/30'
+                    ? 'bg-gold-accent text-navy-darker border-gold-accent font-semibold shadow-[0_0_20px_rgba(212,175,55,0.3)]'
+                    : 'bg-navy-darker text-ink-secondary border-white/10 hover:text-canvas hover:border-gold-accent/50 hover:bg-white/5'
                 }`}
               >
                 {cat}
@@ -52,59 +69,47 @@ export default function ProjectsGallery() {
           </div>
         </div>
 
-        {/* Project Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredProjects.map((project) => (
+        {/* Dynamic Editorial Grid */}
+        <div className="grid grid-cols-12 gap-6 sm:gap-8">
+          {filteredProjects.map((project, idx) => (
             <div
               key={project.id}
               onClick={() => setSelectedProject(project)}
-              className="group cursor-pointer bg-navy-card rounded-2xl overflow-hidden border border-navy-border hover:border-gold-accent/50 transition-all duration-300 flex flex-col shadow-lg hover:-translate-y-1.5"
+              className={`group cursor-pointer rounded-3xl overflow-hidden relative shadow-2xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-500 hover:-translate-y-2 ${getGridClasses(idx)}`}
             >
-              {/* Image Frame */}
-              <div className="relative aspect-[4/3] bg-navy-darker overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-card via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-                
-                {/* Category Pill */}
-                <span className="absolute top-3 left-3 text-[11px] font-mono px-2.5 py-1 rounded bg-navy-darker/80 backdrop-blur-sm text-gold-accent border border-white/10">
+              {/* Background Image */}
+              <img
+                src={project.image}
+                alt={project.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                loading="lazy"
+              />
+              
+              {/* Cinematic Overlay Gradients */}
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-darker via-navy-darker/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gold-accent mix-blend-overlay opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
+              
+              {/* Category Pill - Top Right */}
+              <div className="absolute top-6 right-6 z-20">
+                <span className="font-mono text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-canvas border border-white/20 group-hover:bg-gold-accent group-hover:text-navy-darker group-hover:border-gold-accent transition-colors duration-300">
                   {project.category}
                 </span>
-
-                {/* Click to Expand Prompt */}
-                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-navy-darker/70 backdrop-blur-sm flex items-center justify-center text-canvas opacity-0 group-hover:opacity-100 transition-opacity">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                  </svg>
-                </div>
               </div>
 
-              {/* Card Meta */}
-              <div className="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between text-xs text-ink-muted font-mono mb-2">
-                    <span>{project.location || 'UAE Project'}</span>
-                  </div>
-                  <h3 className="font-body font-bold text-lg text-canvas group-hover:text-gold-accent transition-colors mb-2">
-                    {project.title}
-                  </h3>
-                  {project.details && (
-                    <p className="font-body text-ink-secondary text-xs leading-relaxed line-clamp-2">
-                      {project.details}
-                    </p>
-                  )}
+              {/* Content - Bottom Aligned */}
+              <div className="absolute inset-x-0 bottom-0 p-8 md:p-10 z-20 flex flex-col justify-end transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="flex items-center gap-3 text-xs text-gold-accent font-mono mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                  <span className="w-4 h-[1px] bg-gold-accent"></span>
+                  <span>{project.location || 'UAE Project'}</span>
                 </div>
-
-                <div className="pt-4 mt-4 border-t border-navy-mid/60 flex items-center justify-between text-xs text-gold-accent font-semibold">
-                  <span>View High-Res Photo</span>
-                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </div>
+                <h3 className="font-display font-bold text-3xl md:text-4xl text-canvas leading-tight mb-3 group-hover:text-gold-accent transition-colors duration-300">
+                  {project.title}
+                </h3>
+                {project.details && (
+                  <p className="font-body text-ink-secondary text-sm md:text-base leading-relaxed line-clamp-2 max-w-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                    {project.details}
+                  </p>
+                )}
               </div>
             </div>
           ))}
@@ -114,22 +119,23 @@ export default function ProjectsGallery() {
       {/* High-Res Lightbox Modal */}
       {selectedProject && (
         <div 
-          className="fixed inset-0 z-50 bg-navy-darker/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+          className="fixed inset-0 z-50 bg-navy-darker/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6"
           onClick={() => setSelectedProject(null)}
         >
           <div 
-            className="bg-navy-card max-w-4xl w-full rounded-3xl overflow-hidden border border-navy-border shadow-2xl flex flex-col max-h-[90vh]"
+            className="w-full max-w-6xl max-h-[90vh] flex flex-col lg:flex-row rounded-[32px] overflow-hidden border border-white/10 shadow-2xl animate-in fade-in zoom-in duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
-            <div className="p-4 sm:p-6 border-b border-navy-mid flex items-center justify-between bg-navy-darker/80">
-              <div>
-                <span className="font-mono text-xs text-gold-accent uppercase tracking-wider">{selectedProject.category}</span>
-                <h3 className="font-display font-bold text-xl sm:text-2xl text-canvas">{selectedProject.title}</h3>
-              </div>
+            {/* Modal Image Area (Left) */}
+            <div className="relative flex-1 bg-black overflow-hidden group min-h-[300px] lg:min-h-[600px]">
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-full object-cover lg:object-contain"
+              />
               <button
                 onClick={() => setSelectedProject(null)}
-                className="w-10 h-10 rounded-full bg-navy-mid flex items-center justify-center text-canvas hover:bg-primary transition-colors"
+                className="absolute top-6 left-6 w-12 h-12 rounded-full bg-navy-darker/80 backdrop-blur-md flex items-center justify-center text-canvas hover:bg-gold-accent hover:text-navy-darker transition-colors z-10 border border-white/20 lg:hidden"
                 aria-label="Close Preview"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -138,28 +144,42 @@ export default function ProjectsGallery() {
               </button>
             </div>
 
-            {/* Modal Image Area */}
-            <div className="relative bg-black flex-1 overflow-hidden flex items-center justify-center min-h-[300px] max-h-[60vh]">
-              <img
-                src={selectedProject.image}
-                alt={selectedProject.title}
-                className="w-full h-full object-contain max-h-[60vh]"
-              />
-            </div>
-
-            {/* Modal Footer */}
-            <div className="p-6 bg-navy-darker flex flex-col sm:flex-row items-center justify-between gap-4">
+            {/* Modal Content Area (Right) */}
+            <div className="lg:w-[400px] bg-navy-card p-8 md:p-12 flex flex-col justify-between shrink-0">
               <div>
-                <div className="font-mono text-xs text-ink-muted mb-1">Location: {selectedProject.location}</div>
-                <p className="font-body text-xs sm:text-sm text-ink-secondary">{selectedProject.details}</p>
+                <div className="flex justify-between items-start mb-8">
+                  <span className="font-mono text-xs text-gold-accent uppercase tracking-[0.2em]">{selectedProject.category}</span>
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="w-10 h-10 rounded-full bg-navy-darker flex items-center justify-center text-canvas hover:bg-gold-accent hover:text-navy-darker transition-colors hidden lg:flex border border-white/10"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                <h3 className="font-display font-bold text-3xl sm:text-4xl text-canvas mb-6 leading-tight">{selectedProject.title}</h3>
+                <div className="space-y-6 font-body text-sm text-ink-secondary">
+                  <div>
+                    <strong className="block text-canvas font-mono text-xs uppercase tracking-wider mb-2">Location</strong>
+                    {selectedProject.location}
+                  </div>
+                  <div>
+                    <strong className="block text-canvas font-mono text-xs uppercase tracking-wider mb-2">Project Scope</strong>
+                    <p className="leading-relaxed">{selectedProject.details}</p>
+                  </div>
+                </div>
               </div>
-              <a
-                href="#contact"
-                onClick={() => setSelectedProject(null)}
-                className="bg-primary hover:bg-primary-soft text-canvas text-xs sm:text-sm font-semibold px-6 py-3 rounded-xl transition-colors shrink-0"
-              >
-                Inquire Similar Project
-              </a>
+
+              <div className="pt-8 mt-8 border-t border-white/10">
+                <a
+                  href="#contact"
+                  onClick={() => setSelectedProject(null)}
+                  className="block w-full text-center bg-white text-navy-darker font-body font-bold text-sm px-6 py-4 rounded-xl hover:bg-gold-accent transition-colors shadow-lg"
+                >
+                  Inquire About Similar Project
+                </a>
+              </div>
             </div>
           </div>
         </div>
