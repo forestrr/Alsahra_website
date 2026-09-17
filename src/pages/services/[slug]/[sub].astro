@@ -39,53 +39,84 @@ const siblingItems = category.subItems.filter(s => s.slug !== subItem.slug);
   title={`${subItem.name} in UAE — ${category.name} | Al Sahra Tents`}
   description={`${subItem.description} Part of our ${category.name} range — engineered and installed by Al Sahra across Sharjah, Dubai, Abu Dhabi, and the UAE.`}
 >
+  {subItem.faqs && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": subItem.faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+      }))
+    })} />
+  )}
   <Header />
 
   <main>
     <!-- ========================================================================= -->
     <!-- 1. HERO BANNER                                                            -->
     <!-- ========================================================================= -->
-    <section class="bg-navy-darker py-20 md:py-24 px-6 sm:px-10 lg:px-16 border-b border-navy-mid relative overflow-hidden text-canvas">
-      <div class="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[140px] pointer-events-none"></div>
-      <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gold-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <section class="bg-navy-darker relative overflow-hidden text-canvas pt-24 pb-32 lg:pt-32 lg:pb-40 px-6 sm:px-10 lg:px-16 border-b border-navy-mid">
+      <!-- Subtle ambient glows -->
+      <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[140px] pointer-events-none mix-blend-screen"></div>
+      <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gold-accent/5 rounded-full blur-[160px] pointer-events-none"></div>
 
-      <div class="max-w-7xl mx-auto relative z-10 text-center">
-        <!-- Breadcrumb -->
-        <div class="inline-flex items-center gap-2 bg-navy-card/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 text-gold-accent font-mono text-xs uppercase tracking-wider mb-5">
-          <a href={`/services/${category.slug}`} class="hover:text-canvas transition-colors">{category.name}</a>
-          <span class="text-ink-muted">→</span>
-          <span>{subItem.name}</span>
+      <div class="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Left: Copy (7 cols) -->
+        <div class="lg:col-span-7" data-reveal="fade-up">
+          <div class="flex items-center gap-4 mb-8" data-reveal="fade-right">
+            <div class="h-[1px] w-8 sm:w-16 bg-gold-accent relative">
+              <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-gold-accent rotate-45 shadow-[0_0_10px_rgba(250,204,21,0.8)]"></div>
+            </div>
+            <span class="font-mono text-[10px] sm:text-xs text-gold-accent uppercase tracking-[0.3em] font-bold drop-shadow-md">
+              <a href={`/services/${category.slug}`} class="hover:text-canvas transition-colors">{category.name}</a> <span class="mx-2 opacity-50">/</span> {subItem.name}
+            </span>
+          </div>
+
+          <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl tracking-tight text-white mb-6 leading-tight drop-shadow-lg">
+            {subItem.name}
+          </h1>
+
+          <p class="font-body text-canvas/80 text-lg sm:text-xl max-w-2xl mb-10 leading-relaxed">
+            {subItem.description}
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+            <a 
+              href="/contact" 
+              class="btn-live-primary btn-shimmer w-full sm:w-auto font-body font-bold text-sm px-8 py-4 rounded-xl flex items-center justify-center gap-2 shadow-[0_10px_30px_rgba(30,58,138,0.4)] hover:-translate-y-1 transition-transform duration-300"
+            >
+              <span>Request Specifications</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+
+            <a 
+              href={`https://wa.me/971505077179?text=Hello%20Al%20Sahra,%20I%20am%20interested%20in%20${encodeURIComponent(subItem.name)}.`}
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="w-full sm:w-auto bg-navy-card hover:bg-navy-mid text-white font-body font-bold text-sm px-8 py-4 rounded-xl border border-navy-border hover:border-gold-accent transition-all duration-300 flex items-center justify-center gap-2 shadow-2xl hover:-translate-y-1"
+            >
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]"></span>
+              <span>Discuss Project</span>
+            </a>
+          </div>
         </div>
 
-        <!-- H1 Title -->
-        <h1 class="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-canvas mb-4">
-          {subItem.name}
-        </h1>
-
-        <!-- Description -->
-        <p class="font-body text-ink-secondary text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-          {subItem.description}
-        </p>
-
-        <!-- Action CTAs -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-          <a 
-            href="/contact" 
-            class="btn-live-primary btn-shimmer w-full sm:w-auto font-body font-semibold text-xs sm:text-sm px-6 py-3 rounded-xl flex items-center justify-center gap-2"
-          >
-            <span>Request Quotation</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-          </a>
-
-          <a 
-            href={`https://wa.me/971505077179?text=Hello%20Al%20Sahra,%20I%20am%20interested%20in%20${encodeURIComponent(subItem.name)}.`}
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="w-full sm:w-auto bg-navy-card hover:bg-navy-mid text-canvas font-body font-semibold text-xs sm:text-sm px-6 py-3 rounded-xl border border-navy-border hover:border-gold-accent/40 transition-all duration-300 flex items-center justify-center gap-2 shadow-sm"
-          >
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span>WhatsApp Support</span>
-          </a>
+        <!-- Right: Image Showcase (5 cols) -->
+        <div class="lg:col-span-5 relative" data-reveal="fade-up" data-reveal-delay="0.1">
+          <!-- Decorative frame behind image -->
+          <div class="absolute -inset-4 bg-gradient-to-br from-primary/30 to-gold-accent/20 rounded-[2.5rem] transform rotate-3 blur-md opacity-70"></div>
+          
+          <div class="relative rounded-[2rem] overflow-hidden border-4 border-navy-mid shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-navy-darker group aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
+            <img 
+              src={subItem.image || category.heroImage} 
+              alt={subItem.name} 
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              loading="eager"
+            />
+            <!-- Inner shadow gradient -->
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-darker/80 via-transparent to-transparent pointer-events-none"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -93,83 +124,158 @@ const siblingItems = category.subItems.filter(s => s.slug !== subItem.slug);
     <!-- ========================================================================= -->
     <!-- 2. DETAILED CONTENT                                                       -->
     <!-- ========================================================================= -->
-    <section class="bg-cream py-20 px-6 sm:px-10 lg:px-16 border-b border-hairline relative overflow-hidden">
-      <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        <!-- Left Column: Content (7 cols) -->
-        <div class="lg:col-span-7" data-reveal="fade-up">
-          <span class="font-mono text-primary text-xs uppercase tracking-[2px] font-semibold block mb-3">
-            {category.name}
-          </span>
-          <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl text-ink font-bold tracking-tight mb-6">
-            {subItem.name} — Overview
-          </h2>
+    <section class="bg-cream py-24 px-6 sm:px-10 lg:px-16 border-b border-hairline relative overflow-hidden">
+      <div class="max-w-4xl mx-auto text-center" data-reveal="fade-up">
+        <span class="font-mono text-primary text-xs uppercase tracking-[0.2em] font-semibold block mb-6">
+          System Overview
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl text-ink font-bold tracking-tight mb-8">
+          Engineered for UAE Conditions
+        </h2>
 
-          <div class="space-y-4 font-body text-ink-soft text-sm sm:text-base leading-relaxed mb-8">
-            <p>{subItem.description}</p>
-            <p>
-              Engineered, manufactured, and professionally installed by Al Sahra Tents & Sheds Fix from our Sharjah Al Dhaid facility. 
-              We provide full turnkey project delivery including site survey, structural engineering, fabrication, and on-site installation 
-              across all 7 Emirates of the UAE.
-            </p>
-            <p>
-              As part of our <a href={`/services/${category.slug}`} class="text-primary font-semibold hover:underline">{category.name}</a> division, 
-              this solution is backed by our full manufacturing capability and complies with UAE municipal and Civil Defense engineering codes.
-            </p>
-          </div>
-
-          <!-- Feature Highlights -->
-          <div class="bg-sand p-6 sm:p-7 rounded-2xl border border-hairline shadow-sm">
-            <h3 class="font-mono text-xs uppercase tracking-wider text-ink font-bold mb-3">
-              Why Al Sahra:
-            </h3>
-            <ul class="grid sm:grid-cols-2 gap-2.5">
-              <li class="flex items-center gap-2 text-xs sm:text-sm font-body text-ink-soft">
-                <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
-                <span>In-house fabrication — Sharjah Al Dhaid</span>
-              </li>
-              <li class="flex items-center gap-2 text-xs sm:text-sm font-body text-ink-soft">
-                <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
-                <span>Turnkey installation across all 7 Emirates</span>
-              </li>
-              <li class="flex items-center gap-2 text-xs sm:text-sm font-body text-ink-soft">
-                <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
-                <span>UAE Civil Defense compliant engineering</span>
-              </li>
-              <li class="flex items-center gap-2 text-xs sm:text-sm font-body text-ink-soft">
-                <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
-                <span>Free site survey & quotation</span>
-              </li>
-            </ul>
-          </div>
+        <div class="space-y-6 font-body text-ink-soft text-lg leading-relaxed mb-12">
+          <p>{subItem.description}</p>
+          <p>
+            Engineered, manufactured, and professionally installed by Al Sahra Tents & Sheds Fix from our Sharjah Al Dhaid facility. 
+            We provide full turnkey project delivery including site survey, structural engineering, fabrication, and on-site installation 
+            across all 7 Emirates of the UAE.
+          </p>
+          <p>
+            As part of our <a href={`/services/${category.slug}`} class="text-primary font-semibold hover:underline transition-colors">{category.name}</a> division, 
+            this solution is backed by our full manufacturing capability and complies with UAE municipal and Civil Defense engineering codes.
+          </p>
         </div>
 
-        <!-- Right Column: Image (5 cols) -->
-        <div class="lg:col-span-5" data-reveal="scale-up" data-reveal-delay="0.1">
-          <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-canvas aspect-[4/3] bg-navy-darker group">
-            <img 
-              src={category.heroImage} 
-              alt={`${subItem.name} — Al Sahra UAE`} 
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 [image-rendering:-webkit-optimize-contrast]"
-            />
-          </div>
-
-          <!-- CTA card below image -->
-          <div class="mt-6 bg-navy-darker p-6 rounded-2xl border border-navy-mid text-canvas">
-            <h4 class="font-display font-bold text-lg mb-2">Need a Custom Quote?</h4>
-            <p class="font-body text-ink-secondary text-xs mb-4">
-              Contact our engineering team for site-specific specifications and pricing for {subItem.name}.
-            </p>
-            <a 
-              href="/contact" 
-              class="btn-live-primary btn-shimmer w-full font-body font-semibold text-xs px-4 py-2.5 rounded-lg flex items-center justify-center gap-2"
-            >
-              <span>Get Free Quote</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </a>
-          </div>
+        <!-- Feature Highlights (Minimalist) -->
+        <div class="border-t border-hairline pt-8 max-w-2xl mx-auto text-left">
+          <ul class="grid sm:grid-cols-2 gap-y-4 gap-x-8">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-gold-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-sm font-body text-ink-soft">In-house fabrication — Sharjah</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-gold-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-sm font-body text-ink-soft">Turnkey installation (All Emirates)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-gold-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-sm font-body text-ink-soft">UAE Civil Defense compliant</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-gold-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-sm font-body text-ink-soft">Free site survey & quotation</span>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
+
+    <!-- ========================================================================= -->
+    <!-- 2B. MATERIAL BREAKDOWN (only renders if subItem.materials exists)        -->
+    <!-- ========================================================================= -->
+    {subItem.materials && (
+      <section class="bg-canvas py-24 px-6 sm:px-10 lg:px-16 border-b border-hairline">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid lg:grid-cols-4 gap-12 lg:gap-16 items-start">
+            
+            <div class="lg:col-span-1" data-reveal="fade-up">
+              <span class="font-mono text-primary text-xs uppercase tracking-[0.2em] font-semibold block mb-4">
+                Membranes
+              </span>
+              <h2 class="font-display text-2xl sm:text-3xl text-ink font-bold tracking-tight">
+                Material<br/>Options
+              </h2>
+            </div>
+
+            <div class="lg:col-span-3" data-reveal="fade-up" data-reveal-delay="0.1">
+              <!-- Sleek Material List -->
+              <div class="border-t border-hairline divide-y divide-hairline mb-20">
+                {subItem.materials.map((mat) => (
+                  <div class="py-8 grid sm:grid-cols-3 gap-6 sm:gap-10">
+                    <div class="sm:col-span-1">
+                      <h3 class="font-display font-bold text-xl text-ink">{mat.name}</h3>
+                    </div>
+                    <div class="sm:col-span-2 space-y-4">
+                      <p class="font-body text-ink-soft text-base leading-relaxed">{mat.summary}</p>
+                      <div class="pt-2">
+                        <span class="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-muted block mb-2">Ideal Applications</span>
+                        <p class="font-body text-sm text-ink-soft">{mat.whereUsed.join(" • ")}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Sleek Spec Table -->
+              {subItem.comparisonTable && (
+                <div>
+                  <h3 class="font-mono text-xs uppercase tracking-[0.2em] font-semibold block mb-6 text-ink">
+                    Technical Specifications
+                  </h3>
+                  <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left font-body">
+                      <thead>
+                        <tr class="border-b border-ink/20">
+                          <th class="py-4 pr-6 font-display font-semibold text-ink text-base">Property</th>
+                          <th class="py-4 px-6 font-display font-semibold text-ink text-base">PTFE</th>
+                          <th class="py-4 px-6 font-display font-semibold text-ink text-base">PVC</th>
+                          <th class="py-4 px-6 font-display font-semibold text-ink text-base">HDPE</th>
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-hairline">
+                        {subItem.comparisonTable.map((row) => (
+                          <tr class="hover:bg-cream/50 transition-colors">
+                            <td class="py-4 pr-6 font-semibold text-ink whitespace-nowrap">{row.property}</td>
+                            <td class="py-4 px-6 text-ink-soft">{row.ptfe}</td>
+                            <td class="py-4 px-6 text-ink-soft">{row.pvc}</td>
+                            <td class="py-4 px-6 text-ink-soft">{row.hdpe}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+            </div>
+
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- ========================================================================= -->
+    <!-- 2C. FAQ (only renders if subItem.faqs exists)                            -->
+    <!-- ========================================================================= -->
+    {subItem.faqs && (
+      <section class="bg-cream py-24 px-6 sm:px-10 lg:px-16 border-b border-hairline">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-16">
+            <span class="font-mono text-primary text-xs uppercase tracking-[0.2em] font-semibold block mb-4">
+              Knowledge Base
+            </span>
+            <h2 class="font-display text-2xl sm:text-3xl text-ink font-bold tracking-tight">
+              Frequently Asked Questions
+            </h2>
+          </div>
+          
+          <div class="divide-y divide-hairline border-y border-hairline">
+            {subItem.faqs.map((faq) => (
+              <details class="group py-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+                <summary class="flex items-center justify-between font-display font-semibold text-lg text-ink list-none">
+                  <span>{faq.question}</span>
+                  <span class="transition-transform duration-300 group-open:rotate-45 text-gold-accent">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path></svg>
+                  </span>
+                </summary>
+                <div class="mt-4 font-body text-ink-soft text-base leading-relaxed pr-8">
+                  {faq.answer}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
     <!-- ========================================================================= -->
     <!-- 3. RELATED SOLUTIONS (SIBLINGS)                                           -->

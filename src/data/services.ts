@@ -2,6 +2,24 @@
 // Al Sahra Tents & Sheds Fix — Services Data (9-Category Taxonomy)
 // =============================================================================
 
+export interface MaterialInfo {
+  name: string;
+  summary: string;
+  whereUsed: string[];
+}
+
+export interface ComparisonRow {
+  property: string;
+  ptfe: string;
+  pvc: string;
+  hdpe: string;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 export interface ServiceSubItem {
   name: string;
   slug: string;
@@ -11,6 +29,9 @@ export interface ServiceSubItem {
   image?: string;
   images?: string[];
   hasDedicatedPage?: boolean;
+  materials?: MaterialInfo[];
+  comparisonTable?: ComparisonRow[];
+  faqs?: FaqItem[];
 }
 
 export interface ServiceCategory {
@@ -60,6 +81,11 @@ export const services: ServiceCategory[] = [
         description: "Integrated solar panel canopy structures that shade vehicles and generate power.",
         details: "Solar car parking shades combine structural steel canopy framing with roof-mounted photovoltaic panels, turning your parking lot into a clean energy asset. Each structure is engineered for the panel load, wind uplift, and UAE electrical grid connection requirements. A typical multi-bay installation can offset significant electricity costs while providing full vehicle shade. We handle the structural design; solar panel procurement and electrical tie-in are coordinated with your approved solar contractor.",
         hasDedicatedPage: true,
+        images: [
+          '/images/carparking/solar-parking-1.jpg',
+          '/images/carparking/solar-parking-2.jpg',
+          '/images/carparking/solar-parking-3.jpg'
+        ],
       },
       {
         name: "Aluminium Carparking",
@@ -67,6 +93,9 @@ export const services: ServiceCategory[] = [
         keyword: "aluminium car parking shade UAE",
         description: "Structural aluminium-framed shade systems for a cleaner architectural finish.",
         details: "Extruded aluminium-framed car parking shades offer a sleek, modern aesthetic with zero rust risk — ideal for high-visibility commercial frontages, hotel entrances, and corporate headquarters. Constructed from 6063-T6 aluminium alloy with Qualicoat Class 2 powder coating, these structures maintain their architectural finish indefinitely without repainting. Available in cantilever, double-bay, and continuous row configurations.",
+        images: [
+          '/images/carparking/aluminum-carparking.jpg'
+        ],
       },
       {
         name: "GRP Carparking",
@@ -74,6 +103,10 @@ export const services: ServiceCategory[] = [
         keyword: "GRP car parking shade UAE",
         description: "Glass-reinforced polyester panel shades, a low-maintenance alternative to fabric.",
         details: "Glass-reinforced polyester (GRP) panel shades use rigid composite roof panels instead of fabric membranes, delivering a solid, permanent roofing solution that requires virtually zero maintenance. GRP panels resist UV degradation, chemical exposure, and impact damage. They're a practical choice for industrial facilities, government parking areas, and locations where fabric replacement would be impractical or costly.",
+        images: [
+          '/images/carparking/grp-parking-1.jpg',
+          '/images/carparking/grp-parking-2.jfif'
+        ],
       },
     ],
   },
@@ -90,25 +123,69 @@ export const services: ServiceCategory[] = [
     heroImage: "/images/service_tensile_shade.jpg",
     subItems: [
       {
-        name: "PVDF Membrane",
-        slug: "pvdf-membrane",
-        keyword: "PVDF tensile membrane UAE",
-        description: "A durable, self-cleaning polymer coating, popular for long-life architectural canopies.",
-        details: "PVDF (polyvinylidene fluoride) coated polyester membranes from leading manufacturers like Serge Ferrari and Mehler offer 15 to 20-year lifespans with exceptional dimensional stability. The fluoropolymer surface lacquer repels dirt, resists mildew growth, and reflects up to 78% of solar heat. This is our most specified membrane for commercial shade structures including walkway canopies, plaza shades, and sports court covers.",
-      },
-      {
-        name: "PTFE Membrane",
-        slug: "ptfe-membrane",
-        keyword: "PTFE tensile membrane UAE",
-        description: "Premium fiberglass membrane with the longest lifespan and highest fire rating, used for landmark structures.",
-        details: "PTFE (Teflon-coated fiberglass) is the highest-performance architectural membrane available — completely immune to UV degradation, biological growth, and atmospheric pollutants. With a 30+ year lifespan and non-combustible Class A fire rating, PTFE is specified for landmark civic projects, international airport terminals, and prestigious public spaces where durability and fire safety are non-negotiable.",
-      },
-      {
-        name: "PVC/HDPE Membrane",
-        slug: "pvc-hdpe-membrane",
-        keyword: "PVC HDPE shade membrane",
-        description: "A cost-effective fabric option for mid-span shade structures.",
-        details: "PVC and HDPE membranes provide practical, budget-friendly tensile shade solutions for projects where cost-efficiency is a priority without compromising on structural integrity. PVC options deliver full waterproofing, while HDPE mesh allows airflow and is ideal for parking shades and outdoor recreation. Both are available in a wide range of colours and are UV-stabilised for the UAE climate.",
+        name: "PTFE, PVC & HDPE Membranes",
+        slug: "tensile-membranes",
+        keyword: "Tensile shade membrane UAE",
+        description: "A comprehensive range of architectural membranes, from premium PTFE for landmark structures to cost-effective PVC and breathable HDPE.",
+        hasDedicatedPage: true,
+        materials: [
+          {
+            name: "PTFE Membrane",
+            summary: "A PTFE-coated fiberglass membrane — the premium choice in tensile architecture. Self-cleaning, highly fire-resistant, translucent, and built to last 25+ years with minimal maintenance.",
+            whereUsed: [
+              "Stadiums and sports arenas — large clear-span roofing",
+              "Airport terminals and transport hubs",
+              "Mosque courtyards and entrance canopies",
+              "Exhibition centres and landmark public buildings",
+              "Premium swimming pool covers and resort canopies",
+            ],
+          },
+          {
+            name: "PVC Membrane",
+            summary: "A PVC-coated polyester fabric — flexible, cost-effective, and widely used across the UAE for mid-span tensile canopies. Typical lifespan of 10-15 years depending on UV exposure and maintenance.",
+            whereUsed: [
+              "Car park and walkway canopies",
+              "School and university courtyard shading",
+              "Market and retail canopy structures",
+              "Semi-permanent event and exhibition canopies",
+              "Community and recreational area shading",
+            ],
+          },
+          {
+            name: "HDPE Membrane",
+            summary: "A knitted HDPE shade fabric — breathable (not fully waterproof, unlike PTFE/PVC membranes), UV-blocking, and the most affordable of the three options. Allows airflow through the weave, keeping the space underneath noticeably cooler.",
+            whereUsed: [
+              "School and nursery playgrounds",
+              "Car parking shade (budget-friendly large-area coverage)",
+              "Mosque courtyards and outdoor gathering spaces",
+              "Agricultural and nursery shading",
+            ],
+          },
+        ],
+        comparisonTable: [
+          { property: "Typical lifespan", ptfe: "25–35 years", pvc: "10–15 years", hdpe: "7–12 years (UAE sun exposure)" },
+          { property: "UV block", ptfe: "~95–99%", pvc: "~90–95%", hdpe: "~85–95%" },
+          { property: "Waterproof", ptfe: "Fully waterproof", pvc: "Fully waterproof", hdpe: "Breathable, not fully waterproof" },
+          { property: "Fire rating", ptfe: "Excellent — Class A", pvc: "Good — fire-retardant grades available", hdpe: "Moderate" },
+          { property: "Translucency", ptfe: "Translucent — diffuses daylight", pvc: "Mostly opaque", hdpe: "Opaque" },
+          { property: "Maintenance", ptfe: "Largely self-cleaning", pvc: "Occasional cleaning", hdpe: "Periodic cleaning" },
+          { property: "Relative cost", ptfe: "Highest upfront, lowest lifetime cost", pvc: "Mid-range", hdpe: "Lowest upfront" },
+          { property: "Best suited for", ptfe: "Landmark structures, large spans", pvc: "General-purpose permanent/semi-permanent", hdpe: "Cost-sensitive, ventilation-priority" },
+        ],
+        faqs: [
+          {
+            question: "What is the best membrane for a large tensile shade structure in the UAE?",
+            answer: "PTFE membrane is the best choice for large-span, permanent tensile structures in the UAE — it offers a 25-35 year lifespan, excellent fire resistance, and is largely self-cleaning, making it ideal for landmark and public projects.",
+          },
+          {
+            question: "What's the difference between PTFE and PVC tensile membrane?",
+            answer: "PTFE lasts significantly longer (25-35 years vs 10-15 years for PVC) and has better fire resistance and self-cleaning properties, but costs more upfront. PVC is a durable, cost-effective choice for mid-span canopies where budget matters more than maximum lifespan.",
+          },
+          {
+            question: "Is HDPE shade fabric waterproof?",
+            answer: "No — HDPE is a breathable knitted mesh that blocks UV but is not fully waterproof, unlike PTFE and PVC membranes. It's the right choice when airflow and cost matter more than complete rain protection.",
+          },
+        ],
       },
     ],
   },
@@ -125,18 +202,61 @@ export const services: ServiceCategory[] = [
     heroImage: "/images/service_sail_shade.jpg",
     subItems: [
       {
-        name: "Kids Play Area Shade (HDPE & PVC)",
-        slug: "kids-play-area-shade",
-        keyword: "kids play area shade UAE",
-        description: "UV-rated shade sails designed for schools, nurseries, and community play areas.",
-        details: "Our playground shade sails block up to 98% of UV radiation (UPF 50+ rated), keeping playground equipment cool and safe for children year-round. All structural columns feature child-safe rounded profiles with optional impact padding, concealed flush bolt connections, and tamper-resistant hardware. We design custom multi-sail configurations in vibrant colour combinations for international schools, nurseries, and public parks across Sharjah, Dubai, and Abu Dhabi.",
-      },
-      {
-        name: "Swimming Pool Shade (PTFE)",
-        slug: "swimming-pool-shade",
-        keyword: "swimming pool shade UAE",
-        description: "Premium PTFE sail shade for pool decks, built for constant sun and moisture exposure.",
-        details: "Pool shade sails face a demanding combination of intense UV, high humidity, and chlorine-laden air. Our PTFE-grade sail shades are engineered specifically for this environment — completely immune to moisture absorption, mildew, and UV degradation. Stainless steel 316 marine-grade rigging hardware ensures zero corrosion even in direct splash zones. Specified for resort pools, community clubhouse decks, and sports academy swimming facilities.",
+        name: "PTFE, PVC & HDPE Membranes",
+        slug: "sail-shade-membranes",
+        keyword: "Sail shade membranes UAE",
+        description: "Versatile shade sail fabrics engineered for specific environments — from breathable playground covers to premium resort pool decks.",
+        hasDedicatedPage: true,
+        materials: [
+          {
+            name: "PTFE Sail Shade",
+            summary: "The most durable sail fabric option — resists moisture, chlorine exposure, and constant UV without degrading quickly.",
+            whereUsed: [
+              "Swimming pool decks and poolside lounge areas",
+              "Resort and hotel outdoor spaces",
+              "Villa gardens where long-term durability matters more than upfront cost",
+            ],
+          },
+          {
+            name: "PVC Sail Shade",
+            summary: "A durable, moderately priced fabric — a strong middle-ground option for most residential and light-commercial sail installations.",
+            whereUsed: [
+              "Outdoor dining and café seating areas",
+              "Villa terraces and garden shade",
+              "Commercial courtyards and walkways",
+            ],
+          },
+          {
+            name: "HDPE Sail Shade",
+            summary: "The most common and affordable sail shade fabric, breathable and UV-blocking — the standard choice for large-area coverage where budget matters.",
+            whereUsed: [
+              "Kids play areas and school playgrounds",
+              "Residential garden and parking shade",
+              "Community parks and recreational spaces",
+            ],
+          },
+        ],
+        comparisonTable: [
+          { property: "Typical lifespan", ptfe: "25–35 years", pvc: "10–15 years", hdpe: "7–12 years (UAE sun exposure)" },
+          { property: "UV block", ptfe: "~95–99%", pvc: "~90–95%", hdpe: "~85–95%" },
+          { property: "Waterproof", ptfe: "Fully waterproof", pvc: "Fully waterproof", hdpe: "Breathable, not fully waterproof" },
+          { property: "Best for", ptfe: "Pool decks, resorts, villas", pvc: "Dining areas, terraces, courtyards", hdpe: "Playgrounds, gardens, parking" },
+          { property: "Relative cost", ptfe: "Highest", pvc: "Mid-range", hdpe: "Lowest" },
+        ],
+        faqs: [
+          {
+            question: "Which shade sail fabric is best for a swimming pool?",
+            answer: "PTFE is the best shade sail fabric for swimming pools — it resists moisture and chlorine exposure without degrading, unlike PVC or HDPE, making it well suited to constant pool-deck conditions.",
+          },
+          {
+            question: "What shade sail fabric is used for kids play areas?",
+            answer: "HDPE is the standard fabric for kids play area shade sails — it's breathable, UV-blocking, and the most affordable option for covering large play areas.",
+          },
+          {
+            question: "Do you install shade sails for villas in Dubai and Sharjah?",
+            answer: "Yes — Al Sahra Tents designs and installs PTFE, PVC, and HDPE shade sails for villas, pools, and gardens across Dubai, Sharjah, and the wider UAE.",
+          },
+        ],
       },
     ],
   },
