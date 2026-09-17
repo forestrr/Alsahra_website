@@ -1,0 +1,235 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import ContactCTA from '../../../components/ContactCTA.astro';
+import ClientsMarquee from '../../../components/ClientsMarquee.astro';
+import Footer from '../../../components/Footer.astro';
+import FloatingActions from '../../../components/FloatingActions.astro';
+import { services, type ServiceCategory, type ServiceSubItem } from '../../../data/services';
+
+export async function getStaticPaths() {
+  const paths: { params: { slug: string; sub: string }; props: { category: ServiceCategory; subItem: ServiceSubItem } }[] = [];
+
+  for (const category of services) {
+    for (const subItem of category.subItems) {
+      if (subItem.hasDedicatedPage) {
+        paths.push({
+          params: { slug: category.slug, sub: subItem.slug },
+          props: { category, subItem }
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+interface Props {
+  category: ServiceCategory;
+  subItem: ServiceSubItem;
+}
+
+const { category, subItem } = Astro.props;
+
+// Sibling sub-items for cross-nav
+const siblingItems = category.subItems.filter(s => s.slug !== subItem.slug);
+---
+
+<Layout
+  title={`${subItem.name} in UAE — ${category.name} | Al Sahra Tents`}
+  description={`${subItem.description} Part of our ${category.name} range — engineered and installed by Al Sahra across Sharjah, Dubai, Abu Dhabi, and the UAE.`}
+>
+  <Header />
+
+  <main>
+    <!-- ========================================================================= -->
+    <!-- 1. HERO BANNER                                                            -->
+    <!-- ========================================================================= -->
+    <section class="bg-navy-darker py-20 md:py-24 px-6 sm:px-10 lg:px-16 border-b border-navy-mid relative overflow-hidden text-canvas">
+      <div class="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[140px] pointer-events-none"></div>
+      <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gold-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10 text-center">
+        <!-- Breadcrumb -->
+        <div class="inline-flex items-center gap-2 bg-navy-card/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 text-gold-accent font-mono text-xs uppercase tracking-wider mb-5">
+          <a href={`/services/${category.slug}`} class="hover:text-canvas transition-colors">{category.name}</a>
+          <span class="text-ink-muted">→</span>
+          <span>{subItem.name}</span>
+        </div>
+
+        <!-- H1 Title -->
+        <h1 class="font-display font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-canvas mb-4">
+          {subItem.name}
+        </h1>
+
+        <!-- Description -->
+        <p class="font-body text-ink-secondary text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+          {subItem.description}
+        </p>
+
+        <!-- Action CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+          <a 
+            href="/contact" 
+            class="btn-live-primary btn-shimmer w-full sm:w-auto font-body font-semibold text-xs sm:text-sm px-6 py-3 rounded-xl flex items-center justify-center gap-2"
+          >
+            <span>Request Quotation</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+
+          <a 
+            href={`https://wa.me/971505077179?text=Hello%20Al%20Sahra,%20I%20am%20interested%20in%20${encodeURIComponent(subItem.name)}.`}
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="w-full sm:w-auto bg-navy-card hover:bg-navy-mid text-canvas font-body font-semibold text-xs sm:text-sm px-6 py-3 rounded-xl border border-navy-border hover:border-gold-accent/40 transition-all duration-300 flex items-center justify-center gap-2 shadow-sm"
+          >
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>WhatsApp Support</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 2. DETAILED CONTENT                                                       -->
+    <!-- ========================================================================= -->
+    <section class="bg-cream py-20 px-6 sm:px-10 lg:px-16 border-b border-hairline relative overflow-hidden">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <!-- Left Column: Content (7 cols) -->
+        <div class="lg:col-span-7" data-reveal="fade-up">
+          <span class="font-mono text-primary text-xs uppercase tracking-[2px] font-semibold block mb-3">
+            {category.name}
+          </span>
+          <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl text-ink font-bold tracking-tight mb-6">
+            {subItem.name} — Overview
+          </h2>
+
+          <div class="space-y-4 font-body text-ink-soft text-sm sm:text-base leading-relaxed mb-8">
+            <p>{subItem.description}</p>
+            <p>
+              Engineered, manufactured, and professionally installed by Al Sahra Tents & Sheds Fix from our Sharjah Al Dhaid facility. 
+              We provide full turnkey project delivery including site survey, structural engineering, fabrication, and on-site installation 
+              across all 7 Emirates of the UAE.
+            </p>
+            <p>
+              As part of our <a href={`/services/${category.slug}`} class="text-primary font-semibold hover:underline">{category.name}</a> division, 
+              this solution is backed by our full manufacturing capability and complies with UAE municipal and Civil Defense engineering codes.
+            </p>
+          </div>
+
+          <!-- Feature Highlights -->
+          <div class="bg-sand p-6 sm:p-7 rounded-2xl border border-hairline shadow-sm">
+            <h3 class="font-mono text-xs uppercase tracking-wider text-ink font-bold mb-3">
+              Why Al Sahra:
+            </h3>
+            <ul class="grid sm:grid-cols-2 gap-2.5">
+              <li class="flex items-center gap-2 text-xs sm:text-sm font-body text-ink-soft">
+                <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+                <span>In-house fabrication — Sharjah Al Dhaid</span>
+              </li>
+              <li class="flex items-center gap-2 text-xs sm:text-sm font-body text-ink-soft">
+                <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+                <span>Turnkey installation across all 7 Emirates</span>
+              </li>
+              <li class="flex items-center gap-2 text-xs sm:text-sm font-body text-ink-soft">
+                <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+                <span>UAE Civil Defense compliant engineering</span>
+              </li>
+              <li class="flex items-center gap-2 text-xs sm:text-sm font-body text-ink-soft">
+                <span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+                <span>Free site survey & quotation</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Column: Image (5 cols) -->
+        <div class="lg:col-span-5" data-reveal="scale-up" data-reveal-delay="0.1">
+          <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-canvas aspect-[4/3] bg-navy-darker group">
+            <img 
+              src={category.heroImage} 
+              alt={`${subItem.name} — Al Sahra UAE`} 
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 [image-rendering:-webkit-optimize-contrast]"
+            />
+          </div>
+
+          <!-- CTA card below image -->
+          <div class="mt-6 bg-navy-darker p-6 rounded-2xl border border-navy-mid text-canvas">
+            <h4 class="font-display font-bold text-lg mb-2">Need a Custom Quote?</h4>
+            <p class="font-body text-ink-secondary text-xs mb-4">
+              Contact our engineering team for site-specific specifications and pricing for {subItem.name}.
+            </p>
+            <a 
+              href="/contact" 
+              class="btn-live-primary btn-shimmer w-full font-body font-semibold text-xs px-4 py-2.5 rounded-lg flex items-center justify-center gap-2"
+            >
+              <span>Get Free Quote</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 3. RELATED SOLUTIONS (SIBLINGS)                                           -->
+    <!-- ========================================================================= -->
+    <section class="bg-navy-canvas py-16 px-6 sm:px-10 lg:px-16 border-b border-navy-mid text-canvas">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center justify-between mb-8">
+          <h3 class="font-display font-bold text-xl text-canvas">
+            More in {category.name}
+          </h3>
+          <a href={`/services/${category.slug}`} class="text-xs font-mono text-gold-accent hover:text-canvas transition-colors">
+            View all {category.name} →
+          </a>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {siblingItems.slice(0, 6).map(sibling => (
+            <div class="bg-navy-card p-5 rounded-xl border border-navy-border hover:border-gold-accent/40 transition-all duration-300 group">
+              <span class="font-mono text-[10px] text-gold-accent uppercase tracking-wider block mb-2">{category.name}</span>
+              <h4 class="font-body font-semibold text-sm text-canvas group-hover:text-gold-accent transition-colors mb-2">
+                {sibling.name}
+              </h4>
+              <p class="text-xs text-ink-secondary leading-relaxed mb-3 line-clamp-2">{sibling.description}</p>
+              {sibling.hasDedicatedPage ? (
+                <a 
+                  href={`/services/${category.slug}/${sibling.slug}`}
+                  class="text-[11px] font-semibold text-primary hover:text-canvas transition-colors inline-flex items-center gap-1"
+                >
+                  Learn more →
+                </a>
+              ) : (
+                <a 
+                  href="/contact"
+                  class="text-[11px] font-semibold text-gold-accent hover:text-canvas transition-colors inline-flex items-center gap-1"
+                >
+                  Request a quote →
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- 4. CONSULTATION & FOOTER                                                  -->
+    <!-- ========================================================================= -->
+    <ContactCTA />
+    <ClientsMarquee />
+  </main>
+
+  <Footer />
+  <FloatingActions />
+</Layout>
+
+<script>
+  import { initWebsiteAnimations } from '../../../scripts/animations';
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => initWebsiteAnimations());
+  } else {
+    initWebsiteAnimations();
+  }
+</script>
