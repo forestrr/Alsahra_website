@@ -9,6 +9,7 @@ export interface ServiceSubItem {
   description: string;
   details?: string;
   image?: string;
+  images?: string[];
   hasDedicatedPage?: boolean;
 }
 
@@ -35,18 +36,22 @@ export const services: ServiceCategory[] = [
     heroImage: "/images/service_car_parking_shades.jpg",
     subItems: [
       {
-        name: "Heavy Duty HDPE",
-        slug: "heavy-duty-hdpe",
-        keyword: "HDPE car parking shade UAE",
-        description: "High-density polyethylene shade fabric, built for long-term UV and wear resistance.",
-        details: "Our commercial-grade HDPE knitted mesh blocks up to 98% of harmful UV radiation while allowing hot air to escape through its breathable micro-pore structure. Available in 340–380 GSM weights with 10 to 12-year warranties, these shades keep vehicle cabin temperatures up to 25°C cooler. Ideal for corporate parking lots, residential compounds, and municipal facilities across the UAE.",
-      },
-      {
-        name: "PVC Fabric",
-        slug: "pvc-fabric",
-        keyword: "PVC car parking shade fabric",
-        description: "Durable PVC-coated shade fabric, a common choice for large-span commercial parking.",
-        details: "PVC-coated polyester membranes (850–1050 GSM) deliver 100% waterproof coverage and complete UV blockage, making them the preferred choice for premium commercial car parks and covered drop-off zones. The PVDF-lacquered surface resists dirt build-up and washes clean with rain. Engineered to withstand wind loads up to 160 km/h per UAE municipal codes.",
+        name: "HDPE, PVC & PTFE Fabric",
+        slug: "hdpe-pvc-ptfe-fabric",
+        keyword: "HDPE PVC PTFE car parking shade UAE",
+        description: "A full range of architectural shade fabrics, from breathable HDPE to waterproof PVC and ultra-durable PTFE.",
+        details: "We offer comprehensive fabric shade solutions tailored to your requirements. Our commercial-grade HDPE knitted mesh provides excellent UV protection and breathability, reducing cabin temperatures. For complete waterproof coverage, our PVC-coated polyester membranes deliver superior weather resistance and easy maintenance. For premium and landmark projects, we supply high-performance PTFE fiberglass membranes offering unmatched longevity, dirt resistance, and a Class A fire rating. All structures are engineered to UAE municipal codes to withstand extreme wind and heat.",
+        images: [
+          '/images/carparking/carparking-1.jfif',
+          '/images/carparking/carparking-2.jfif',
+          '/images/carparking/carparking-3.jfif',
+          '/images/carparking/carparking-4.jfif',
+          '/images/carparking/carparking-5.jfif',
+          '/images/carparking/carparking-6.jpg',
+          '/images/carparking/carparking-7.jpg',
+          '/images/carparking/carparking-8.jpg',
+          '/images/carparking/carparking-9.jpg'
+        ],
       },
       {
         name: "Solar Carparking",
