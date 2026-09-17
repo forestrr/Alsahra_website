@@ -25,54 +25,72 @@ import FloatingActions from '../components/FloatingActions.astro';
     <HowWeWork />
 
     <!-- Discovery Gateway Cards to Dedicated Projects & Trades Pages -->
-    <section class="bg-cream py-16 px-6 sm:px-10 lg:px-16 border-t border-hairline">
-      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
+    <section class="bg-cream py-24 px-6 sm:px-10 lg:px-16 border-t border-hairline relative">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-6 md:gap-10">
+        
         <!-- Projects Card -->
         <a 
           href="/projects" 
-          class="group relative bg-canvas p-8 sm:p-10 rounded-2xl border border-hairline shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:border-primary/40"
+          class="group relative bg-navy-darker h-[450px] sm:h-[500px] rounded-[32px] shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end overflow-hidden"
           data-reveal="fade-up"
         >
-          <div class="relative z-10">
-            <span class="text-xs font-mono font-semibold uppercase tracking-wider text-primary mb-3 block">
+          <!-- Background Image -->
+          <img src="/images/gallery_tensile_overview_1.png" alt="Project Gallery" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" />
+          
+          <!-- Gradient Overlays -->
+          <div class="absolute inset-0 bg-gradient-to-t from-navy-darker/95 via-navy-darker/50 to-transparent transition-opacity duration-500 group-hover:opacity-90"></div>
+          <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
+          
+          <!-- Content -->
+          <div class="relative z-10 p-8 sm:p-10 transform transition-transform duration-500 group-hover:-translate-y-2">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10px] font-mono font-semibold uppercase tracking-wider text-emerald-400 mb-4 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
               UAE Installation Portfolio
             </span>
-            <h3 class="font-display font-bold text-2xl sm:text-3xl text-ink mb-3 group-hover:text-primary transition-colors">
+            <h3 class="font-display font-bold text-3xl sm:text-4xl text-white mb-3 drop-shadow-md group-hover:text-emerald-400 transition-colors duration-300">
               Explore Our Project Gallery
             </h3>
-            <p class="font-body text-ink-soft text-sm sm:text-base leading-relaxed mb-6">
+            <p class="font-body text-white/80 text-sm sm:text-base leading-relaxed mb-6 max-w-sm drop-shadow-sm">
               Browse 500+ completed tensile shade structures, luxury car parking shades, cantilever roofs, and custom tents across the 7 Emirates.
             </p>
-          </div>
-          <div class="relative z-10 flex items-center gap-2 text-primary font-body font-semibold text-sm group-hover:translate-x-1 transition-transform">
-            <span>View All Projects</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-400 text-navy-darker shadow-lg group-hover:bg-white group-hover:scale-110 transition-all duration-300">
+              <svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </div>
           </div>
         </a>
 
-        <!-- Trades Card -->
+        <!-- Trades Card (Asymmetrically Offset) -->
         <a 
           href="/trades" 
-          class="group relative bg-navy-darker p-8 sm:p-10 rounded-2xl border border-navy-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:border-gold-accent/40 text-canvas"
+          class="group relative bg-navy-darker h-[450px] sm:h-[500px] rounded-[32px] shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end overflow-hidden md:mt-16"
           data-reveal="fade-up"
-          data-reveal-delay="0.1"
+          data-reveal-delay="0.15"
         >
-          <div class="relative z-10">
-            <span class="text-xs font-mono font-semibold uppercase tracking-wider text-gold-accent mb-3 block">
+          <!-- Background Image -->
+          <img src="/images/inhouse_factory.png" alt="Industrial Trades" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" loading="lazy" />
+          
+          <!-- Gradient Overlays -->
+          <div class="absolute inset-0 bg-gradient-to-t from-navy-darker/95 via-navy-darker/50 to-transparent transition-opacity duration-500 group-hover:opacity-90"></div>
+          <div class="absolute inset-0 bg-gold-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"></div>
+          
+          <!-- Content -->
+          <div class="relative z-10 p-8 sm:p-10 transform transition-transform duration-500 group-hover:-translate-y-2">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-[10px] font-mono font-semibold uppercase tracking-wider text-gold-accent mb-4 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-accent animate-pulse"></span>
               Sharjah Al Dhaid Workshop
             </span>
-            <h3 class="font-display font-bold text-2xl sm:text-3xl text-canvas mb-3 group-hover:text-gold-accent transition-colors">
+            <h3 class="font-display font-bold text-3xl sm:text-4xl text-white mb-3 drop-shadow-md group-hover:text-gold-accent transition-colors duration-300">
               Our Trades & Industrial Panels
             </h3>
-            <p class="font-body text-ink-secondary text-sm sm:text-base leading-relaxed mb-6">
+            <p class="font-body text-white/80 text-sm sm:text-base leading-relaxed mb-6 max-w-sm drop-shadow-sm">
               Direct-manufacturer steel fabrication, CNC cutting, certified welding, insulated sandwich panels, and corrugated sheet distribution.
             </p>
-          </div>
-          <div class="relative z-10 flex items-center gap-2 text-gold-accent font-body font-semibold text-sm group-hover:translate-x-1 transition-transform">
-            <span>Explore Trades & Panels</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gold-accent text-navy-darker shadow-lg group-hover:bg-white group-hover:scale-110 transition-all duration-300">
+              <svg class="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </div>
           </div>
         </a>
+
       </div>
     </section>
 
