@@ -32,7 +32,7 @@ export const services: ServiceCategory[] = [
     metaTitle: "Car Parking Shades in UAE — HDPE, Solar & Aluminium | Al Sahra Tents",
     metaDescription: "Durable car parking shade structures across the UAE — heavy-duty HDPE, PVC, solar, aluminium, and GRP options. Engineered for UAE heat and wind loads.",
     intro: "We design and install car parking shade structures across the UAE, built to handle real desert heat and wind loads — from heavy-duty HDPE fabric to solar-integrated systems that shade your parking and generate power at the same time.",
-    heroImage: "/images/service_parking_1.png",
+    heroImage: "/images/service_car_parking_shades.jpg",
     subItems: [
       {
         name: "Heavy Duty HDPE",
@@ -82,7 +82,7 @@ export const services: ServiceCategory[] = [
     metaTitle: "Tensile Fabric Shade Structures UAE — PTFE, PVDF & PVC | Al Sahra Tents",
     metaDescription: "Architectural tensile fabric structures for schools, sports courts, and public spaces — PTFE, PVDF, and PVC/HDPE membrane options, engineered and installed across the UAE.",
     intro: "Our tensile fabric structures use the same architectural-grade membrane materials trusted internationally — PTFE, PVDF, and PVC/HDPE — chosen to match your project's durability, translucency, and budget requirements.",
-    heroImage: "/images/service_tensile_1.png",
+    heroImage: "/images/service_tensile_shade.jpg",
     subItems: [
       {
         name: "PVDF Membrane",
@@ -117,7 +117,7 @@ export const services: ServiceCategory[] = [
     metaTitle: "Shade Sails UAE — Kids Play Areas & Swimming Pool Shades | Al Sahra Tents",
     metaDescription: "Custom shade sails for kids play areas and swimming pools across the UAE — HDPE, PVC, and PTFE fabric options, designed for shape, coverage, and UV protection.",
     intro: "Shade sails are one of the most flexible ways to cover an irregular outdoor space — we design and install them for kids play areas and swimming pools alike, matched to the fabric and UV protection level your site needs.",
-    heroImage: "/images/service_recreation_1.png",
+    heroImage: "/images/service_sail_shade.jpg",
     subItems: [
       {
         name: "Kids Play Area Shade (HDPE & PVC)",
@@ -145,7 +145,7 @@ export const services: ServiceCategory[] = [
     metaTitle: "Retractable Pergolas & Awnings UAE — Motorised & Bioclimatic | Al Sahra Tents",
     metaDescription: "Motorised and manual pergola and awning systems for villas and hospitality outdoor spaces — bioclimatic pergolas, retractable awnings, and wave shade systems across the UAE.",
     intro: "From fully motorised bioclimatic pergolas to manual wave shade systems, we install adjustable shade solutions for villas, restaurants, and hospitality outdoor spaces — built to open and close on demand as the sun moves.",
-    heroImage: "/images/service_pergola_1.png",
+    heroImage: "/images/service_retractable_pergolas.jpg",
     subItems: [
       {
         name: "Motorised Pergolas",
@@ -195,7 +195,7 @@ export const services: ServiceCategory[] = [
     metaTitle: "CNC Mashrabiya & Aluminium Pergolas UAE | Al Sahra Tents",
     metaDescription: "CNC-cut aluminium mashrabiya screens and pergolas across the UAE — decorative privacy and shade panels combining traditional pattern with modern fabrication.",
     intro: "CNC-cut mashrabiya panels bring a traditional Arabic architectural element into modern shade and privacy design — precision-fabricated in aluminium and paired with our pergola systems for a distinctive architectural finish.",
-    heroImage: "/images/service_pergola_2.png",
+    heroImage: "/images/service_masharabiya.jpg",
     subItems: [
       {
         name: "Pergola",
@@ -224,7 +224,7 @@ export const services: ServiceCategory[] = [
     metaTitle: "Custom Tents & Majlis UAE — Event, Military & Dome Tents | Al Sahra Tents",
     metaDescription: "Custom tent manufacturing across the UAE — majlis tents, military tents, geodesic domes, pyramid tents, and event marquees, built to order for any occasion or application.",
     intro: "We manufacture and install a full range of tents, from traditional Arabic majlis to large-format event and military tents — every structure built to order for your event, site, or operational requirement.",
-    heroImage: "/images/service_tents_1.png",
+    heroImage: "/images/service_customised_tents.jpg",
     subItems: [
       {
         name: "Majlis",
@@ -336,7 +336,7 @@ export const services: ServiceCategory[] = [
     metaTitle: "Steel Structures & Warehouse Sheds UAE | Al Sahra Tents",
     metaDescription: "Steel structure fabrication across the UAE — warehouses and mezzanine floor installations, engineered and built for industrial and commercial use.",
     intro: "We design, fabricate, and install steel structures for industrial and commercial needs — from full warehouse sheds to mezzanine floor additions that expand your existing site's usable space.",
-    heroImage: "/images/service_steel_shed_1.png",
+    heroImage: "/images/service_steel_structures.jpg",
     subItems: [
       {
         name: "Warehouse",
@@ -364,7 +364,7 @@ export const services: ServiceCategory[] = [
     metaTitle: "Steel Staircase & Handrail Fabrication UAE | Al Sahra Tents",
     metaDescription: "Custom steel and stainless steel staircase fabrication across the UAE — SS handrails, staircases, and grating built to project specification.",
     intro: "Our fabrication team builds steel and stainless steel staircases, handrails, and grating to project specification — precision welded and finished for both industrial and architectural applications.",
-    heroImage: "/images/service_staircase_1.png",
+    heroImage: "/images/service_steel_fabrication.jpg",
     subItems: [
       {
         name: "Steel Staircase",
@@ -406,7 +406,7 @@ export const services: ServiceCategory[] = [
     metaTitle: "Fencing & Parking Bollards UAE | Al Sahra Tents",
     metaDescription: "Fencing and bollard installation across the UAE — perimeter fencing for sites and facilities, plus bollards for traffic control and site safety.",
     intro: "We install fencing and bollard systems for construction sites, sports facilities, and commercial properties — practical, durable solutions for perimeter security and traffic control.",
-    heroImage: "/images/service_fencing_1.png",
+    heroImage: "/images/service_fencing_bollards.jpg",
     subItems: [
       {
         name: "Fencing",
