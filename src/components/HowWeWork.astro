@@ -174,30 +174,24 @@ const processSteps = [
       </div>
 
       <!-- DESKTOP TIMELINE (Visible on lg screens) -->
-      <div class="hidden lg:block relative mb-16 pt-8">
-        <!-- Connecting Line Background Track -->
-        <div class="absolute top-[52px] left-[10%] right-[10%] h-[4px] bg-navy-mid/80 rounded-full z-0 overflow-hidden">
-          <div class="w-full h-full bg-gradient-to-r from-navy-border/40 via-white/5 to-navy-border/40"></div>
+      <div id="desktop-timeline-wrapper" class="hidden lg:block relative mb-16 pt-8">
+        <!-- Connecting Line Background Track (spans exactly between first and last node centers) -->
+        <div 
+          id="process-track-bg"
+          class="absolute top-[60px] -translate-y-1/2 h-[4px] bg-navy-mid/80 rounded-full z-0 overflow-hidden pointer-events-none"
+        >
+          <div class="w-full h-full bg-gradient-to-r from-navy-border/40 via-white/10 to-navy-border/40"></div>
         </div>
 
         <!-- Animated Progress Connecting Line (Bidirectional Dynamic Scrub) -->
         <div 
           id="process-progress-line" 
-          class="absolute top-[52px] left-[10%] h-[4px] bg-gradient-to-r from-primary via-primary-light to-gold-accent rounded-full z-0 transition-all duration-300 ease-out shadow-[0_0_12px_rgba(46,139,87,0.8)]"
-          style="width: 0%;"
+          class="absolute top-[60px] -translate-y-1/2 h-[4px] bg-gradient-to-r from-primary via-primary-light to-gold-accent rounded-full z-0 transition-all duration-300 ease-out shadow-[0_0_14px_rgba(46,139,87,0.9)] pointer-events-none"
+          style="left: 10%; width: 0%;"
         ></div>
 
-        <!-- Traveling Laser Beacon Head -->
-        <div 
-          id="process-laser-dot"
-          class="absolute top-[52px] -translate-y-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-gold-accent shadow-[0_0_18px_#d4a72c] border-2 border-white z-20 pointer-events-none transition-all duration-300 ease-out flex items-center justify-center opacity-0"
-          style="left: 10%;"
-        >
-          <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
-        </div>
-
         <!-- 5 Steps Horizontal Grid -->
-        <div class="grid grid-cols-5 gap-4 relative z-10">
+        <div class="grid grid-cols-5 gap-4 relative z-10" id="desktop-steps-grid">
           {processSteps.map((step, idx) => (
             <div 
               class="process-step-node flex flex-col items-center group cursor-pointer transition-all duration-300"
@@ -205,11 +199,18 @@ const processSteps = [
             >
               <!-- Step Circle Node on the Line -->
               <div 
-                class="process-node-circle w-14 h-14 rounded-full bg-navy-darker border-2 border-navy-mid text-ink-muted flex items-center justify-center font-display font-bold text-base transition-all duration-400 group-hover:scale-110 mb-6 shadow-xl relative select-none"
+                class="process-node-circle w-14 h-14 rounded-full bg-navy-darker border-2 border-navy-mid flex items-center justify-center font-display font-black text-lg transition-all duration-300 group-hover:scale-110 mb-6 shadow-xl relative select-none z-10"
               >
-                <span class="step-num-text z-10 transition-colors duration-300">{step.step}</span>
-                <span class="pulse-ring absolute inset-0 rounded-full border-2 border-primary opacity-0 transition-all duration-400"></span>
-                <span class="active-badge absolute -top-2.5 px-2 py-0.2 rounded-full bg-gold-accent text-navy-darker text-[9px] font-mono font-bold uppercase tracking-wider opacity-0 transition-opacity duration-300 shadow-md">
+                <!-- Number Text: always visible, on top, with high contrast -->
+                <span class="step-num-text relative z-30 font-display font-black text-base transition-all duration-300 select-none text-ink-muted">
+                  {step.step}
+                </span>
+
+                <!-- Expanding Ring Animation on Active Step (Outward ping ring, never covers digits) -->
+                <span class="pulse-ring absolute -inset-1 rounded-full border-2 border-gold-accent opacity-0 pointer-events-none transition-all duration-300 z-10"></span>
+
+                <!-- Active Status Badge -->
+                <span class="active-badge absolute -top-3.5 px-2.5 py-0.5 rounded-full bg-gold-accent text-navy-darker text-[9px] font-mono font-black uppercase tracking-wider opacity-0 transition-all duration-300 shadow-md pointer-events-none z-30">
                   Active
                 </span>
               </div>
@@ -273,13 +274,6 @@ const processSteps = [
           style="height: 0%;"
         ></div>
 
-        <!-- Mobile Traveling Dot -->
-        <div 
-          id="process-mobile-laser-dot"
-          class="absolute left-[15px] sm:left-[19px] -translate-x-1/2 w-4 h-4 rounded-full bg-gold-accent shadow-[0_0_12px_#d4a72c] border-2 border-white z-20 pointer-events-none transition-all duration-300 opacity-0"
-          style="top: 16px;"
-        ></div>
-
         {processSteps.map((step, idx) => (
           <div 
             class="process-mobile-step relative cursor-pointer"
@@ -341,16 +335,16 @@ const processSteps = [
 <script>
   function initInteractiveProcess() {
     const container = document.getElementById('process-timeline-container');
+    const wrapper = document.getElementById('desktop-timeline-wrapper');
+    const trackBg = document.getElementById('process-track-bg');
     const desktopLine = document.getElementById('process-progress-line');
-    const desktopLaser = document.getElementById('process-laser-dot');
     const mobileLine = document.getElementById('process-mobile-progress-line');
-    const mobileLaser = document.getElementById('process-mobile-laser-dot');
     const nodes = document.querySelectorAll<HTMLElement>('.process-step-node');
     const mobileSteps = document.querySelectorAll<HTMLElement>('.process-mobile-step');
     const tabBtns = document.querySelectorAll<HTMLButtonElement>('.process-tab-btn');
     const activeLabel = document.getElementById('active-step-label');
 
-    if (!container) return;
+    if (!container || !wrapper || nodes.length === 0) return;
 
     const stepTitles = [
       "Phase 01: Site Survey & 3D Wind Analysis",
@@ -360,12 +354,33 @@ const processSteps = [
       "Phase 05: 24/7 Care, Fix & Renovation"
     ];
 
-    // Center coordinates for the 5 desktop steps relative to the container track (10% to 90%)
-    // Step 0: 10%, Step 1: 30%, Step 2: 50%, Step 3: 70%, Step 4: 90%
-    const stepCenters = [10, 30, 50, 70, 90];
+    let stepCenters: number[] = [];
     let activeStepIdx = 0;
     let isHoverLocked = false;
     let hoverUnlockTimeout: number | null = null;
+
+    // Calculate exact pixel centers of each desktop circle node relative to wrapper
+    function updateDesktopGeometry() {
+      if (!wrapper || !trackBg || nodes.length === 0) return;
+      const wrapperRect = wrapper.getBoundingClientRect();
+      stepCenters = [];
+
+      nodes.forEach((node) => {
+        const circle = node.querySelector<HTMLElement>('.process-node-circle');
+        if (circle) {
+          const circleRect = circle.getBoundingClientRect();
+          const centerPx = (circleRect.left + circleRect.width / 2) - wrapperRect.left;
+          stepCenters.push(centerPx);
+        }
+      });
+
+      if (stepCenters.length >= 2) {
+        const firstCenter = stepCenters[0];
+        const lastCenter = stepCenters[stepCenters.length - 1];
+        trackBg.style.left = `${firstCenter}px`;
+        trackBg.style.width = `${lastCenter - firstCenter}px`;
+      }
+    }
 
     function setActiveStep(idx: number, animateBeam = true) {
       if (idx < 0) idx = 0;
@@ -390,45 +405,26 @@ const processSteps = [
 
       // Update Desktop Nodes and Cards
       nodes.forEach((node, i) => {
-        const circle = node.querySelector('.process-node-circle');
-        const numText = node.querySelector('.step-num-text');
-        const ring = node.querySelector('.pulse-ring');
-        const activeBadge = node.querySelector('.active-badge');
-        const card = node.querySelector('.process-card');
-        const img = node.querySelector('.process-card-img');
-
-        if (i <= idx) {
-          // Connected / passed steps
-          if (circle) {
-            circle.classList.remove('border-navy-mid', 'text-ink-muted');
-            circle.classList.add('border-primary', 'bg-primary/25', 'text-canvas', 'shadow-primary/30');
-          }
-          if (numText) {
-            numText.classList.add('text-gold-accent');
-          }
-        } else {
-          // Future / yet to reach steps
-          if (circle) {
-            circle.classList.remove('border-primary', 'bg-primary/25', 'text-canvas', 'shadow-primary/30', 'border-gold-accent', 'scale-115');
-            circle.classList.add('border-navy-mid', 'text-ink-muted');
-          }
-          if (numText) {
-            numText.classList.remove('text-gold-accent');
-          }
-        }
+        const circle = node.querySelector<HTMLElement>('.process-node-circle');
+        const numText = node.querySelector<HTMLElement>('.step-num-text');
+        const ring = node.querySelector<HTMLElement>('.pulse-ring');
+        const activeBadge = node.querySelector<HTMLElement>('.active-badge');
+        const card = node.querySelector<HTMLElement>('.process-card');
+        const img = node.querySelector<HTMLElement>('.process-card-img');
 
         if (i === idx) {
-          // Currently Active Step
+          // CURRENT ACTIVE STEP: Glowing ring, gold border, highly visible crisp number
           if (circle) {
-            circle.classList.add('border-gold-accent', 'scale-115', 'shadow-[0_0_20px_rgba(212,167,44,0.6)]');
+            circle.className = 'process-node-circle w-14 h-14 rounded-full bg-navy-darker border-2 border-gold-accent flex items-center justify-center font-display font-black text-lg transition-all duration-300 group-hover:scale-110 mb-6 shadow-[0_0_24px_rgba(212,167,44,0.7)] ring-4 ring-gold-accent/20 relative select-none z-20 scale-115';
+          }
+          if (numText) {
+            numText.className = 'step-num-text relative z-30 font-display font-black text-lg text-gold-accent scale-110 drop-shadow-[0_0_10px_rgba(212,167,44,0.9)] transition-all duration-300 select-none';
           }
           if (ring) {
-            ring.classList.remove('opacity-0');
-            ring.classList.add('opacity-100', 'animate-ping');
+            ring.className = 'pulse-ring absolute -inset-1.5 rounded-full border-2 border-gold-accent opacity-100 animate-ping pointer-events-none transition-all duration-300 z-10';
           }
           if (activeBadge) {
-            activeBadge.classList.remove('opacity-0');
-            activeBadge.classList.add('opacity-100');
+            activeBadge.className = 'active-badge absolute -top-3.5 px-2.5 py-0.5 rounded-full bg-gold-accent text-navy-darker text-[9px] font-mono font-black uppercase tracking-wider opacity-100 scale-100 transition-all duration-300 shadow-md pointer-events-none z-30';
           }
           if (card) {
             card.classList.add('border-gold-accent/80', '-translate-y-3', 'shadow-[0_15px_35px_rgba(0,0,0,0.6)]', 'ring-1', 'ring-gold-accent/30');
@@ -436,17 +432,39 @@ const processSteps = [
           if (img) {
             img.classList.add('scale-108');
           }
-        } else {
+        } else if (i < idx) {
+          // COMPLETED / CONNECTED STEPS
           if (circle) {
-            circle.classList.remove('border-gold-accent', 'scale-115', 'shadow-[0_0_20px_rgba(212,167,44,0.6)]');
+            circle.className = 'process-node-circle w-14 h-14 rounded-full bg-navy-darker border-2 border-primary flex items-center justify-center font-display font-bold text-base transition-all duration-300 group-hover:scale-110 mb-6 shadow-[0_0_12px_rgba(30,112,68,0.4)] relative select-none z-10';
+          }
+          if (numText) {
+            numText.className = 'step-num-text relative z-30 font-display font-bold text-base text-emerald-300 transition-all duration-300 select-none';
           }
           if (ring) {
-            ring.classList.remove('opacity-100', 'animate-ping');
-            ring.classList.add('opacity-0');
+            ring.className = 'pulse-ring absolute -inset-1 rounded-full border-2 border-primary opacity-0 pointer-events-none transition-all duration-300 z-10';
           }
           if (activeBadge) {
-            activeBadge.classList.remove('opacity-100');
-            activeBadge.classList.add('opacity-0');
+            activeBadge.className = 'active-badge absolute -top-3.5 px-2.5 py-0.5 rounded-full bg-gold-accent text-navy-darker text-[9px] font-mono font-black uppercase tracking-wider opacity-0 scale-90 transition-all duration-300 shadow-md pointer-events-none z-30';
+          }
+          if (card) {
+            card.classList.remove('border-gold-accent/80', '-translate-y-3', 'shadow-[0_15px_35px_rgba(0,0,0,0.6)]', 'ring-1', 'ring-gold-accent/30');
+          }
+          if (img) {
+            img.classList.remove('scale-108');
+          }
+        } else {
+          // FUTURE / UPCOMING STEPS
+          if (circle) {
+            circle.className = 'process-node-circle w-14 h-14 rounded-full bg-navy-darker border-2 border-navy-mid flex items-center justify-center font-display font-bold text-base transition-all duration-300 group-hover:scale-110 mb-6 shadow-md relative select-none z-10';
+          }
+          if (numText) {
+            numText.className = 'step-num-text relative z-30 font-display font-semibold text-base text-ink-muted/80 transition-all duration-300 select-none';
+          }
+          if (ring) {
+            ring.className = 'pulse-ring absolute -inset-1 rounded-full border-2 border-primary opacity-0 pointer-events-none transition-all duration-300 z-10';
+          }
+          if (activeBadge) {
+            activeBadge.className = 'active-badge absolute -top-3.5 px-2.5 py-0.5 rounded-full bg-gold-accent text-navy-darker text-[9px] font-mono font-black uppercase tracking-wider opacity-0 scale-90 transition-all duration-300 shadow-md pointer-events-none z-30';
           }
           if (card) {
             card.classList.remove('border-gold-accent/80', '-translate-y-3', 'shadow-[0_15px_35px_rgba(0,0,0,0.6)]', 'ring-1', 'ring-gold-accent/30');
@@ -490,12 +508,12 @@ const processSteps = [
         }
       });
 
-      // Position Desktop Beam & Laser Dot when prompted
-      if (animateBeam && desktopLine && desktopLaser) {
-        const targetPercent = stepCenters[idx] - 10; // width from left 10%
-        desktopLine.style.width = `${targetPercent}%`;
-        desktopLaser.style.left = `${stepCenters[idx]}%`;
-        desktopLaser.style.opacity = '1';
+      // Position Desktop Beam exactly to the active node center
+      if (animateBeam && desktopLine && stepCenters.length >= 5) {
+        const startX = stepCenters[0];
+        const targetX = stepCenters[idx];
+        desktopLine.style.left = `${startX}px`;
+        desktopLine.style.width = `${Math.max(0, targetX - startX)}px`;
       }
     }
 
@@ -510,7 +528,7 @@ const processSteps = [
       node.addEventListener('mouseleave', () => {
         hoverUnlockTimeout = window.setTimeout(() => {
           isHoverLocked = false;
-          handleScroll(); // resume scroll sync
+          handleScroll();
         }, 1200);
       });
 
@@ -544,9 +562,7 @@ const processSteps = [
       });
     });
 
-    // =========================================================================
-    // BIDIRECTIONAL SCROLL-LINKED ENGINE (RESPONDS SCROLL DOWN & SCROLL UP)
-    // =========================================================================
+    // Scroll-Linked Update
     let ticking = false;
 
     function handleScroll() {
@@ -555,14 +571,10 @@ const processSteps = [
       const rect = container.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Check if section is anywhere near viewport
       if (rect.bottom < 0 || rect.top > windowHeight) {
         return;
       }
 
-      // Calculate smooth entry/exit scroll progress
-      // Progress starts when top of container reaches 75% down the viewport
-      // Progress ends when bottom of container reaches 35% down the viewport
       const startPoint = windowHeight * 0.75;
       const endPoint = windowHeight * 0.25;
       const scrollableRange = rect.height + (startPoint - endPoint);
@@ -571,19 +583,17 @@ const processSteps = [
       let progress = scrolledDist / scrollableRange;
       progress = Math.max(0, Math.min(progress, 1));
 
-      // 1. DESKTOP ANIMATION UPDATE (Horizontal connecting beam & laser)
-      if (desktopLine && desktopLaser) {
-        // Line spans from 10% to 90% (80% total width span)
-        const lineWidthPercent = progress * 80;
-        desktopLine.style.width = `${lineWidthPercent}%`;
+      // 1. DESKTOP ANIMATION UPDATE (Exact pixel-mapped connecting beam)
+      if (desktopLine && stepCenters.length >= 5) {
+        const startX = stepCenters[0];
+        const endX = stepCenters[4];
+        const totalSpan = endX - startX;
+        const currentWidth = progress * totalSpan;
 
-        // Laser head travels along the line
-        const laserPositionPercent = 10 + lineWidthPercent;
-        desktopLaser.style.left = `${laserPositionPercent}%`;
-        desktopLaser.style.opacity = progress > 0.02 ? '1' : '0';
+        desktopLine.style.left = `${startX}px`;
+        desktopLine.style.width = `${currentWidth}px`;
 
         // Determine active step based on progress thresholds
-        // 5 steps distributed across 0..1
         let currentStep = 0;
         if (progress >= 0.85) {
           currentStep = 4;
@@ -600,12 +610,10 @@ const processSteps = [
         setActiveStep(currentStep, false);
       }
 
-      // 2. MOBILE ANIMATION UPDATE (Vertical spine & tracker)
-      if (mobileLine && mobileLaser) {
+      // 2. MOBILE ANIMATION UPDATE
+      if (mobileLine) {
         const mobileHeightPercent = progress * 96;
         mobileLine.style.height = `${mobileHeightPercent}%`;
-        mobileLaser.style.top = `${16 + (progress * (rect.height * 0.75))}px`;
-        mobileLaser.style.opacity = progress > 0.05 ? '1' : '0';
       }
     }
 
@@ -620,10 +628,14 @@ const processSteps = [
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', handleScroll, { passive: true });
+    window.addEventListener('resize', () => {
+      updateDesktopGeometry();
+      setActiveStep(activeStepIdx, true);
+    });
 
-    // Initial calculation on load
-    handleScroll();
+    // Initial setup on mount
+    updateDesktopGeometry();
+    setActiveStep(0, true);
   }
 
   if (document.readyState === 'loading') {
