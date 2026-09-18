@@ -28,6 +28,7 @@ export interface ServiceSubItem {
   details?: string;
   image?: string;
   images?: string[];
+  imagePosition?: string;
   hasDedicatedPage?: boolean;
   materials?: MaterialInfo[];
   comparisonTable?: ComparisonRow[];
@@ -41,6 +42,7 @@ export interface ServiceCategory {
   metaDescription: string;
   intro: string;
   heroImage: string;
+  heroImagePosition?: string;
   subItems: ServiceSubItem[];
 }
 
@@ -294,6 +296,7 @@ export const services: ServiceCategory[] = [
     metaDescription: "Motorised and manual pergola and awning systems for villas and hospitality outdoor spaces — bioclimatic pergolas, retractable awnings, and wave shade systems across the UAE.",
     intro: "From fully motorised bioclimatic pergolas to manual wave shade systems, we install adjustable shade solutions for villas, restaurants, and hospitality outdoor spaces — built to open and close on demand as the sun moves.",
     heroImage: "/images/service_retractable_pergolas.jpg",
+    heroImagePosition: "object-top",
     subItems: [
       {
         name: "Motorised Pergolas",
@@ -301,6 +304,12 @@ export const services: ServiceCategory[] = [
         keyword: "motorised pergola UAE",
         description: "Electrically operated retractable roof pergolas for effortless shade control.",
         details: "Our motorised pergolas feature quiet European tubular motor drives that retract and extend the roof fabric at the touch of a button. Available with handheld remotes, wall switches, and smart home automation integration. The roof fabric rolls smoothly on precision-engineered aluminium tracks, providing full shade when extended and an open sky when retracted. Ideal for villa patios, rooftop terraces, and restaurant outdoor seating.",
+        image: "/images/retractable-pergolas/motorised-pergola-1.jpg",
+        images: [
+          "/images/retractable-pergolas/motorised-pergola-1.jpg",
+          "/images/retractable-pergolas/motorised-pergola-2.jpg",
+        ],
+        imagePosition: "object-top",
       },
       {
         name: "Awning Canopy System",
@@ -308,6 +317,12 @@ export const services: ServiceCategory[] = [
         keyword: "awning canopy system UAE",
         description: "Retractable fabric awnings for windows, balconies, and storefronts.",
         details: "Our retractable awning systems mount directly to building facades to shade windows, balconies, and shopfront entrances. Available in manual crank or motorised configurations with optional wind sensors for automatic retraction in high gusts. The acrylic or PVC awning fabric is UV-stabilised and available in a wide range of solid and striped colours. Projection lengths available from 1.5m up to 5m.",
+        image: "/images/retractable-pergolas/awning-canopy-1.jpg",
+        images: [
+          "/images/retractable-pergolas/awning-canopy-1.jpg",
+          "/images/retractable-pergolas/awning-canopy-2.jpg",
+        ],
+        imagePosition: "object-top",
       },
       {
         name: "Wave Manual Shade System",
@@ -315,6 +330,13 @@ export const services: ServiceCategory[] = [
         keyword: "wave shade system manual",
         description: "A manually operated wave-profile fabric shade, a lighter-weight retractable option.",
         details: "The wave shade system uses a sliding fabric panel that runs along stainless steel cables, creating a distinctive wave profile when extended. Operated manually by hand, it's a cost-effective and mechanically simple alternative to motorised systems. Popular for residential garden walkways, café terraces, and courtyard corridors where an elegant, low-maintenance retractable shade is needed.",
+        image: "/images/retractable-pergolas/wave-shade-1.jpg",
+        images: [
+          "/images/retractable-pergolas/wave-shade-1.jpg",
+          "/images/retractable-pergolas/wave-shade-2.jpg",
+          "/images/retractable-pergolas/wave-shade-3.jpg",
+        ],
+        imagePosition: "object-top",
       },
       {
         name: "Bioclimatic Pergolas",
@@ -322,6 +344,12 @@ export const services: ServiceCategory[] = [
         keyword: "bioclimatic pergola UAE",
         description: "Louvered-roof pergolas with adjustable slats for precise light and airflow control.",
         details: "Bioclimatic pergolas feature motorised rotating aluminium louvers that adjust from 0° (fully sealed and watertight) to 135° (maximum ventilation and sunlight). Built from marine-grade 6063-T6 extruded aluminium with EPDM waterproof gaskets, integrated concealed rain gutters, and optional dimmable LED perimeter lighting. Rain sensors automatically close the louvers at the first drop. The premium outdoor living solution for luxury villas, five-star hotel pool bars, and fine-dining terraces.",
+        image: "/images/retractable-pergolas/bioclimatic-pergola-1.jpg",
+        images: [
+          "/images/retractable-pergolas/bioclimatic-pergola-1.jpg",
+          "/images/retractable-pergolas/bioclimatic-pergola-2.jpg",
+        ],
+        imagePosition: "object-top",
         hasDedicatedPage: true,
       },
       {
@@ -330,6 +358,12 @@ export const services: ServiceCategory[] = [
         keyword: "retractable pergola UAE",
         description: "Fully retractable fabric-roof pergola systems for outdoor living and dining areas.",
         details: "Our retractable pergola systems combine a fixed aluminium or steel frame with a motorised sliding fabric roof that can be fully opened or closed. The fabric panels stack neatly when retracted, giving you the flexibility of an open terrace or a fully covered space depending on the weather. Available in custom dimensions and a range of architectural powder-coat finishes.",
+        image: "/images/retractable-pergolas/retractable-pergola-1.jpg",
+        images: [
+          "/images/retractable-pergolas/retractable-pergola-1.jpg",
+          "/images/service_retractable_pergolas.jpg",
+        ],
+        imagePosition: "object-top",
       },
     ],
   },
