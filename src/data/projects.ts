@@ -53,7 +53,7 @@ export const projects: Project[] = [
   // Tensile Shades
   {
     id: "ts-1",
-    image: "/images/service_tensile_1.png",
+    image: "/images/tensile4.jpg",
     category: "Tensile Shades",
     title: "Conical Architectural Tensile Canopy",
     location: "University Campus, UAE",
@@ -103,7 +103,7 @@ export const projects: Project[] = [
   },
   {
     id: "rec-2",
-    image: "/images/service_recreation_2.png",
+    image: "/images/sail10.jpg",
     category: "Recreation & Play",
     title: "Park Activity Center Shading",
     location: "Public Gardens, Sharjah",

@@ -389,30 +389,40 @@ const siblingItems = category.subItems.filter(s => s.slug !== subItem.slug);
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 min-w-0">
-          {siblingItems.slice(0, 6).map(sibling => (
-            <div class="bg-navy-card p-5 rounded-xl border border-navy-border hover:border-gold-accent/40 transition-all duration-300 group min-w-0">
-              <span class="font-mono text-[10px] text-gold-accent uppercase tracking-wider block mb-2">{category.name}</span>
-              <h4 class="font-body font-semibold text-sm text-canvas group-hover:text-gold-accent transition-colors mb-2 break-words">
-                {sibling.name}
-              </h4>
-              <p class="text-xs text-ink-secondary leading-relaxed mb-3 line-clamp-2">{sibling.description}</p>
-              {sibling.hasDedicatedPage ? (
-                <a 
-                  href={`/services/${category.slug}/${sibling.slug}`}
-                  class="text-[11px] font-semibold text-primary hover:text-canvas transition-colors inline-flex items-center gap-1"
-                >
-                  Learn more →
-                </a>
-              ) : (
-                <a 
-                  href="/contact"
-                  class="text-[11px] font-semibold text-gold-accent hover:text-canvas transition-colors inline-flex items-center gap-1"
-                >
-                  Request a quote →
-                </a>
-              )}
-            </div>
-          ))}
+          {siblingItems.slice(0, 6).map(sibling => {
+            const SiblingTag = sibling.hasDedicatedPage ? 'a' : 'div';
+            const siblingProps = sibling.hasDedicatedPage
+              ? { href: `/services/${category.slug}/${sibling.slug}`, 'aria-label': `Explore ${sibling.name}` }
+              : {};
+
+            return (
+              <SiblingTag 
+                {...siblingProps}
+                class={`bg-navy-card p-5 rounded-xl border border-navy-border hover:border-gold-accent/40 transition-all duration-300 group min-w-0 flex flex-col justify-between ${sibling.hasDedicatedPage ? 'cursor-pointer block no-underline text-inherit' : ''}`}
+              >
+                <div>
+                  <span class="font-mono text-[10px] text-gold-accent uppercase tracking-wider block mb-2">{category.name}</span>
+                  <h4 class="font-body font-semibold text-sm text-canvas group-hover:text-gold-accent transition-colors mb-2 break-words">
+                    {sibling.name}
+                  </h4>
+                  <p class="text-xs text-ink-secondary leading-relaxed mb-3 line-clamp-2">{sibling.description}</p>
+                </div>
+                {sibling.hasDedicatedPage ? (
+                  <div class="text-[11px] font-semibold text-primary group-hover:text-gold-accent transition-colors inline-flex items-center gap-1 mt-auto">
+                    <span>Explore</span>
+                    <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </div>
+                ) : (
+                  <a 
+                    href="/contact"
+                    class="text-[11px] font-semibold text-gold-accent hover:text-canvas transition-colors inline-flex items-center gap-1 mt-auto"
+                  >
+                    Request a quote →
+                  </a>
+                )}
+              </SiblingTag>
+            );
+          })}
         </div>
       </div>
     </section>
