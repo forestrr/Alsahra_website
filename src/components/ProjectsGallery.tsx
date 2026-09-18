@@ -21,16 +21,26 @@ export default function ProjectsGallery() {
     : projects.filter(p => p.category === activeCategory);
 
   const getGridClasses = (idx: number) => {
-    // Dynamic masonry pattern
+    // Dynamic masonry pattern — only grid column classes (no arbitrary min-h values)
     const pos = idx % 6;
     switch(pos) {
-      case 0: return "col-span-12 lg:col-span-8 min-h-[500px]"; // Massive feature
-      case 1: return "col-span-12 sm:col-span-6 lg:col-span-4 min-h-[500px]"; // Tall portrait
-      case 2: return "col-span-12 sm:col-span-6 lg:col-span-4 min-h-[400px]"; // Square-ish
-      case 3: return "col-span-12 sm:col-span-6 lg:col-span-4 min-h-[400px]"; // Square-ish
-      case 4: return "col-span-12 sm:col-span-6 lg:col-span-4 min-h-[400px]"; // Square-ish
-      case 5: return "col-span-12 lg:col-span-12 min-h-[600px]"; // Ultra wide cinematic
-      default: return "col-span-12 lg:col-span-4 min-h-[400px]";
+      case 0: return "col-span-12 lg:col-span-8";
+      case 1: return "col-span-12 sm:col-span-6 lg:col-span-4";
+      case 2: return "col-span-12 sm:col-span-6 lg:col-span-4";
+      case 3: return "col-span-12 sm:col-span-6 lg:col-span-4";
+      case 4: return "col-span-12 sm:col-span-6 lg:col-span-4";
+      case 5: return "col-span-12 lg:col-span-12";
+      default: return "col-span-12 lg:col-span-4";
+    }
+  };
+
+  const getMinHeight = (idx: number): string => {
+    const pos = idx % 6;
+    switch(pos) {
+      case 0: return "500px";
+      case 1: return "500px";
+      case 5: return "600px";
+      default: return "400px";
     }
   };
 
@@ -75,7 +85,8 @@ export default function ProjectsGallery() {
             <div
               key={project.id}
               onClick={() => setSelectedProject(project)}
-              className={`group cursor-pointer rounded-3xl overflow-hidden relative shadow-2xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-500 hover:-translate-y-2 ${getGridClasses(idx)}`}
+              style={{ minHeight: getMinHeight(idx) }}
+              className={`group cursor-pointer rounded-3xl overflow-hidden relative shadow-2xl transition-all duration-500 hover:-translate-y-2 ${getGridClasses(idx)}`}
             >
               {/* Background Image */}
               <img
