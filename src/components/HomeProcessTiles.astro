@@ -1,0 +1,108 @@
+---
+const steps = [
+  {
+    step: "01",
+    tag: "Engineering & 3D CAD",
+    title: "Technical Design Support",
+    description: "Every structure is individually calculated and modeled to site parameters, complying with strict UAE municipality wind load and safety codes.",
+    image: "/images/process_step1_survey.jpg",
+    accentColor: "bg-gold-accent",
+    textColor: "text-gold-accent",
+    spec: "3D CAD • Wind Calculations"
+  },
+  {
+    step: "02",
+    tag: "Sharjah Al Dhaid Factory",
+    title: "In-House Manufacturing",
+    description: "Fabric and steel components are forged and CNC-machined in our Sharjah facility, ensuring complete quality control and zero subcontracting.",
+    image: "/images/process_step2_forging.jpg",
+    accentColor: "bg-primary",
+    textColor: "text-primary",
+    spec: "CNC Cutting • Certified Welding"
+  },
+  {
+    step: "03",
+    tag: "7 Emirates Coverage",
+    title: "Installation & After-Care",
+    description: "Certified rigging crews handle crane erection, hydraulic tensioning, and turnkey signoff, backed by ongoing maintenance across the UAE.",
+    image: "/images/process_step5_maintenance.jpg",
+    accentColor: "bg-navy-mid",
+    textColor: "text-navy-mid",
+    spec: "Certified Rigging • 24/7 Care"
+  }
+];
+---
+
+<section id="process-overview" class="bg-cream py-16 sm:py-20 px-6 sm:px-10 lg:px-16 border-t border-hairline relative overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Section Header (Centered & Compact) -->
+    <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14" data-reveal="fade-up">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sand/70 border border-hairline text-xs font-mono font-semibold uppercase tracking-wider text-ink-soft mb-3.5 shadow-2xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+        <span>End-to-End Specialization</span>
+      </div>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink tracking-tight">
+        Designed, Forged & Fabricated
+      </h2>
+      <p class="font-body text-ink-soft text-sm sm:text-base mt-2.5 leading-relaxed">
+        Our specialized 3-stage execution process — direct from our Sharjah workshop to turnkey site handover.
+      </p>
+    </div>
+
+    <!-- 3 Compact Static Tiles Grid (Uniform Aesthetic, Zero Excess Whitespace) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8" data-reveal="fade-up" data-reveal-delay="0.1">
+      {steps.map((step) => (
+        <div class="bg-white rounded-[24px] p-5 sm:p-6 border border-hairline shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5 relative">
+          
+          <div>
+            <!-- Compact Aesthetic Image Container -->
+            <div class="relative aspect-[16/10] rounded-2xl overflow-hidden mb-5 bg-navy-darker shadow-xs">
+              <img 
+                src={step.image} 
+                alt={step.title} 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                loading="lazy" 
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+              
+              <!-- Step Number Badge -->
+              <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-2.5 py-0.5 rounded-full text-xs font-mono font-bold text-ink shadow-sm border border-black/5">
+                {step.step}
+              </div>
+
+              <!-- Location / Facility Tag -->
+              <div class="absolute bottom-3 left-3 bg-black/65 backdrop-blur-md px-2.5 py-1 rounded-lg text-[11px] font-mono font-medium text-white/90 border border-white/10 shadow-xs">
+                {step.tag}
+              </div>
+            </div>
+
+            <!-- Accent Color Bar -->
+            <div class={`w-10 h-1 rounded-full ${step.accentColor} mb-3.5 transition-all duration-300 group-hover:w-16`}></div>
+
+            <!-- Title & Compact Description -->
+            <h3 class="font-display font-bold text-xl sm:text-[22px] text-ink mb-2.5 group-hover:text-primary transition-colors duration-200">
+              {step.title}
+            </h3>
+            <p class="font-body text-ink-soft text-sm leading-relaxed mb-5">
+              {step.description}
+            </p>
+          </div>
+
+          <!-- Bottom Micro Spec Pill -->
+          <div class="pt-3.5 border-t border-hairline/70 flex items-center justify-between text-xs font-mono text-ink-muted">
+            <span class="inline-flex items-center gap-1.5">
+              <span class={`w-1.5 h-1.5 rounded-full ${step.accentColor}`}></span>
+              <span>{step.spec}</span>
+            </span>
+            <span class="text-ink-muted group-hover:text-primary group-hover:translate-x-1 transition-all duration-200 font-bold">
+              &rarr;
+            </span>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
