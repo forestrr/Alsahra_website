@@ -301,6 +301,10 @@ export const services: ServiceCategory[] = [
         keyword: "motorised pergola UAE",
         description: "Electrically operated retractable roof pergolas for effortless shade control.",
         details: "Our motorised pergolas feature quiet European tubular motor drives that retract and extend the roof fabric at the touch of a button. Available with handheld remotes, wall switches, and smart home automation integration. The roof fabric rolls smoothly on precision-engineered aluminium tracks, providing full shade when extended and an open sky when retracted. Ideal for villa patios, rooftop terraces, and restaurant outdoor seating.",
+        images: [
+          '/images/pergolas/motorised-pergolas-1.jpg',
+          '/images/pergolas/motorised-pergolas-2.jpg'
+        ],
       },
       {
         name: "Awning Canopy System",
@@ -308,6 +312,10 @@ export const services: ServiceCategory[] = [
         keyword: "awning canopy system UAE",
         description: "Retractable fabric awnings for windows, balconies, and storefronts.",
         details: "Our retractable awning systems mount directly to building facades to shade windows, balconies, and shopfront entrances. Available in manual crank or motorised configurations with optional wind sensors for automatic retraction in high gusts. The acrylic or PVC awning fabric is UV-stabilised and available in a wide range of solid and striped colours. Projection lengths available from 1.5m up to 5m.",
+        images: [
+          '/images/pergolas/awning-canopy-system-1.jpg',
+          '/images/pergolas/awning-canopy-system-2.jpg'
+        ],
       },
       {
         name: "Wave Manual Shade System",
@@ -315,6 +323,11 @@ export const services: ServiceCategory[] = [
         keyword: "wave shade system manual",
         description: "A manually operated wave-profile fabric shade, a lighter-weight retractable option.",
         details: "The wave shade system uses a sliding fabric panel that runs along stainless steel cables, creating a distinctive wave profile when extended. Operated manually by hand, it's a cost-effective and mechanically simple alternative to motorised systems. Popular for residential garden walkways, café terraces, and courtyard corridors where an elegant, low-maintenance retractable shade is needed.",
+        images: [
+          '/images/pergolas/wave-manual-shade-system-1.jpg',
+          '/images/pergolas/wave-manual-shade-system-2.jpg',
+          '/images/pergolas/wave-manual-shade-system-3.jpg'
+        ],
       },
       {
         name: "Bioclimatic Pergolas",
@@ -323,6 +336,10 @@ export const services: ServiceCategory[] = [
         description: "Louvered-roof pergolas with adjustable slats for precise light and airflow control.",
         details: "Bioclimatic pergolas feature motorised rotating aluminium louvers that adjust from 0° (fully sealed and watertight) to 135° (maximum ventilation and sunlight). Built from marine-grade 6063-T6 extruded aluminium with EPDM waterproof gaskets, integrated concealed rain gutters, and optional dimmable LED perimeter lighting. Rain sensors automatically close the louvers at the first drop. The premium outdoor living solution for luxury villas, five-star hotel pool bars, and fine-dining terraces.",
         hasDedicatedPage: true,
+        images: [
+          '/images/pergolas/bioclimatic-pergolas-1.jpg',
+          '/images/pergolas/bioclimatic-pergolas-2.jpg'
+        ],
       },
       {
         name: "Retractable Pergolas",
@@ -330,6 +347,9 @@ export const services: ServiceCategory[] = [
         keyword: "retractable pergola UAE",
         description: "Fully retractable fabric-roof pergola systems for outdoor living and dining areas.",
         details: "Our retractable pergola systems combine a fixed aluminium or steel frame with a motorised sliding fabric roof that can be fully opened or closed. The fabric panels stack neatly when retracted, giving you the flexibility of an open terrace or a fully covered space depending on the weather. Available in custom dimensions and a range of architectural powder-coat finishes.",
+        images: [
+          '/images/pergolas/retractable-pergolas-1.jpg'
+        ],
       },
     ],
   },
@@ -351,6 +371,13 @@ export const services: ServiceCategory[] = [
         keyword: "aluminium pergola UAE",
         description: "Aluminium-framed pergola structures, often paired with mashrabiya screen panels.",
         details: "Our aluminium pergolas provide clean, minimalist shade framing with zero rust and minimal maintenance. Constructed from high-tensile extruded aluminium alloy with Qualicoat architectural powder coating, they can be configured as freestanding garden structures or wall-mounted patio covers. Often paired with CNC mashrabiya infill panels for a distinctive Arabic-modern hybrid aesthetic.",
+        images: [
+          '/images/mashrabiya/pergola-1.jpg',
+          '/images/mashrabiya/pergola-2.jpg',
+          '/images/mashrabiya/pergola-3.jpg',
+          '/images/mashrabiya/pergola-4.jpg',
+          '/images/mashrabiya/pergola-5.jpg'
+        ],
       },
       {
         name: "CNC Mashrabiya",
@@ -359,6 +386,11 @@ export const services: ServiceCategory[] = [
         description: "Precision CNC-cut decorative aluminium screens for privacy, shade, and facade detailing.",
         details: "CNC mashrabiya panels are precision-cut from solid aluminium sheet using computer-controlled routing, reproducing intricate traditional geometric patterns with modern accuracy. Used as privacy screens, facade cladding, balcony railings, and pergola infill panels, they deliver filtered light and ventilation while maintaining visual privacy. Available in any RAL colour with custom pattern design from traditional Islamic geometry to contemporary abstract motifs.",
         hasDedicatedPage: true,
+        images: [
+          '/images/mashrabiya/cnc-mashrabiya-1.jpg',
+          '/images/mashrabiya/cnc-mashrabiya-2.jpg',
+          '/images/mashrabiya/cnc-mashrabiya-3.jpg'
+        ],
       },
     ],
   },
