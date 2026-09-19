@@ -120,18 +120,30 @@ const otherCategories = services.filter(c => c.slug !== category.slug);
 
         <!-- Right: Stats -->
         <div class="lg:w-2/5 flex flex-col sm:flex-row border-t lg:border-t-0 lg:border-l border-hairline bg-white">
-          <!-- Metric 1 -->
-          <div class="flex-1 p-8 border-b sm:border-b-0 sm:border-r border-hairline flex flex-col justify-center items-center sm:items-start group hover:bg-sand-soft/50 transition-colors">
-            <div class="font-display text-4xl sm:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform origin-center sm:origin-left duration-500">10<span class="text-gold-accent">+</span></div>
-            <div class="font-mono text-[10px] text-ink-muted uppercase tracking-[0.2em] font-bold">Years Exp</div>
-          </div>
-          <!-- Metric 2 & 3 Combined -->
-          <div class="flex-1 p-8 pb-16 sm:pb-8 flex flex-col justify-center items-center sm:items-start relative group hover:bg-sand-soft/50 transition-colors">
-            <div class="font-display text-4xl sm:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform origin-center sm:origin-left duration-500">100<span class="text-gold-accent">%</span></div>
-            <div class="font-mono text-[10px] text-ink-muted uppercase tracking-[0.2em] font-bold mb-6 sm:mb-0">Warranty</div>
+          
+          <div class="flex flex-row w-full sm:w-auto sm:flex-1">
+            <!-- Metric 1 -->
+            <div class="flex-1 p-5 sm:p-8 border-r border-hairline flex flex-col justify-center items-center sm:items-start group hover:bg-sand-soft/50 transition-colors">
+              <div class="font-display text-4xl sm:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform origin-center sm:origin-left duration-500">10<span class="text-gold-accent">+</span></div>
+              <div class="font-mono text-[10px] text-ink-muted uppercase tracking-[0.2em] font-bold text-center sm:text-left">Years Exp</div>
+            </div>
             
-            <!-- Municipality Approved badge -->
-            <div class="absolute bottom-5 sm:bottom-8 left-1/2 sm:left-8 -translate-x-1/2 sm:translate-x-0 w-max bg-navy-card text-white px-3 py-1.5 rounded border border-white/10 shadow-lg flex items-center gap-2">
+            <!-- Metric 2 -->
+            <div class="flex-1 p-5 sm:p-8 flex flex-col justify-center items-center sm:items-start relative group hover:bg-sand-soft/50 transition-colors">
+              <div class="font-display text-4xl sm:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform origin-center sm:origin-left duration-500">100<span class="text-gold-accent">%</span></div>
+              <div class="font-mono text-[10px] text-ink-muted uppercase tracking-[0.2em] font-bold text-center sm:text-left">Warranty</div>
+              
+              <!-- Municipality Approved badge (Desktop) -->
+              <div class="hidden sm:flex absolute bottom-8 left-8 w-max bg-navy-card text-white px-3 py-1.5 rounded border border-white/10 shadow-lg items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <span class="font-mono text-[8px] uppercase tracking-[0.1em] font-bold">Municipality Approved</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Municipality Approved badge (Mobile) -->
+          <div class="sm:hidden w-full border-t border-hairline py-4 flex justify-center bg-sand-soft/10">
+            <div class="w-max bg-navy-card text-white px-3 py-1.5 rounded border border-white/10 shadow-lg flex items-center gap-2">
               <svg class="w-3.5 h-3.5 text-gold-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
               <span class="font-mono text-[8px] uppercase tracking-[0.1em] font-bold">Municipality Approved</span>
             </div>
