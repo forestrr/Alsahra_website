@@ -196,7 +196,7 @@ const otherCategories = services.filter(c => c.slug !== category.slug);
                             <img 
                               src={img} 
                               alt={sub.name} 
-                              class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                              class={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${sub.imagePosition || 'object-cover object-top'}`}
                               loading="lazy" 
                             />
                           </div>
@@ -214,7 +214,7 @@ const otherCategories = services.filter(c => c.slug !== category.slug);
                     <img 
                       src={sub.image} 
                       alt={sub.name} 
-                      class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      class={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${sub.imagePosition || 'object-cover object-top'}`}
                       loading="lazy" 
                     />
                   ) : (
