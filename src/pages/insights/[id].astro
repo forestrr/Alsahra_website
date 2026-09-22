@@ -1,0 +1,134 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FloatingActions from '../../components/FloatingActions.astro';
+import { blogs } from '../../data/blogs';
+
+export function getStaticPaths() {
+  return blogs.map((blog) => ({
+    params: { id: blog.id },
+    props: { blog },
+  }));
+}
+
+const { blog } = Astro.props;
+const seoTitle = `${blog.title} | Al Sahra Insights`;
+---
+
+<Layout title={seoTitle} description={blog.excerpt}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": blog.title,
+    "description": blog.excerpt,
+    "image": `https://www.alsahratents.ae${blog.image}`,
+    "author": {
+      "@type": "Person",
+      "name": blog.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Al Sahra Tents & Sheds",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.alsahratents.ae/logo.png"
+      }
+    }
+  })} />
+  <Header />
+
+  <!-- Page Hero Banner (Editorial Design) -->
+  <section class="bg-navy-darker py-24 md:py-32 px-6 sm:px-10 lg:px-16 border-b border-navy-mid relative overflow-hidden text-canvas">
+    <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold-accent/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto relative z-10 text-center">
+      <a href="/insights" class="inline-flex items-center gap-2 text-gold-accent hover:text-white transition-colors font-mono text-xs uppercase tracking-wider mb-10 group">
+        <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+        Back to Insights
+      </a>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-6">
+        <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-primary/20 text-primary font-mono text-[10px] font-bold uppercase tracking-wider border border-primary/20">
+          {blog.category}
+        </span>
+        <span class="flex items-center text-ink-muted text-sm font-mono gap-1.5 text-white/70">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          {blog.readTime}
+        </span>
+      </div>
+      
+      <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white mb-8 leading-[1.15] tracking-tight drop-shadow-lg" data-reveal="fade-up">
+        {blog.title}
+      </h1>
+      
+      <div class="flex items-center justify-center gap-4 pt-6 mt-6 border-t border-white/10" data-reveal="fade-up" data-reveal-delay="0.1">
+        <div class="w-12 h-12 rounded-full bg-navy-card flex items-center justify-center text-gold-accent font-display font-bold text-lg border border-white/10">
+          {blog.author.charAt(0)}
+        </div>
+        <div class="flex flex-col text-left">
+          <span class="font-display font-bold text-base text-white">{blog.author}</span>
+          <span class="font-body text-xs text-white/70">{blog.authorRole}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Article Body -->
+  <main class="bg-cream min-h-screen pt-16 pb-24 px-6 sm:px-10 lg:px-16">
+    <div class="max-w-3xl mx-auto">
+      
+      <!-- Featured Image -->
+      <div class="w-full rounded-[32px] overflow-hidden mb-12 shadow-xl border border-hairline" data-reveal="fade-up">
+        <img src={blog.image} alt={blog.title} class="w-full h-auto max-h-[500px] object-cover" />
+      </div>
+
+      <!-- Main Article Content -->
+      <article 
+        class="bg-white p-8 sm:p-12 rounded-[32px] shadow-sm border border-hairline"
+        data-reveal="fade-up"
+        data-reveal-delay="0.1"
+      >
+        <!-- Core Focus Highlight inside article -->
+        <div class="bg-cream/50 rounded-xl p-6 mb-10 border border-hairline relative">
+          <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary rounded-l-xl"></div>
+          <span class="block font-display font-bold text-xs text-navy-darker uppercase tracking-wider mb-2">Article Core Focus:</span>
+          <p class="font-body text-[15px] text-ink-secondary leading-relaxed font-medium">
+            {blog.coreFocus}
+          </p>
+        </div>
+
+        <div class="prose prose-lg sm:prose-xl max-w-none text-ink-secondary 
+          prose-headings:text-navy-darker prose-headings:font-display prose-headings:tracking-tight
+          prose-h2:text-2xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-8
+          prose-h3:text-xl prose-h3:font-semibold prose-h3:mb-3 prose-h3:mt-8
+          prose-p:mb-6 prose-p:leading-relaxed
+          prose-strong:text-navy-darker prose-strong:font-semibold
+          prose-a:text-primary hover:prose-a:text-primary-soft prose-a:transition-colors">
+          <Fragment set:html={blog.content} />
+        </div>
+
+        <!-- E-E-A-T Author Bio Block -->
+        <div class="mt-12 pt-8 border-t border-hairline flex flex-col sm:flex-row items-center sm:items-start gap-6 bg-cream/30 p-8 rounded-2xl">
+          <div class="w-20 h-20 rounded-full bg-navy-card flex items-center justify-center text-gold-accent font-display font-black text-3xl shadow-md shrink-0">
+            {blog.author.charAt(0)}
+          </div>
+          <div class="text-center sm:text-left flex-grow">
+            <h4 class="font-display font-bold text-xl text-navy-darker mb-1">Written by {blog.author}</h4>
+            <span class="inline-block px-3 py-1 bg-primary/10 text-primary font-mono text-[10px] font-bold uppercase tracking-wider rounded-full mb-4 mt-2">
+              {blog.authorRole}
+            </span>
+            <p class="font-body text-sm text-ink-secondary leading-relaxed">
+              As a specialized contributor at Al Sahra Tents & Sheds, the author provides certified insights backed by over a decade of hands-on experience with local UAE building codes, material engineering, and structural design standards.
+            </p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <Footer />
+  <FloatingActions />
+</Layout>

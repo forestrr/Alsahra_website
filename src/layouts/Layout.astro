@@ -31,6 +31,26 @@ const {
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+    
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Al Sahra Tents & Sheds",
+      "url": "https://www.alsahratents.ae",
+      "logo": "https://www.alsahratents.ae/logo.png",
+      "image": "https://www.alsahratents.ae/logo.png",
+      "description": "Based in Sharjah, Al Sahra Tents & Sheds designs, manufactures, and installs tensile shades, custom tents, and steel structures across the UAE.",
+      "telephone": "+971 50 507 7179",
+      "email": "info@alsahratents.ae",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sharjah",
+        "addressRegion": "Sharjah",
+        "addressCountry": "AE"
+      },
+      "hasMap": "https://share.google/vAOTAMUzTnEZ14Z7X"
+    })} />
   </head>
   <body class="bg-cream text-ink font-body antialiased selection:bg-primary/20">
     <slot />

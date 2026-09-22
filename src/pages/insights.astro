@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FloatingActions from '../components/FloatingActions.astro';
+import { blogs } from '../data/blogs';
+
+const seoTitle = "Industry Insights, Guides & Blog | Al Sahra Tents & Sheds";
+const seoDescription = "Read our expert insights on tensile shade structures, car parking shades, custom majlis tents, and structural steel sheds in the UAE. Answers to common questions.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Header />
+  
+  <main>
+    <!-- Page Hero Banner (Editorial Design) -->
+    <section class="bg-navy-darker py-24 md:py-32 px-6 sm:px-10 lg:px-16 border-b border-navy-mid relative overflow-hidden text-canvas">
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold-accent/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10 text-center">
+        <div class="inline-flex items-center gap-3 mb-8 justify-center">
+          <span class="w-12 h-[1px] bg-gold-accent"></span>
+          <span class="text-gold-accent font-mono text-sm uppercase tracking-[0.2em] font-semibold">Knowledge Base & Guides</span>
+          <span class="w-12 h-[1px] bg-gold-accent"></span>
+        </div>
+        
+        <h1 class="font-display font-black text-5xl md:text-6xl lg:text-[72px] leading-[1.05] tracking-tight text-white mb-8 max-w-4xl mx-auto drop-shadow-lg" data-reveal="fade-up">
+          Industry Insights & <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-300">Customer Resources</span>
+        </h1>
+        
+        <p class="font-body text-ink-secondary text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" data-reveal="fade-up" data-reveal-delay="0.1">
+          Expert answers to the most common questions about tents, shade structures, and steel fabrication in the UAE. Optimized for your planning needs.
+        </p>
+      </div>
+    </section>
+
+    <div class="bg-cream py-24 px-6 sm:px-10 lg:px-16 min-h-screen">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {blogs.map((blog, index) => (
+          <a 
+            href={`/insights/${blog.id}`}
+            class="group bg-white rounded-[24px] border border-hairline hover:border-primary/20 shadow-sm hover:shadow-xl hover:shadow-navy-darker/5 transition-all duration-300 flex flex-col h-full overflow-hidden"
+            data-reveal="fade-up"
+            data-reveal-delay={String((index % 3) * 0.1)}
+          >
+            <!-- Card Image Cover -->
+            <div class="w-full h-48 sm:h-56 overflow-hidden relative border-b border-hairline">
+              <img src={blog.image} alt={blog.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-navy-darker/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+
+            <div class="p-8 flex flex-col h-full">
+              <!-- Top Metadata -->
+              <div class="flex items-center justify-between mb-6">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-primary/10 text-primary font-mono text-[10px] font-bold uppercase tracking-wider">
+                  {blog.category}
+                </span>
+                <span class="flex items-center text-ink-muted text-[11px] font-mono gap-1.5 whitespace-nowrap">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  {blog.readTime}
+                </span>
+              </div>
+
+              <!-- Title & Excerpt -->
+              <h3 class="font-display text-2xl font-bold text-navy-darker mb-4 group-hover:text-primary transition-colors leading-tight">
+                {blog.title}
+              </h3>
+              <p class="font-body text-ink-secondary text-sm leading-relaxed mb-8 flex-grow">
+                {blog.excerpt}
+              </p>
+
+              <!-- Core Focus Box -->
+              <div class="bg-cream/50 rounded-xl p-5 mb-8 border border-hairline relative">
+                <div class="absolute left-0 top-0 bottom-0 w-1 bg-navy-darker rounded-l-xl"></div>
+                <span class="block font-display font-bold text-[11px] text-navy-darker uppercase tracking-wider mb-2">Core Focus:</span>
+                <p class="font-body text-[13px] text-ink-secondary leading-relaxed">
+                  {blog.coreFocus}
+                </p>
+              </div>
+
+              <!-- Author & Read Link -->
+              <div class="pt-6 border-t border-hairline flex items-center justify-between mt-auto">
+                <div class="flex flex-col">
+                  <span class="font-display font-bold text-sm text-navy-darker">{blog.author}</span>
+                  <span class="font-body text-[11px] text-ink-muted">{blog.authorRole}</span>
+                </div>
+                <span class="inline-flex items-center gap-1.5 font-mono text-[11px] font-bold uppercase tracking-wider text-navy-darker group-hover:text-primary group-hover:gap-2.5 transition-all">
+                  Read Article
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</main>
+
+  <Footer />
+  <FloatingActions />
+</Layout>

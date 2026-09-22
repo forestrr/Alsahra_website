@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Explicitly allow AI crawlers per GEO best practices
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://www.alsahratents.ae/sitemap-index.xml
