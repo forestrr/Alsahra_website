@@ -4,11 +4,13 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  canonicalUrl?: string;
 }
 
 const { 
-  title = "Al Sahra Tents & Sheds Fix | Engineered for the Desert", 
-  description = "Based in Sharjah, Al Sahra Tents & Sheds Fix designs, manufactures, and installs tensile shades, custom tents, and steel structures across the UAE." 
+  title = "Al Sahra Tents & Sheds | Engineered for the Desert", 
+  description = "Based in Sharjah, Al Sahra Tents & Sheds designs, manufactures, and installs tensile shades, custom tents, and steel structures across the UAE.",
+  canonicalUrl = `https://www.alsahratents.ae${Astro.url.pathname}`,
 } = Astro.props;
 ---
 <!doctype html>
@@ -31,6 +33,11 @@ const {
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+
+    <!-- Canonical URL — resolves .ae/.biz domain split for Google -->
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content="https://www.alsahratents.ae/logo.png" />
     
     <link rel="sitemap" href="/sitemap-index.xml" />
     <script type="application/ld+json" set:html={JSON.stringify({
